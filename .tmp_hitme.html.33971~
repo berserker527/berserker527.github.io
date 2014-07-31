@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>点我点我点我</title>
@@ -73,9 +73,6 @@
 				border:5px solid #f8eec0;
 				background:#f0f0f0;
 			}
-			.hit{
-				background:url(img/hit.png);
-			}
 		</style>
 	</head>
 	<body>
@@ -92,37 +89,16 @@
 	</body>
 	<script type="text/javascript">
 		$(function(){
-			/**
-			 * 开始游戏
-			 */
 			$(".btn").click(function(){
 				$(".start").addClass("hide");
 				$(".main").removeClass("hide");
 			});
-			/**
-			 * 初始化9宫格
-			 */
+			
 			(function initMainDiv(){
 				for(var i = 0; i < 9; i++){
 					$(".box").append('<div class="ele" id="' + i + '"></div>');
 				}
-				randomDiv();
 			})();
-			/**
-			 * 随机出现小人
-			 */
-			function randomDiv(){
-				var r = Math.floor(Math.random() * 10);
-				$(".ele").removeClass("hit");
-				$("#" + r).addClass("hit")
-					.one("click",function(){
-						var goal = parseInt($(".goal").html(),10) + 1;
-						$(".goal").html(goal);
-						randomDiv();
-					});
-			}
-			
-			
 		});
 	</script>
 </html>
