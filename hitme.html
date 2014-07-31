@@ -112,7 +112,8 @@
 			 * 随机出现小人
 			 */
 			function randomDiv(){
-				var r = Math.floor(Math.random() * 10);
+				var r = Math.floor(Math.random() * 9);
+				console.log(r);
 				$(".ele").removeClass("hit");
 				$("#" + r).addClass("hit")
 					.one("click",function(){
