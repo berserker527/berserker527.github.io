@@ -72,20 +72,21 @@
 		<div class="pager"></div>
 	</body>
 	<script type="text/javascript">
+		var perLength = 1500;
+		
 		$(function (){
-			var perLength = 1500;
 			
-			function showContext(currentPage){
-				$.ajax({
-		          type: "GET",
-		          url: "trace05.txt",
-		          success: function(data){
-				  	initPager(data.length / perLength + 1, currentPage);
-				  	var data = data.substr(perLength * currentPage, perLength);
-					$(".context").html(data);
-		          }
-		        });  
-			}
+//			function showContext(currentPage){
+//				$.ajax({
+//		          type: "GET",
+//		          url: "trace05.txt",
+//		          success: function(data){
+//				  	initPager(data.length / perLength + 1, currentPage);
+//				  	var data = data.substr(perLength * currentPage, perLength);
+//					$(".context").html(data);
+//		          }
+//		        });  
+//			}
 			  
 			
 			function initPager(pageCount, currentPage){
