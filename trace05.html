@@ -67,7 +67,7 @@
 	<body>
 		<h1>Track 5 混乱的狂想曲</h1>
 		<div class="context">
-			在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字
+			正在加载，请稍等......
 		</div>
 		<div class="pager"></div>
 	</body>
@@ -102,5 +102,16 @@
 			showContext(0);
 			//initPager(10, 5);
 		});
+		function showContext(currentPage){
+			$.ajax({
+				type: "GET",
+				url: "trace05.txt",
+		        success: function(data){
+				initPager(data.length / perLength + 1, currentPage);
+				  var data = data.substr(perLength * currentPage, perLength);
+					$(".context").html(data);
+		          }
+		        });  
+			}
 	</script>
 </html>
