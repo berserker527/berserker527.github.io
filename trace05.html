@@ -35,7 +35,10 @@
 	          type: "GET",
 	          url: "trace05.txt",
 	          success: function(data){
-			    $(".context").html(data);
+			  	var ps = data.split("\\n");
+				for (var i = 0; i <ps.length; i++) {
+					$(".context").append('<p>' + ps[i] + '</p>');
+				};
 	          }
 	        });    
 		});
