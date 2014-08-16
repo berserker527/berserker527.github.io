@@ -21,10 +21,46 @@
 				margin:0px auto;
 				color:#039bf2;
 			}
+			.pager{
+				width:960px;
+				margin:20px auto;
+			}
+			.pageNum{
+				float:left;
+				width:24px;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:14px;
+				border:1px solid #e0e0e0;
+				margin:0px 3px;
+			}
+			.pageNum:hover{
+				background:#e0e0e0;
+				color:#f9bc16;
+			}
+			.current{
+				float:left;
+				width:24px;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:14px;
+				border:1px solid #fff;
+				color:#f9bc16;
+				margin:0px 3px;
+			}
 			p{
 				text-indent:28px;
 				margin:3px auto;
 				line-height:28px;
+			}
+			a{
+				text-decoration:none;
+				color:#039bf2;
+			}
+			a:hover{
+				color:#f9bc16;
 			}
 		</style>
 	</head>
@@ -33,20 +69,38 @@
 		<div class="context">
 			在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字在我这里显示文字
 		</div>
+		<div class="pager"></div>
 	</body>
 	<script type="text/javascript">
 		$(function (){
-			$.ajax({
-	          type: "GET",
-	          url: "trace05.txt",
-	          success: function(data){
-//			  	var ps = data.split("<p>");
-//				for (var i = 0; i <ps.length; i++) {
-//					$(".context").append('<p>' + ps[i] + '</p>');
-//				};
-				$(".context").html(data);
-	          }
-	        });    
+			var perLength = 1500;
+			
+			function showContext(currentPage){
+				$.ajax({
+		          type: "GET",
+		          url: "trace05.txt",
+		          success: function(data){
+				  	initPager(data.length / perLength + 1, currentPage);
+				  	var data = data.subString(perLength * currentPage, perLength);
+					$(".context").html(data);
+		          }
+		        });  
+			}
+			  
+			
+			function initPager(pageCount, currentPage){
+				$(".pager").html("");
+				for (var i = 0; i < pageCount; i++) {
+					if(i == currentPage){
+						$(".pager").append('<div class="current">' + (i + 1) + '</div>');
+					}
+					else{
+						$(".pager").append('<a href="javascript:showContext(' + i + ')"><div class="pageNum">' + (i + 1) + '</div></a>');
+					}
+				};
+			}
+			showContext(0);
+			//initPager(10, 5);
 		});
 	</script>
 </html>
