@@ -81,8 +81,10 @@
 		          url: "trace05.txt",
 		          success: function(data){
 				  	initPager(data.length / perLength + 1, currentPage);
-				  	var data = data.substr(perLength * currentPage, perLength);
-					$(".context").html(data);
+				  	//var data = data.substr(perLength * currentPage, perLength);
+					data = data.split("<br/>");
+					$(".context").html(data[currentPage]);
+					alert(data.length);
 		          }
 		        });  
 			}
@@ -98,7 +100,7 @@
 					}
 				};
 			}
-			showContext(0);
+			showContext(1);
 			//initPager(10, 5);
 		});
 	</script>
