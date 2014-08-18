@@ -34,6 +34,7 @@
 				font-size:14px;
 				border:1px solid #e0e0e0;
 				margin:0px 3px;
+				color:#039bf2;
 			}
 			.pageNum:hover{
 				background:#e0e0e0;
@@ -54,13 +55,6 @@
 				text-indent:2em;
 				margin:3px auto;
 				line-height:28px;
-			}
-			a{
-				text-decoration:none;
-				color:#039bf2;
-			}
-			a:hover{
-				color:#f9bc16;
 			}
 		</style>
 	</head>
@@ -89,6 +83,8 @@
 					};
 					
 					$(".pageNum").click(function(){
+						$(".pageNum").removeClass("current");
+						$(this).addClass("current");
 						var index = $(this).attr("index");
 						showContext(index);
 					});
