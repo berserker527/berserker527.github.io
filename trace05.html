@@ -82,7 +82,11 @@
 						$(".pager").append('<div class="pageNum" index="' + i + '">' + (i + 1) + '</div>');
 					};
 					
+					$(".pageNum").eq(0).addClass("current")
+					
 					$(".pageNum").click(function(){
+						$(".pageNum").removeClass("current");
+						$(this).addClass("current");
 						var index = $(this).attr("index");
 						showContext(index);
 					});
@@ -95,7 +99,6 @@
 		          type: "GET",
 		          url: "trace05.txt",
 		          success: function(data){
-				  	$(".pageNum").removeClass("current").eq(currentPage).addClass("current");
 					data = data.split("<br/>");
 					
 					$(".context").html("");
