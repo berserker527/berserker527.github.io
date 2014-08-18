@@ -85,8 +85,12 @@
 					pageCount = (sectionCount - 1) / 5 + 1;
 					
 					for (var i = 0; i < pageCount; i++) {
-						$(".pager").append('<a href="javascript:void(0)" onclick="showContext(' + i + ')"><div class="pageNum">' + (i + 1) + '</div></a>');
+						$(".pager").append('<div class="pageNum">' + (i + 1) + '</div>');
 					};
+					
+					$(".pageNum").click(function(){
+						alert("!");
+					});
 		          }
 		        });
 				
@@ -113,7 +117,12 @@
 					
 					$(".context").html("");
 					for (var i = 0; i < 5; i++) {
-						$(".context").append(data[currentPage + i] + "<br/>")
+						if(5 * currentPage + i < sectionCount){
+							$(".context").append(data[5 * currentPage + i] + "<br/>")
+						}
+						else{
+							break;
+						}
 					};
 		          }
 		        });  
