@@ -94,9 +94,7 @@
 						$(this).addClass("current");
 						var index = $(this).attr("index");
 						showContext(index);
-						$('body,html').animate({
-				            scrollTop: 0
-				        });
+						window.document.body.scrollTop = windows.document.body.scrollHeight;
 					});
 		          }
 		        });
