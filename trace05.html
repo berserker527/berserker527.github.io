@@ -77,7 +77,7 @@
 		          url: "trace05.txt",
 		          success: function(data){
 				  	sectionCount = data.split("<br/>").length;
-					pageCount = (sectionCount - 1) / 5 + 1;
+					pageCount = (sectionCount - 1) / 5;
 					
 					for (var i = 0; i < pageCount; i++) {
 						if(i == 0){
@@ -94,6 +94,9 @@
 						$(this).addClass("current");
 						var index = $(this).attr("index");
 						showContext(index);
+						$('body,html').animate({
+				            scrollTop: 0
+				        });
 					});
 		          }
 		        });
