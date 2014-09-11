@@ -61,7 +61,7 @@
 				position:fixed;
 				top:0px;
 				width:100%;
-				height:30px;
+				height:10%;
 				margin:0 auto;
 				background:#414141;
 				filter:alpha(opacity = 80); 
@@ -139,3 +139,75 @@
 		});
 	</script>
 </html>
+<script>
+	var tempid;
+	
+	$("#clean").bind("click",function(){
+		$("#startDate").val('');
+		$("#endDate").val('');
+		$("select").val('');
+		$("input[type='text']").val('');
+		$("#queryForm").submit();
+	});
+	
+	$("#opttd a").click(function(){
+		var id = $(this).attr("id");
+		tempid = id;
+		var opt = $(this).attr("opt");
+		$(".mask, ." + opt).show();
+		switch(opt){
+			case "operate" : operate(id); break;
+			case "checkmemo" : checkmemo(id); break;
+			default : break;
+		};
+	});
+	
+	function operate(id){
+		$.ajax({
+			type : "POST",
+			url : "$appServer.get('/suggestion/suggestion_web.htm')",
+			data : {id : id},
+			dataType : "json",
+			success : function(data){
+				$(".operate .memo").val(data.memo);
+				$(".operate #" + data.status).attr({"selected" : true});
+			}
+		});
+	}
+	
+	function checkmemo(id){
+		$.ajax({
+			type : "POST",
+			url : "$appServer.get('/suggestion/suggestion_web.htm')",
+			data : {id : id},
+			dataType : "json",
+			success : function(data){
+				$(".checkmemo .memo").val(data.memo);
+			}
+		});
+	}
+	
+	$(".btnCancel").click(function(){
+		$(".mask, .opend").hide();
+	});
+	
+	$(".#btnOk").click(function(){
+		var status = $(".operate input:selected").val();
+		var memo = $(".operate .memo").val();
+		$.ajax({
+			type : "POST",
+			url : "$appServer.get('/suggestion/suggestion_web_update.htm')",
+			data : {id : tempid, status : status, memo : memo},
+			dataType : "json",
+			success : function(data){
+				if(data == "success"){
+					location.reload();
+				}else{
+					$(".mask, .opend").hide();
+					alert("操作失败！");
+				}
+				
+			}
+		});
+	});
+</script>
