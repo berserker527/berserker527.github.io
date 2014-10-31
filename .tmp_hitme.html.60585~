@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>点我点我点我</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				-moz-user-select:none;
+				-webkit-user-select:none;
+				font-family:"MicroSoft YaHei";
+			}	
+			body{
+				background:#ffe25b;
+			}
+			.page{
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+			}
+			.hide{
+				display:none;
+			}
+			h1{
+				font-size:14px;
+				color:#7d2c04;
+				text-align:center;
+				margin-top:20px;
+			}
+			.btn{
+				position:absolute;
+				bottom:10px;
+    			left:50%;
+				text-align:center;
+				width:100px;
+				height:30px;
+				line-height:30px;
+				background:#7d2c04;
+				color:#f8eec0;
+				font-size:12px;
+				border-radius:5px;
+				box-shadow:0 5px #b55a2d;
+				margin:20px -50px;
+				cursor:pointer;
+			}
+			.title{
+				position:absolute;
+    			left:50%;
+				width:500px;
+				margin:20px -250px;
+				font-size:12px;
+				font-weight: bold;
+				color:#7d2c04;
+			}
+			.goal{
+				
+			}
+			.box{
+				position:absolute;
+				bottom:10px;
+    			left:50%;
+				width:510px;
+				height:510px;
+				margin:20px -255px;
+				border:5px solid #f8eec0;
+			}
+			.ele{
+				float:left;
+				width:160px;
+				height:160px;
+				border:5px solid #f8eec0;
+				background:#f0f0f0;
+			}
+			.hit{
+				background:url(img/hit.png);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page start">
+			<h1>看你能点我多少次</h1>
+			<div class="btn">开始游戏</div>
+		</div>
+		<div class="page main hide">
+			<div class="title">
+				分数：<span class="goal">0</span>
+			</div>
+			<div class="box"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			/**
+			 * 开始游戏
+			 */
+			$(".btn").click(function(){
+				$(".start").addClass("hide");
+				$(".main").removeClass("hide");
+			});
+			/**
+			 * 初始化9宫格
+			 */
+			(function initMainDiv(){
+				for(var i = 0; i < 9; i++){
+					$(".box").append('<div class="ele" id="' + i + '"></div>');
+				}
+				randomDiv();
+			})();
+			/**
+			 * 随机出现小人
+			 */
+			function randomDiv(){
+				var r = Math.floor(Math.random() * 9);
+				console.log(r);
+				$(".ele").removeClass("hit");
+				$("#" + r).addClass("hit")
+					.one("click",function(){
+						var goal = parseInt($(".goal").html(),10) + 1;
+						$(".goal").html(goal);
+						randomDiv();
+					});
+			}
+			
+		});
+	</script>
+</html>
