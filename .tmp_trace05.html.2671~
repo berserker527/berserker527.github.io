@@ -29,7 +29,7 @@
 				color:#039bf2;
 			}
 			.pager{
-				width:960px;
+				width:100%;
 				margin:20px auto;
 			}
 			.pageNum{
@@ -76,61 +76,41 @@
 				opacity:0.8
 			}
 			
-			.left{
-				float:left;
-				position:relative;
-				width:150px;
-				border:1px solid #333;
-			}
 			.right{
 				float:left;
 			}
-			.title{
-				height:30px;
-				line-height:30px;
-				color:#333;
-				padding:0px 20px;
-				cursor:pointer;
+			.foot{
+				width:100%;
+				height:150px;
+				line-height:150px;
+				position:fixed;
+				bottom:0px;
+				font-family:"MicroSoft YaHei";
+				text-align:center;
+				font-size:1em;
+				border-top:1px solid #3e3e3e;
 			}
-			.arrow{
-				color:red;
+			.menu{
+				width:150px;
+				border-left:1px solid #3e3e3e;
+				border-right:1px solid #3e3e3e;
 			}
-			.one{
-				text-align:left;
+			.fl{
+				float:left;
 			}
-			.two{
-				text-align:right;
+			.fr{
+				float:right;
 			}
-			.hide{
-				display:none;
+			.goto{
+				width:auto;
+			}
+			.center{
+				margin:0 auto;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="top"></div>
-		<div class="left">
-			<ul>
-				<li class="title arrow"><<</li>
-				<li class="title one">Disk 1</li>
-				<ul class="hide">
-					<li class="title two">Trace 1</li>
-					<li class="title two">Trace 2</li>
-					<li class="title two">Trace 3</li>	
-				</ul>
-				<li class="title one">Disk 2</li>
-				<ul class="hide">
-					<li class="title two">Trace 1</li>
-					<li class="title two">Trace 2</li>
-					<li class="title two">Trace 3</li>
-				</ul>
-				<li class="title one">Disk 3</li>
-				<ul class="hide">
-					<li class="title two">Trace 1</li>
-					<li class="title two">Trace 2</li>
-					<li class="title two">Trace 3</li>	
-				</ul>
-			</ul>
-		</div>
 		<div class="right">
 			<h1>Track 5 混乱的狂想曲</h1>
 			<div class="context">
@@ -138,7 +118,13 @@
 			</div>
 			<div class="pager"></div>
 		</div>
-		
+		<div class="foot">
+			<div class="menu fl">目录</div>
+			<div class="goto fl">上一页</div>
+			<div class="menu fl center">说明</div>
+			<div class="goto fl">下一页</div>
+			<div class="menu fr">刷新</div>
+		</div>
 		
 	</body>
 	<script type="text/javascript">
@@ -234,5 +220,16 @@
 				}
 			});
 		});
+		
+		$(function(){
+			$.ajax({
+		          type : "GET",
+		          url : "title",
+				  dateTypy : "html",
+		          success : function(data){
+					$(".top").after(data);
+		          }
+		        });  
+		})
 	</script>
 </html>
