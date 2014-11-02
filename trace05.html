@@ -127,8 +127,9 @@
 				display:none;
 				position:absolute;
 				bottom:50px;
-				border:1px solid #c1c1c1;
-				border-bottom:none;
+				border-top:1px solid #c1c1c1;
+				border-right:1px solid #c1c1c1;
+				background:#fff;
 			}
 			.disk li{
 				height:50px;
@@ -147,22 +148,6 @@
 				正在加载，请稍等......
 			</div>
 			<div class="pager"></div>
-		</div>
-		<div class="foot">
-			<ul>
-				<li class="menu fl">目录</li>
-				<li class="goto fl">上一页</li>
-				<li class="info fl">说明</li>
-				<li class="goto fl">下一页</li>
-				<li class="refresh fl">刷新</li>
-			</ul>
-		</div>
-		<div class="disk">
-			<ul>
-				<li>DISK1 苏醒的梦</li>
-				<li>DISK2 流转的风</li>
-				<li>DISK3 消散的虹</li>
-			</ul>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -265,7 +250,7 @@
 		          url : "title",
 				  dateTypy : "html",
 		          success : function(data){
-					$(".top").after(data);
+					$(".right").after(data);
 		          }
 		    });  
 			
