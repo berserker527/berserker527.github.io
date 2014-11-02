@@ -125,7 +125,7 @@
 			.disk{
 				width:150px;
 				display:none;
-				position:absolute;
+				position:fixed;
 				bottom:50px;
 				border-top:1px solid #c1c1c1;
 				border-right:1px solid #c1c1c1;
@@ -244,22 +244,6 @@
 			});
 		});
 		
-		$(function(){
-			$.ajax({
-		          type : "GET",
-		          url : "title",
-				  dateTypy : "html",
-		          success : function(data){
-					$(".right").after(data);
-		          }
-		    });  
-			
-			var gotoWidth = ($(document).width() - 154) / 2;
-			$(".goto").width(gotoWidth);
-			
-			$(".menu").click(function(){
-				$(".disk").toggle();
-			});
-		})
+		
 	</script>
 </html>

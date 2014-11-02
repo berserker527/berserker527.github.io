@@ -14,3 +14,22 @@
 		<li>DISK3 消散的虹</li>
 	</ul>
 </div>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+          type : "GET",
+          url : "title",
+		  dateTypy : "html",
+          success : function(data){
+			$(".right").after(data);
+          }
+    });  
+	
+	var gotoWidth = ($(document).width() - 154) / 2;
+	$(".goto").width(gotoWidth);
+	
+	$(".menu").click(function(){
+		$(".disk").toggle();
+	});
+})
+</script>
