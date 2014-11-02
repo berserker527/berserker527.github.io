@@ -15,6 +15,8 @@
 				padding:0;
 				-moz-user-select: none;
 				-webkit-user-select: none;
+				font-family:"MicroSoft YaHei";
+				font-size:16px;
 			}	
 			h1{
 				font-family:"MicroSoft YaHei";
@@ -92,7 +94,18 @@
 				background:#fff;
 				color:#c1c1c1;
 			}
+			.foot li{
+				cursor:pointer;
+			}
 			.menu{
+				width:50px;
+				border-right:1px solid #c1c1c1;
+			}
+			.refresh{
+				width:50px;
+				border-left:1px solid #c1c1c1;
+			}
+			.info{
 				width:50px;
 				border-left:1px solid #c1c1c1;
 				border-right:1px solid #c1c1c1;
@@ -106,8 +119,23 @@
 			.goto{
 				width:auto;
 			}
-			.center{
-				margin:0 auto;
+			li{
+				list-style:none;
+			}
+			.disk{
+				width:150px;
+				display:none;
+				position:absolute;
+				bottom:50px;
+				border:1px solid #c1c1c1;
+				border-bottom:none;
+			}
+			.disk li{
+				height:50px;
+				line-height:50px;
+				color:#c1c1c1;
+				border-bottom:1px solid #c1c1c1;
+				text-align:center;
 			}
 		</style>
 	</head>
@@ -121,13 +149,21 @@
 			<div class="pager"></div>
 		</div>
 		<div class="foot">
-			<div class="menu fl">目录</div>
-			<div class="goto fl">上一页</div>
-			<div class="menu fl center">说明</div>
-			<div class="goto fl">下一页</div>
-			<div class="menu fr">刷新</div>
+			<ul>
+				<li class="menu fl">目录</li>
+				<li class="goto fl">上一页</li>
+				<li class="info fl">说明</li>
+				<li class="goto fl">下一页</li>
+				<li class="refresh fl">刷新</li>
+			</ul>
 		</div>
-		
+		<div class="disk">
+			<ul>
+				<li>DISK1 苏醒的梦</li>
+				<li>DISK2 流转的风</li>
+				<li>DISK3 消散的虹</li>
+			</ul>
+		</div>
 	</body>
 	<script type="text/javascript">
 		$(function (){
@@ -231,7 +267,14 @@
 		          success : function(data){
 					$(".top").after(data);
 		          }
-		        });  
+		    });  
+			
+			var gotoWidth = ($(document).width() - 154) / 2;
+			$(".goto").width(gotoWidth);
+			
+			$(".menu").click(function(){
+				$(".disk").toggle();
+			});
 		})
 	</script>
 </html>
