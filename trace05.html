@@ -244,6 +244,15 @@
 			});
 		});
 		
-		
+		$(function(){
+			$.ajax({
+	          type : "GET",
+	          url : "title",
+			  dateTypy : "html",
+	          success : function(data){
+				$(".right").after(data);
+	          }
+   			});
+		});
 	</script>
 </html>
