@@ -27,7 +27,11 @@ $(function(){
 		alert("swipeleft");
 	});
 	
-	$(".right").swipe()
+	$(".right").swipeLeft(function(){
+		alert("left");
+	}).swipeRight(function(){
+		alert("right");
+	})
 	
 	$(".refresh").click(function(){
 		location.reload();
