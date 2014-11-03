@@ -23,8 +23,8 @@ $(function(){
 		$(".disk").fadeToggle();
 	});
 	
-	$(document).dblclick(function(){
-		$(".foot, .disk").hide();
+	$(document).live("taphold",function(){
+		$(".foot, .disk").toggle();
 	});
 })
 </script>
