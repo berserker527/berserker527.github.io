@@ -23,9 +23,9 @@ $(function(){
 		$(".disk").fadeToggle();
 	});
 	
-	$(document).live("taphold",function(){
-		alert(1);
-		$(".foot, .disk").toggle();
+	$(".right").live("taphold",function(){
+		$(".disk").hide();
+		$(".foot").toggle();
 	});
 	
 	$(".refresh").click(function(){
