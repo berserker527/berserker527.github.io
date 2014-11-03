@@ -30,10 +30,10 @@ jQuery.fn.extend({
 		return this;
 	},
 	swipeLeft : function(fn){
-		jQuery(this).swipe(fn,"left");
+		return jQuery(this).swipe(fn,"left");
 	},
 	swipeRight : function(fn){
-		jQuery(this).swipe(fn,"right");
+		return jQuery(this).swipe(fn,"right");
 	},
 	cc : function(fn){
 		if(fn){
