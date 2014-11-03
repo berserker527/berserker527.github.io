@@ -24,7 +24,12 @@ $(function(){
 	});
 	
 	$(document).live("taphold",function(){
+		alert(1);
 		$(".foot, .disk").toggle();
+	});
+	
+	$(".refresh").click(function(){
+		location.reload();
 	});
 })
 </script>
