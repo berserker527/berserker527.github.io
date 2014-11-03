@@ -4,27 +4,29 @@ var _direction;
 
 jQuery.fn.extend({
 	swipe : function(fn, direction){
+		alert("swipe");
 		var startEvent = "touchstart";
 		var endEvent = "touchend";
 		if (!_isSupportTouch) {
 			startEvent = "mousedown";
-			endEvent = "mouseup";
+			endEvent = "mouseup";alert("notsupportTouch");
 		}
 		if(direction == "right" || direction == "left"){
+			alert("directionok");
 			jQuery(this)[0].addEventListener(startEvent, function(e){
 				_startX = e.pageX;
 				_startY = e.pageY;
-				console.log(_startX + " " + _startY);
+				console.log(_startX + " " + _startY);alert("startEvent");
 			});
 			jQuery(this)[0].addEventListener(endEvent, function(e){
 				_endX = e.pageX;
 				_endY = e.pageY;
-				console.log(_endX + " " + _endY);
+				console.log(_endX + " " + _endY);alert("endEvent");
 				if(_startX < _endX){
-					_direction = "right";
+					_direction = "right";alert("right");
 				}
 				else if(_startX > _endX){
-					_direction = "left";
+					_direction = "left";alert("left");
 				}
 				if(_direction == direction){
 					fn();
@@ -34,6 +36,7 @@ jQuery.fn.extend({
 		return this;
 	},
 	swipeLeft : function(fn){
+		alert("swipeLeft");
 		return jQuery(this).swipe(fn,"left");
 	},
 	swipeRight : function(fn){
