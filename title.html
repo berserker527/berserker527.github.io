@@ -20,12 +20,11 @@ $(function(){
 	$(".goto").width(gotoWidth);
 	
 	$(".menu").click(function(){
-		$(".disk").fadeToggle();
+		$(".disk").fadeToggle("fast");
 	});
 	
-	$(".right").live("taphold",function(){
-		$(".disk").hide();
-		$(".foot").toggle();
+	$(".foot").live("swipeleft",function(){
+		$(this).animate({left: '-' + $(document).width() + 'px'}, "fast");
 	});
 	
 	$(".refresh").click(function(){
