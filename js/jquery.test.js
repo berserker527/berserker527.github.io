@@ -4,15 +4,18 @@ var _direction;
 
 jQuery.fn.extend({
 	swipe : function(fn, direction){
+		var startEvent = "touchstart";
+		var endEvent = "touchend";
 		if (!_isSupportTouch) {
-			return this;
+			startEvent = "mousedown";
+			endEvent = "mouseup";
 		}
 		if(direction == "right" || direction == "left"){
-			$(this).on("touchstart",function(e){
+			$(this).on(startEvent, function(e){
 				_startX = e.pageX;
 				_startY = e.pageY;
 				console.log(_startX + " " + _startY);
-			}).on("touchend",function(e){
+			}).on(endEvent, function(e){
 				_endX = e.pageX;
 				_endY = e.pageY;
 				console.log(_endX + " " + _endY);
@@ -23,7 +26,7 @@ jQuery.fn.extend({
 					_direction = "left";
 				}
 				if(_direction == direction){
-					fn;
+					fn();
 				}
 			});
 		}
