@@ -145,7 +145,7 @@
 	</head>
 	<body>
 		<div class="top"></div>
-		<div class="right">
+		<div class="right" id="right">
 			<h1>Track 5 混乱的狂想曲</h1>
 			<div class="context">
 				正在加载，请稍等......
@@ -221,6 +221,10 @@
 				$(".right").after(data);
 	          }
    			});
+			
+			var right = document.getElementById("right");
+			right.addEventListener("touchstart",function(){alert("start")});
+
 		});
 	</script>
 </html>
