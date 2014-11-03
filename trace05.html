@@ -157,7 +157,7 @@
 		$(function (){
 			var sectionCount;
 			var pageCount;
-			
+			var currentPage = 0;
 			function initPager(){
 				$.ajax({
 		          type: "GET",
@@ -221,11 +221,6 @@
 				$(".right").after(data);
 	          }
    			});
-			
-			var right = document.getElementById("right");
-			//right.addEventListener("touchstart",function(){alert("start")});
-			right.addEventListener("touchmove",function(){alert("move")});
-			right.addEventListener("touchstart",function(){alert("end")});
 		});
 	</script>
 </html>
