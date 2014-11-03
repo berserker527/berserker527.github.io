@@ -10,7 +10,13 @@ jQuery.fn.extend({
 		}
 	},
 	cc : function(fn){
-		alert(this.e.pageX + " " + this.e.pageY);
-		$(this).click(fn);
+		if(fn){
+			$(this).click(fn);
+		}
+		else{
+			$(this).click(function(){
+				alert("X : " + this.e.pageX + " Y : " + this.e.pageY)
+			});
+		}
 	}
 });
