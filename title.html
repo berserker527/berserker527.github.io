@@ -23,9 +23,13 @@ $(function(){
 		$(".disk").fadeToggle("fast");
 	});
 	
-	$(".foot").live("swipeleft",function(){
-		$(this).animate({left: '-' + $(document).width() + 'px'}, "fast");
-	});
+//	$(".foot").live("swipeleft",function(){
+//		$(this).animate({left: '-' + $(document).width() + 'px'}, "fast");
+//	});
+	
+	$(".right").click(function(e){
+		alert(e.offsetLeft + " " + e.offsetTop);
+	})
 	
 	$(".refresh").click(function(){
 		location.reload();
