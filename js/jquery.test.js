@@ -1,5 +1,5 @@
+var isSupportTouch = "ontouchend" in document ? true : false;
 jQuery.fn.extend({
-	isSupportTouch : "ontouchend" in document ? true : false,
 	swipeLeft : function(fn){
 		if(isSupportTouch){
 			$(this).on("touchmove",fn);
