@@ -1,4 +1,4 @@
-﻿<div class="foot">
+<div class="foot">
 	<ul>
 		<li class="menu fl">目录</li>
 		<li class="goto fl">上一页</li>
@@ -20,7 +20,7 @@ $(function(){
 	$(".goto").width(gotoWidth);
 	
 	$(".menu").click(function(){
-		$(".disk").slideToggle();
+		$(".disk").toggle();
 	});
 })
 </script>
