@@ -11,11 +11,12 @@ jQuery.fn.extend({
 			endEvent = "mouseup";
 		}
 		if(direction == "right" || direction == "left"){
-			$(this).on(startEvent, function(e){
+			this.addEventListener(startEvent, function(e){
 				_startX = e.pageX;
 				_startY = e.pageY;
 				console.log(_startX + " " + _startY);
-			}).on(endEvent, function(e){
+			});
+			this.addEventListener(endEvent, function(e){
 				_endX = e.pageX;
 				_endY = e.pageY;
 				console.log(_endX + " " + _endY);
