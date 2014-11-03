@@ -1,0 +1,43 @@
+<div class="foot">
+	<ul>
+		<li class="menu fl">目录</li>
+		<li class="goto fl">上一页</li>
+		<li class="info fl">说明</li>
+		<li class="goto fl">下一页</li>
+		<li class="refresh fl">刷新</li>
+	</ul>
+</div>
+<div class="disk">
+	<ul>
+		<li>DISK1 苏醒的梦</li>
+		<li>DISK2 流转的风</li>
+		<li>DISK3 消散的虹</li>
+	</ul>
+</div>
+<script type="text/javascript">
+$(function(){
+	var gotoWidth = ($(document).width() - 154) / 2;
+	$(".goto").width(gotoWidth);
+	
+	$(".menu").click(function(){
+		$(".disk").fadeToggle("fast");
+	});
+	
+	$(".foot").swipeLeft(function(){
+		alert("swipeleft");
+	});
+	
+	$(".right").swipeLeft(function(){
+		alert("left");
+	}).swipeRight(function(){
+		alert("right");
+	})
+	
+	$(".refresh").click(function(){
+		location.reload();
+	});
+	
+	$(".info").cc();
+	
+})
+</script>
