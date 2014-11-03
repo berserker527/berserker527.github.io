@@ -223,8 +223,9 @@
    			});
 			
 			var right = document.getElementById("right");
-			right.addEventListener("touchstart",function(){alert("start")});
-
+			//right.addEventListener("touchstart",function(){alert("start")});
+			right.addEventListener("touchmove",function(){alert("move")});
+			right.addEventListener("touchstart",function(){alert("end")});
 		});
 	</script>
 </html>
