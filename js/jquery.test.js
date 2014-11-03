@@ -1,8 +1,20 @@
 var _isSupportTouch = "ontouchend" in document ? true : false;
 var _startX, _startY, _endX, _endY;
 jQuery.fn.extend({
-	swipe : function(fn){
-		
+	swipe : function(){
+		$(this).one("touchstart",function(e){
+			_startX = e.pageX;
+			_startY = e.pageY;
+		}).one("touchend",function(e){
+			_endX = e.pageX;
+			_endY = e.pageY;
+		});
+		if(_startX < _endX){
+			alert("right");
+		}
+		else{
+			alert("left");
+		}
 	},
 	swipeLeft : function(fn){
 		if(_isSupportTouch){
