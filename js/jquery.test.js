@@ -4,7 +4,7 @@ var _direction;
 
 jQuery.fn.extend({
 	swipe : function(fn, direction){
-		alert("swipe");
+		jQuery("body").append("swipe");
 		var startEvent = "touchstart";
 		var endEvent = "touchend";
 		if (!_isSupportTouch) {
@@ -16,17 +16,17 @@ jQuery.fn.extend({
 			jQuery(this)[0].addEventListener(startEvent, function(e){
 				_startX = e.pageX;
 				_startY = e.pageY;
-				console.log(_startX + " " + _startY);alert("startEvent");
+				console.log(_startX + " " + _startY);jQuery("body").append("startEvent");
 			});
 			jQuery(this)[0].addEventListener(endEvent, function(e){
 				_endX = e.pageX;
 				_endY = e.pageY;
-				console.log(_endX + " " + _endY);alert("endEvent");
+				console.log(_endX + " " + _endY);jQuery("body").append("endEvent");
 				if(_startX < _endX){
-					_direction = "right";alert("right");
+					_direction = "right";jQuery("body").append("right");
 				}
 				else if(_startX > _endX){
-					_direction = "left";alert("left");
+					_direction = "left";jQuery("body").append("left");
 				}
 				if(_direction == direction){
 					fn();
@@ -36,7 +36,7 @@ jQuery.fn.extend({
 		return this;
 	},
 	swipeLeft : function(fn){
-		alert("swipeLeft");
+		jQuery("body").append("swipeLeft");
 		return jQuery(this).swipe(fn,"left");
 	},
 	swipeRight : function(fn){
@@ -48,7 +48,7 @@ jQuery.fn.extend({
 		}
 		else{
 			$(this).click(function(){
-				alert("X : " + this.e.pageX + " Y : " + this.e.pageY)
+				jQuery("body").append("X : " + this.e.pageX + " Y : " + this.e.pageY)
 			});
 		}
 	}
