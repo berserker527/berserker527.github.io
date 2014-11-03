@@ -9,7 +9,6 @@
 		<meta name="format-detection" content="telephone=no"/>
 		<title>歌尾倾泪_第五章</title>
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-		<script type="text/javascript" src="js/jquery.mobile-1.4.4.js"></script>
 		<style type="text/css">
 			*{
 				margin:0;
@@ -210,41 +209,6 @@
 			initPager();
 			showContext(0);
 			
-			$(".one").click(function(){
-				if($(this).next().css("display") == "none"){
-					$(this).next().slideDown();
-				}
-				else{
-					$(this).next().slideUp();
-				}
-			});
-			
-			$(".arrow").click(function(){
-				var leftIsShow = false;
-				$(".one").unbind("click");
-				$(".left").unbind("mousemove");
-				$(".left").animate({
-					left : "-=149px",
-				},500);
-			});
-			
-			var leftIsShow = true;
-			$(".left").mousemove(function(){
-				if(!leftIsShow){
-					$(".one").click(function(){
-						if($(this).next().css("display") == "none"){
-							$(this).next().slideDown();
-						}
-						else{
-							$(this).next().slideUp();
-						}
-					});
-					
-					$(".left").animate({
-					left : "+=149px",
-				},500);
-				}
-			});
 		});
 		
 		$(function(){
