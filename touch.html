@@ -23,10 +23,10 @@ $(function(){
 	$(".a").swipeLeft(function(){
 		console.log(this);
 		$(".a").css({background : '#441246'});
-	}, "left")
+	})
 	.mousedown(function(){
 		$(".a").css({background : '#746382'});
 	});
-	
+	$(".a").html(com.isSupportTouch);
 });
 </script>
