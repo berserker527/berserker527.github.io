@@ -23,7 +23,7 @@ var pos = {
 		var src = {};
 		if(com.isSupportTouch){
 			src = e.touches[0];
-			$("body").append("------touchlength" + touches.length);
+			$("body").append("------touchlength" + e.touches.length);
 		}else{
 			src = e;
 		}
