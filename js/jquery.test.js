@@ -4,6 +4,7 @@ var com = {
 	minDistance : 30,
 	isTouchStart : false,
 	isTouchEnd : true,
+	isCanTrigger : false
 };
 //com.isSupportTouch = "ontouchend" in document ? true : false;
 //com.minDistance = 30;
@@ -31,6 +32,7 @@ var pos = {
 			return "";
 		}
 		com.isTouchStart = false;
+		com.isCanTrigger = true;
 		var _x = pos.end.x - pos.start.x;
 		var _y = pos.end.y - pos.start.y;
 		var dx = Math.abs(_x);
@@ -113,18 +115,22 @@ function eventManager(e){
 			}
 			pos.setEnd(e);
 			var direction = pos.getDirection();
-			if(!direction || direction == ""){
-				$(ele).trigger("swipe");
-			}else{
-				$(ele).trigger("swipe" + direction);
+			if(com.isCanTrigger){
+				if(!direction || direction == ""){
+					console.log("----trigger swipe");
+					$(ele).trigger("swipe");
+				}else{
+					console.log("----trigger swipe " + direction);
+					$(ele).trigger("swipe" + direction);
+				}
 			}
-			
 			break;
 		case 'touchend':
         case 'touchcancel':
         case 'mouseup':
         case 'mouseout':
 			pos.clear();
+			com.isCanTrigger = false;
 			break;
 	};
 	

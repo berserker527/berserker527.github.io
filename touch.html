@@ -20,13 +20,18 @@
 </html>
 <script type="text/javascript">
 $(function(){
-	$(".a").swipe(function(){
-		console.log(this);
-		$(".a").css({background : '#441246'});
+	$(".a").swipeLeft(function(){
+		$(this).css({background : '#441246'});
+	}).swipeRight(function(){
+		$(this).css({background : '#dc8712'});
+	}).swipeTop(function(){
+		$(this).css({background : '#cdb6aa'});
+	}).swipeDown(function(){
+		$(this).css({background : '#b98ada'});
 	})
-	.mousedown(function(){
-		$(".a").css({background : '#746382'});
-	});
+//	.click(function(){
+//		$(".a").css({background : '#746382'});
+//	});
 	$(".a").html(com.isSupportTouch);
 });
 </script>
