@@ -28,5 +28,6 @@ $(function(){
 		$(".a").css({background : '#746382'});
 	});
 	
+	console.log($(".a")[0].listeners);
 });
 </script>
