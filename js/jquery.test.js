@@ -147,6 +147,7 @@ function eventManager(e){
 			CANCEL : "touchcancel"
 		};
 	}
+	alert(com.isSupportTouch);
 	for(var key in eventNames){
 		document.addEventListener(eventNames[key], eventManager, false);
 	}
