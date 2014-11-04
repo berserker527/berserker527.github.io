@@ -23,7 +23,7 @@ var pos = {
 		var src = {};
 		if(com.isSupportTouch){
 			src = e.touches[0];
-			alert(touches.length);
+			$("body").append("------touchlength" + touches.length);
 		}else{
 			src = e;
 		}
@@ -118,8 +118,8 @@ jQuery.fn.extend({
 });
 
 var eventManager = function(e){
-	console.log(e);
-	$("body").append("# evevt :" + e + "<br/>");
+//	console.log(e);
+//	$("body").append("# evevt :" + e + "<br/>");
 	var ele = e.target;
 	switch (e.type) {
 		case "touchstart" : 
