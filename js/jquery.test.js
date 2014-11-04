@@ -6,10 +6,10 @@ jQuery.fn.extend({
 	swipe : function(fn, direction){
 		jQuery("body").append("swipe");
 		var startEvent = "touchstart";
-		var endEvent = "touchend";
+		var endEvent = "touchmove";
 		if (!_isSupportTouch) {
 			startEvent = "mousedown";
-			endEvent = "mouseup";alert("notsupportTouch");
+			endEvent = "mousemove";alert("notsupportTouch");
 		}
 		if(direction == "right" || direction == "left"){
 			alert("directionok");
