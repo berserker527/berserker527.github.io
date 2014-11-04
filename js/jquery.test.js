@@ -105,6 +105,8 @@ jQuery.fn.extend({
 });
 
 var eventManager = function(e){
+	console.log(e);
+	$("body").append("# evevt :" + e + "<br/>");
 	var ele = e.target;
 	switch (e.type) {
 		case "touchstart" : 
