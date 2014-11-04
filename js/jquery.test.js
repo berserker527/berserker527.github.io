@@ -75,10 +75,8 @@ var pos = {
 jQuery.fn.extend({
 	swipe : function(fn, _direction){
 		console.log("--swipe");
-		console.log(this);
-		//operate.bind($(this)[0], "swipe", fn);
 		if(_direction){
-			console.log("----bind swipe left");
+			console.log("----bind swipe " + _direction);
 			jQuery(this).bind("swipe" + _direction, fn);
 		}else{
 			console.log("----bind swipe");
