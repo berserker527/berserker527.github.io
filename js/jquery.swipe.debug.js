@@ -88,14 +88,14 @@ jQuery.fn.extend({
 	swipe : function(fn, _direction ,_distance){
 //		console.log("--swipe");
 		if(_distance){
-			com.minDistance = _distance > 0 _distance : 1;
+			com.minDistance = _distance > 0 ? _distance : 1;
 		}
 		if(_direction){
 			if(isNaN(_direction)){
 //				console.log("----bind swipe " + _direction);
 				jQuery(this).bind("swipe" + _direction, fn);				
 			}else{
-				com.minDistance = _distance > 0 _distance : 1;
+				com.minDistance = _distance > 0 ? _distance : 1;
 				jQuery(this).bind("swipe", fn);
 			}
 		}else{
