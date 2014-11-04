@@ -1,4 +1,4 @@
-﻿<div class="foot">
+<div class="foot">
 	<ul>
 		<li class="menu fl">目录</li>
 		<li class="goto fl">上一页</li>
@@ -29,6 +29,8 @@ $(function(){
 	
 	$(".right").swipeLeft(function(){
 		alert("left");
+	}).swipeRight(function(){
+		alert("right");
 	})
 	
 	$(".refresh").click(function(){
