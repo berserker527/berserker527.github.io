@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>jQuery.touch</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/jquery.test.js"></script>
+		<style type="text/css">
+		.a{
+			width:200px;
+			height:200px;
+			line-height:200px;
+			margin:200px auto;
+			border:1px solid #000;
+			background:#ccc;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="a"></div>
+	</body>
+</html>
+<script type="text/javascript">
+//公用参数
+var com = {};
+com.isSupportTouch = "ontouchend" in document ? true : false;
+com.minDistance = 30;
+//起止位置
+var pos = {
+	start : {
+		x : 0,
+		y : 0
+	},
+	end : {
+		x : 0,
+		y : 0
+	},
+	setStart : function(e){
+		this.start.x = e.pageX;
+		this.start.y = e.pageY;
+	},
+	setEnd : function(e){
+		this.end.x = e.pageX;
+		this.end.y = e.pageY;
+	},
+	getDirection : function(){
+		if(this.getDistance(this) < com.minDistance){
+			return "";
+		}
+		var _x = pos.end.x - pos.start.x;
+		var _y = pos.end.y - pos.start.y;
+		var dx = Math.abs(_x);
+		var dy = Math.abs(_y);
+		if(dx > dy){
+			if(_x < 0){
+				return "left";
+			}
+			if(_x > 0){
+				return "right";
+			}
+			return "";
+		}
+		if(dx < dy){
+			if(_y < 0){
+				return "top";
+			}
+			if(_y > 0){
+				return "down";
+			}
+			return "";
+		}
+		return "";
+	},
+	getDistance : function(pos){
+		pos = pos || this;
+		if (pos.start.x >= 0 && pos.end.x >= 0) {
+			var x = pos.end.x - pos.start.x;
+			var y = pos.end.y - pos.start.y;
+			return Math.sqrt((x * x) + (y * y));
+		}
+		return 0;
+	},
+	clear : function(){
+		this.start.x = this.start.y = this.end.x = this.end.y = 0;
+	},
+	show : function(){
+		alert("show");
+	}
+};
+//触发，绑定，解绑事件
+var operate = {
+	triggle : function(ele, event){
+		var e = document.createEvent("CustomEvent");
+		e.initCustomEvent(event, true ,true, 1);
+		ele.dispatchEvent(e);
+	},
+	bind : function(ele, event, fn){
+		console.log("----bind");
+		ele.addEventListener(event, function(){
+			fn();
+		});
+	},
+	unbind: function(ele, event, handler){
+		
+	}
+};
+
+jQuery.fn.extend({
+	swipe : function(fn){
+		console.log("--swipe");
+		operate.bind($(this)[0], "swipe", fn);
+		return jQuery(this);
+	}
+});
+
+function mouseDownEventFun(e){
+	pos.setStart(e);
+};
+
+function mouseMoveEventFun(e){
+	pos.setEnd(e);
+};
+function mouseUpEventFun(e){
+	//console.log(pos.getDirection());
+	operate.triggle(e.target, "swipe");
+};
+
+(function init(){
+	var _eventName = {
+		touchstart : "touchstart",
+		touchmove : "touchmove",
+		touchend : "touchend",
+		mousedown : "mousedown",
+		mousemove : "mousemove",
+		mouseup : "mouseup"
+	};
+	var eventName = {
+		START : "mousedown",
+		MOVE : "mousemove",
+		END : "mouseup"
+	};
+	if(com.isSupportTouch){
+		var eventName = {
+			START : "touchstart",
+			MOVE : "touchmove",
+			END : "touchend"
+		};
+	}
+	document.addEventListener(eventName.START, mouseDownEventFun, false);
+	document.addEventListener(eventName.MOVE, mouseMoveEventFun, false);
+	document.addEventListener(eventName.END, mouseUpEventFun, false);
+})();
+</script>
+<script type="text/javascript">
+$(function(){
+//	$(document).toggle(function(e){
+//		pos.setStart(e);
+//	},function(e){
+//		pos.setEnd(e);
+//		console.log(pos.getDirection());
+//		pos.clear();
+//	});
+//	if(pos.start){
+//		//alert(pos.start.x);
+//	}
+	$(".a").swipe(function(){
+		console.log(this);
+		$(".a").css({background : '#441246'});
+	})
+//	.click(function(){
+//		alert("click");
+//	});
+});
+</script>
