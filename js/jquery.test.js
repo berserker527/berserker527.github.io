@@ -22,10 +22,14 @@ var pos = {
 	setStart : function(e){
 		this.start.x = e.pageX;
 		this.start.y = e.pageY;
+		console.log("--setStart");
+		$("body").append("--setStart x ： " + this.start.x + "<br/>");
 	},
 	setEnd : function(e){
 		this.end.x = e.pageX;
 		this.end.y = e.pageY;
+		console.log("--setEnd");
+		$("body").append("--setEnd x ： " + this.end.x + "<br/>");
 	},
 	getDirection : function(){
 		if(this.getDistance(this) < com.minDistance){
@@ -122,6 +126,10 @@ function eventManager(e){
 			$("body").append("--mousemove" + "<br/>");
 			pos.setEnd(e);
 			var direction = pos.getDirection();
+			console.log("----direction ： " + direction);
+			$("body").append("----direction ： " + direction + "<br/>");
+			console.log("----isCanTrigger ： " + isCanTrigger);
+			$("body").append("----isCanTrigger ： " + isCanTrigger + "<br/>");
 			if(com.isCanTrigger){
 				if(!direction || direction == ""){
 					console.log("----trigger swipe");
