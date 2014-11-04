@@ -20,14 +20,26 @@ var pos = {
 		y : 0
 	},
 	setStart : function(e){
-		this.start.x = e.pageX;
-		this.start.y = e.pageY;
+		var src = {};
+		if(com.isSupportTouch){
+			src = e.touches[0];
+		}else{
+			src = e;
+		}
+		this.start.x = src.pageX;
+		this.start.y = src.pageY;
 		console.log("--setStart");
 		$("body").append("--setStart x ： " + this.start.x + "<br/>");
 	},
 	setEnd : function(e){
-		this.end.x = e.pageX;
-		this.end.y = e.pageY;
+		var src = {};
+		if(com.isSupportTouch){
+			src = e.touches[0];
+		}else{
+			src = e;
+		}
+		this.end.x = src.pageX;
+		this.end.y = src.pageY;
 		console.log("--setEnd");
 		$("body").append("--setEnd x ： " + this.end.x + "<br/>");
 	},
