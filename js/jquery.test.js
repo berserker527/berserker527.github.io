@@ -104,7 +104,7 @@ jQuery.fn.extend({
 	}
 });
 
-function eventManager(e){
+var eventManager = function(e){
 	var ele = e.target;
 	switch (e.type) {
 		case "touchstart" : 
@@ -170,6 +170,6 @@ function eventManager(e){
 	}
 	$("body").append(com.isSupportTouch + "<br/>");
 	for(var key in eventNames){
-		document.addEventListener(eventNames[key], eventManager(e), false);
+		document.addEventListener(eventNames[key], eventManager, false);
 	}
 })();
