@@ -170,6 +170,6 @@ function eventManager(e){
 	}
 	$("body").append(com.isSupportTouch + "<br/>");
 	for(var key in eventNames){
-		document.addEventListener(eventNames[key], eventManager, false);
+		document.addEventListener(eventNames[key], eventManager(e), false);
 	}
 })();
