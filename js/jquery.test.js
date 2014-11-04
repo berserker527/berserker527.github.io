@@ -70,7 +70,7 @@ var pos = {
 		this.start.x = this.start.y = this.end.x = this.end.y = 0;
 	},
 	show : function(){
-		alert("show");
+		$("body").append("show");
 	}
 };
 
@@ -109,18 +109,27 @@ function eventManager(e){
 			pos.setStart(e);
 			break;
 		case "touchmove" :
+			if(!com.isTouchStart){
+				return;
+			}
+			console.log("--touchmove");
+			$("body").append("--touchmove" + "<br/>");
 		case "mousemove" :
 			if(!com.isTouchStart){
 				return;
 			}
+			console.log("--mousemove");
+			$("body").append("--mousemove" + "<br/>");
 			pos.setEnd(e);
 			var direction = pos.getDirection();
 			if(com.isCanTrigger){
 				if(!direction || direction == ""){
 					console.log("----trigger swipe");
+					$("body").append("----trigger swipe" + "<br/>");
 					$(ele).trigger("swipe");
 				}else{
 					console.log("----trigger swipe " + direction);
+					$("body").append("----trigger swipe " + direction + "<br/>");
 					$(ele).trigger("swipe" + direction);
 				}
 			}
@@ -151,7 +160,7 @@ function eventManager(e){
 			CANCEL : "touchcancel"
 		};
 	}
-	alert(com.isSupportTouch);
+	$("body").append(com.isSupportTouch + "<br/>");
 	for(var key in eventNames){
 		document.addEventListener(eventNames[key], eventManager, false);
 	}
