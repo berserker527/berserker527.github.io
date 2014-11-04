@@ -128,8 +128,8 @@ function eventManager(e){
 			var direction = pos.getDirection();
 			console.log("----direction ： " + direction);
 			$("body").append("----direction ： " + direction + "<br/>");
-			console.log("----isCanTrigger ： " + isCanTrigger);
-			$("body").append("----isCanTrigger ： " + isCanTrigger + "<br/>");
+			console.log("----isCanTrigger ： " + com.isCanTrigger);
+			$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");
 			if(com.isCanTrigger){
 				if(!direction || direction == ""){
 					console.log("----trigger swipe");
