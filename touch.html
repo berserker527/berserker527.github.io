@@ -3,7 +3,7 @@
 	<head>
 		<title>jQuery.touch</title>
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-		<script type="text/javascript" src="js/jquery.test.js"></script>
+		<script type="text/javascript" src="js/jquery.swipe.debug.js"></script>
 		<style type="text/css">
 		.a{
 			width:500px;
@@ -20,15 +20,15 @@
 </html>
 <script type="text/javascript">
 $(function(){
-	$(".a").swipeLeft(function(){
+	$(".a").swipe(function(){
 		$(this).css({background : '#441246'});
-	}).swipeRight(function(){
+	}, "left").swipeRight(function(){
 		$(this).css({background : '#dc8712'});
-	}).swipeTop(function(){
+	}).swipe(function(){
 		$(this).css({background : '#cdb6aa'});
-	}).swipeDown(function(){
+	}, "top", 100).swipeDown(function(){
 		$(this).css({background : '#b98ada'});
-	})
+	}, 100)
 //	.click(function(){
 //		$(".a").css({background : '#746382'});
 //	});
