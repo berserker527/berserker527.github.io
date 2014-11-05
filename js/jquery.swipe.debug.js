@@ -102,14 +102,14 @@ jQuery.fn.extend({
 			if(isNaN(_direction)){
 				eventParam.direction = _direction;
 //				console.log("----bind swipe " + _direction);
-				jQuery(this).bind("swipe" + _direction, eventParam, fn);				
+				jQuery(this).bind("swipe" + _direction, eventParam, handler(e,fn));				
 			}else{
 				com.minDistance = _distance > 0 ? _distance : 1;
-				jQuery(this).bind("swipe", eventParam, fn);
+				jQuery(this).bind("swipe", eventParam, handler(e,fn));
 			}
 		}else{
 //			console.log("----bind swipe");
-			jQuery(this).bind("swipe", fn);
+			jQuery(this).bind("swipe", handler(e,fn));
 		}
 		return jQuery(this);
 	},
@@ -138,6 +138,11 @@ jQuery.fn.extend({
 		return this.swipe(fn, "down");
 	}
 });
+
+var handler = function(e,fn){
+	alert(e.data.direction);
+	fn();
+}
 
 var eventManager = function(e){
 	if(com.debugMode){
