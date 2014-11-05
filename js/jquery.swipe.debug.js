@@ -174,6 +174,18 @@ var eventManager = function(e){
         case 'touchcancel':
         case 'mouseup':
         case 'mouseout':
+			if(!com.isTouchStart){
+				return;
+			}
+			pos.setEnd(e);
+			var direction = pos.getDirection();
+			if(com.isCanTrigger){
+				if(!direction || direction == ""){
+					$(ele).trigger("swipe");
+				}else{
+					$(ele).trigger("swipe" + direction);
+				}
+			}
 			pos.clear();
 			com.isCanTrigger = false;
 			break;
