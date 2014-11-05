@@ -33,5 +33,11 @@ $(function(){
 //		$(".a").css({background : '#746382'});
 //	});
 	$(".a").html(com.isSupportTouch);
+	$(".a")[0].addEventListener("touchmove", function(){
+		$(this).append(" - ");
+	},false);
+	$(".a")[0].addEventListener("mousemove", function(){
+		$(this).append(" - ");
+	},false);
 });
 </script>
