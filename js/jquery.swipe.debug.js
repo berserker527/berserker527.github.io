@@ -187,7 +187,7 @@ var eventManager = function(e){
 						console.log("----trigger swipe " + direction);
 						console.log("------e.direction " + e.direction);
 						$("body").append("----trigger swipe " + direction + "<br/>");
-						$("body").append("------e.direction " + e.data.direction + "<br/>");
+						//$("body").append("------e.direction " + e.data.direction + "<br/>");
 					}
 					$(ele).trigger("swipe" + direction);
 				}

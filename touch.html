@@ -22,6 +22,7 @@
 $(function(){
 	$(".a").swipe(function(){
 		$(this).css({background : '#441246'});
+		$("body").append("------e.direction " + e.data.direction + "<br/>");
 	}, "left").swipeRight(function(){
 		$(this).css({background : '#dc8712'});
 	}).swipe(function(){
