@@ -168,30 +168,30 @@ var eventManager = function(e){
 				$("body").append("--mousemove" + "<br/>");
 			}
 			pos.setEnd(e);
-			var direction = pos.getDirection();
-			if(com.debugMode){
-				console.log("----direction ： " + direction);
-				$("body").append("----direction ： " + direction + "<br/>");
-				console.log("----isCanTrigger ： " + com.isCanTrigger);
-				$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");	
-			}
-			if(com.isCanTrigger){
-				if(!direction || direction == ""){
-					if(com.debugMode){
-						console.log("----trigger swipe");
-						$("body").append("----trigger swipe" + "<br/>");
-					}
-					$(ele).trigger("swipe");
-				}else{
-					if(com.debugMode){
-						console.log("----trigger swipe " + direction);
-						//console.log("------e.direction " + e.data.direction);
-						$("body").append("----trigger swipe " + direction + "<br/>");
-						//$("body").append("------e.direction " + e.data.direction + "<br/>");
-					}
-					$(ele).trigger("swipe" + direction);
-				}
-			}
+//			var direction = pos.getDirection();
+//			if(com.debugMode){
+//				console.log("----direction ： " + direction);
+//				$("body").append("----direction ： " + direction + "<br/>");
+//				console.log("----isCanTrigger ： " + com.isCanTrigger);
+//				$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");	
+//			}
+//			if(com.isCanTrigger){
+//				if(!direction || direction == ""){
+//					if(com.debugMode){
+//						console.log("----trigger swipe");
+//						$("body").append("----trigger swipe" + "<br/>");
+//					}
+//					$(ele).trigger("swipe");
+//				}else{
+//					if(com.debugMode){
+//						console.log("----trigger swipe " + direction);
+//						//console.log("------e.direction " + e.data.direction);
+//						$("body").append("----trigger swipe " + direction + "<br/>");
+//						//$("body").append("------e.direction " + e.data.direction + "<br/>");
+//					}
+//					$(ele).trigger("swipe" + direction);
+//				}
+//			}
 			break;
 		case 'touchend':
         case 'touchcancel':
