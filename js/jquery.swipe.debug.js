@@ -145,6 +145,8 @@ var eventManager = function(e){
 //		$("body").append("# evevt :" + e + "<br/>");
 	}
 	var ele = e.target;
+	e.stopPropagation();
+    e.preventDefault();
 	switch (e.type) {
 		case "touchstart" : 
 		case "mousedown" :
