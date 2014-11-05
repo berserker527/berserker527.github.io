@@ -23,11 +23,11 @@ $(function(){
 	$(".a").swipe(function(e){
 		$(this).css({background : '#441246'});
 		console.log("------e.direction " + e.data.direction);
-	}, "left").swipeRight(function(){
+	}, "left").swipeRight(function(e){
 		$(this).css({background : '#dc8712'});
-	}).swipe(function(){
+	}).swipe(function(e){
 		$(this).css({background : '#cdb6aa'});
-	}, "top", 100).swipeDown(function(){
+	}, "top", 100).swipeDown(function(e){
 		$(this).css({background : '#b98ada'});
 	}, 100)
 
