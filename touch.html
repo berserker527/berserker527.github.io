@@ -22,7 +22,7 @@
 $(function(){
 	$(".a").swipe(function(e){
 		$(this).css({background : '#441246'});
-		console.log("------e.direction " + e.data.direction + "<br/>");
+		console.log("------e.direction " + e.data.direction);
 	}, "left").swipeRight(function(){
 		$(this).css({background : '#dc8712'});
 	}).swipe(function(){
@@ -30,10 +30,7 @@ $(function(){
 	}, "top", 100).swipeDown(function(){
 		$(this).css({background : '#b98ada'});
 	}, 100)
-//	.click(function(){
-//		$(".a").css({background : '#746382'});
-//	});
-	$(".a").html(com.isSupportTouch);
+
 	$(document)[0].addEventListener("touchmove", function(){
 		$(".a").append(" - ");
 	},false);
