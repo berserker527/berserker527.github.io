@@ -93,6 +93,12 @@ var pos = {
 
 jQuery.fn.extend({
 	swipe : function(fn, _direction ,_distance){
+		if(com.debugMode){
+			console.log(e);
+			$("body").append("# evevt :" + e.type + "<br/>");
+		}
+		e.stopPropagation();
+        e.preventDefault();
 //		console.log("--swipe");
 		if(_distance){
 			com.minDistance = _distance > 0 ? _distance : 1;
