@@ -4,6 +4,7 @@ var com = {
 	minDistance : 30,
 	isTouchStart : false,
 	isCanTrigger : false
+	debugMode : true,
 };
 //起止位置
 var pos = {
@@ -19,14 +20,18 @@ var pos = {
 		var src = {};
 		if(com.isSupportTouch){
 			src = e.touches[0];
-//			$("body").append("------touchlength" + e.touches.length);
+			if(com.debugMode){
+				$("body").append("------touchlength : " + e.touches.length + "<br/>");
+			}
 		}else{
 			src = e;
 		}
 		this.start.x = src.pageX;
 		this.start.y = src.pageY;
-//		console.log("--setStart");
-//		$("body").append("--setStart x ： " + this.start.x + "<br/>");
+		if(com.debugMode){
+			console.log("--setStart x ： " + this.start.x + " y : " + this.start.y);
+			$("body").append("--setStart x ： " + this.start.x + " y : " + this.start.y + "<br/>");
+		}
 	},
 	setEnd : function(e){
 		var src = {};
@@ -37,8 +42,10 @@ var pos = {
 		}
 		this.end.x = src.pageX;
 		this.end.y = src.pageY;
-//		console.log("--setEnd");
-//		$("body").append("--setEnd x ： " + this.end.x + "<br/>");
+		if(com.debugMode){
+			console.log("--setEnd x ： " + this.end.x + " y : " + this.end.y);
+			$("body").append("--setEnd x ： " + this.end.x + " y : " + this.end.y + "<br/>");
+		}
 	},
 	getDirection : function(){
 		if(this.getDistance(this) < com.minDistance){
@@ -131,8 +138,10 @@ jQuery.fn.extend({
 });
 
 var eventManager = function(e){
-//	console.log(e);
-//	$("body").append("# evevt :" + e + "<br/>");
+	if(com.debugMode){
+//		console.log(e);
+//		$("body").append("# evevt :" + e + "<br/>");
+	}
 	var ele = e.target;
 	switch (e.type) {
 		case "touchstart" : 
@@ -144,28 +153,38 @@ var eventManager = function(e){
 			if(!com.isTouchStart){
 				return;
 			}
-//			console.log("--touchmove");
-//			$("body").append("--touchmove" + "<br/>");
+			if(com.debugMode){
+				console.log("--touchmove");
+				$("body").append("--touchmove" + "<br/>");
+			}
 		case "mousemove" :
 			if(!com.isTouchStart){
 				return;
 			}
-//			console.log("--mousemove");
-//			$("body").append("--mousemove" + "<br/>");
+			if(com.debugMode){
+				console.log("--mousemove");
+				$("body").append("--mousemove" + "<br/>");
+			}
 			pos.setEnd(e);
 			var direction = pos.getDirection();
-//			console.log("----direction ： " + direction);
-//			$("body").append("----direction ： " + direction + "<br/>");
-//			console.log("----isCanTrigger ： " + com.isCanTrigger);
-//			$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");
+			if(com.debugMode){
+				console.log("----direction ： " + direction);
+				$("body").append("----direction ： " + direction + "<br/>");
+				console.log("----isCanTrigger ： " + com.isCanTrigger);
+				$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");	
+			}
 			if(com.isCanTrigger){
 				if(!direction || direction == ""){
-//					console.log("----trigger swipe");
-//					$("body").append("----trigger swipe" + "<br/>");
+					if(com.debugMode){
+						console.log("----trigger swipe");
+						$("body").append("----trigger swipe" + "<br/>");
+					}
 					$(ele).trigger("swipe");
 				}else{
-//					console.log("----trigger swipe " + direction);
-//					$("body").append("----trigger swipe " + direction + "<br/>");
+					if(com.debugMode){
+						console.log("----trigger swipe " + direction);
+						$("body").append("----trigger swipe " + direction + "<br/>");
+					}
 					$(ele).trigger("swipe" + direction);
 				}
 			}
@@ -177,12 +196,30 @@ var eventManager = function(e){
 			if(!com.isTouchStart){
 				return;
 			}
+			if(com.debugMode){
+				console.log("--mouseout");
+				$("body").append("--mouseout" + "<br/>");
+			}
 			pos.setEnd(e);
 			var direction = pos.getDirection();
+			if(com.debugMode){
+				console.log("----direction ： " + direction);
+				$("body").append("----direction ： " + direction + "<br/>");
+				console.log("----isCanTrigger ： " + com.isCanTrigger);
+				$("body").append("----isCanTrigger ： " + com.isCanTrigger + "<br/>");
+			}
 			if(com.isCanTrigger){
 				if(!direction || direction == ""){
+					if(com.debugMode){
+						console.log("----trigger swipe");
+						$("body").append("----trigger swipe" + "<br/>");
+					}
 					$(ele).trigger("swipe");
 				}else{
+					if(com.debugMode){
+						console.log("----trigger swipe " + direction);
+						$("body").append("----trigger swipe " + direction + "<br/>");
+					}
 					$(ele).trigger("swipe" + direction);
 				}
 			}
@@ -208,7 +245,9 @@ var eventManager = function(e){
 			CANCEL : "touchcancel"
 		};
 	}
-//	$("body").append(com.isSupportTouch + "<br/>");
+	if(com.debugMode){
+//	$("body").append(com.isSupportTouch + "<br/>");		
+	}
 	for(var key in eventNames){
 		document.addEventListener(eventNames[key], eventManager, false);
 	}
