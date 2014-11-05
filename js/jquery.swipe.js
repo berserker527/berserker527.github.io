@@ -20,16 +20,12 @@ var pos = {
 		var src = {};
 		if(com.isSupportTouch){
 			src = e.touches[0];
-			if(com.debugMode){
-				$("body").append("------touchlength : " + e.touches.length + "<br/>");
-			}
 		}else{
 			src = e;
 		}
 		this.start.x = src.pageX;
 		this.start.y = src.pageY;
 		if(com.debugMode){
-			console.log("--setStart x ： " + this.start.x + " y : " + this.start.y);
 			$("body").append("--setStart x ： " + this.start.x + " y : " + this.start.y + "<br/>");
 		}
 	},
@@ -43,11 +39,11 @@ var pos = {
 		this.end.x = src.pageX;
 		this.end.y = src.pageY;
 		if(com.debugMode){
-			console.log("--setEnd x ： " + this.end.x + " y : " + this.end.y);
 			$("body").append("--setEnd x ： " + this.end.x + " y : " + this.end.y + "<br/>");
 		}
 	},
 	getDirection : function(){
+		$("body").append("--start time : " + new Date().getTime() + "<br/>");
 		if(this.getDistance(this) < com.minDistance){
 			return "";
 		}
@@ -57,6 +53,7 @@ var pos = {
 		var _y = pos.end.y - pos.start.y;
 		var dx = Math.abs(_x);
 		var dy = Math.abs(_y);
+		$("body").append("--end time : " + new Date().getTime() + "<br/>");
 		if(dx > dy){
 			if(_x < 0){
 				return "left";
