@@ -3,7 +3,7 @@ var com = {
 	isSupportTouch : "ontouchend" in document ? true : false,
 	minDistance : 30,
 	isTouchStart : false,
-	isCanTrigger : false
+	isCanTrigger : false,
 	debugMode : true,
 };
 //起止位置
