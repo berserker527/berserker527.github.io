@@ -93,23 +93,19 @@ var pos = {
 
 jQuery.fn.extend({
 	swipe : function(fn, _direction ,_distance){
-		if(com.debugMode){
-			console.log(e);
-			$("body").append("# evevt :" + e.type + "<br/>");
-		}
-		e.stopPropagation();
-        e.preventDefault();
 //		console.log("--swipe");
+		var eventParam = {}
 		if(_distance){
 			com.minDistance = _distance > 0 ? _distance : 1;
 		}
 		if(_direction){
 			if(isNaN(_direction)){
+				eventParam.direction = _direction;
 //				console.log("----bind swipe " + _direction);
-				jQuery(this).bind("swipe" + _direction, fn);				
+				jQuery(this).bind("swipe" + _direction, eventParam, fn);				
 			}else{
 				com.minDistance = _distance > 0 ? _distance : 1;
-				jQuery(this).bind("swipe", fn);
+				jQuery(this).bind("swipe", eventParam, fn);
 			}
 		}else{
 //			console.log("----bind swipe");
@@ -190,6 +186,7 @@ var eventManager = function(e){
 					if(com.debugMode){
 						console.log("----trigger swipe " + direction);
 						$("body").append("----trigger swipe " + direction + "<br/>");
+						$("body").append("------e.direction " + e.direction + "<br/>");
 					}
 					$(ele).trigger("swipe" + direction);
 				}
