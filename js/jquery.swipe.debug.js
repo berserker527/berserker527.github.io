@@ -185,6 +185,7 @@ var eventManager = function(e){
 				}else{
 					if(com.debugMode){
 						console.log("----trigger swipe " + direction);
+						console.log("------e.direction " + e.direction);
 						$("body").append("----trigger swipe " + direction + "<br/>");
 						$("body").append("------e.direction " + e.direction + "<br/>");
 					}
