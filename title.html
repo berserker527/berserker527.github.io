@@ -86,7 +86,7 @@ $(function(){
 	
 	$(".disk").click(function(){
 		alert(index);
-		var index = $(this).index();
+		var index = $(".disk").index(this);
 		$(".trace").hide().eq(index).fadeIn();
 	});
 	
