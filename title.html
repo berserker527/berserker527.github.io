@@ -1,5 +1,5 @@
-﻿<div class="foot">
-	<div class="helper">
+﻿<div class="footer">
+	<div class="help">
 		<ul>
 			<li class="menu fl">目录</li>
 			<li class="goto fl">上一页</li>
@@ -64,6 +64,10 @@ $(function(){
 	var gotoWidth = ($(document).width() - 154) / 2;
 	$(".goto").width(gotoWidth);
 	
+	$(".right").click(function(){
+		$(".footer div:not(.helper)").fadeOut();
+	});
+	
 	$(".menu").click(function(){
 		$(".disk").fadeToggle("fast");
 	});
@@ -82,7 +86,7 @@ $(function(){
 	
 	$(".disk").click(function(){
 		var index = $(this).index();
-		$(".trace").hide().eq(index).show();
+		$(".trace").hide().eq(index).fadeIn();
 	});
 	
 })
