@@ -63,12 +63,13 @@
 $(function(){
 	var gotoWidth = ($(document).width() - 154) / 2;
 	$(".goto").width(gotoWidth);
-	
+	showContext(3);
 	$(".right").click(function(){
-		$(".footer div:not(.help)").fadeOut();
+		$(".footer div:not(.help)").fadeOut("fast");
 	});
 	
 	$(".menu").click(function(){
+		$(".trace").fadeOut("fast");
 		$(".disk").fadeToggle("fast");
 	});
 	
@@ -86,7 +87,7 @@ $(function(){
 	
 	$(".disk").click(function(){
 		var index = $(".disk").index(this);
-		$(".trace").hide().eq(index).fadeIn();
+		$(".trace").hide().eq(index).fadeIn("fast");
 	});
 	
 })
