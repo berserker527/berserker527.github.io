@@ -91,7 +91,7 @@ var pos = {
 jQuery.fn.extend({
 	swipe : function(fn, _direction ,_distance){
 //		console.log("--swipe");
-		e = window.event || event || arguments[0];
+		e = window.event || event || arguments[0];console.log(e);
 		fn = fn.call(e.target, e);
 		var eventParam = {}
 		if(_distance){
