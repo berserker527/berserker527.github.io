@@ -1,4 +1,4 @@
-﻿<div class="footer">
+<div class="footer">
 	<div class="help">
 		<ul>
 			<li class="menu fl">目录</li>
@@ -85,8 +85,8 @@ $(function(){
 		location.reload();
 	});
 	
-	$(".disk li").click(function(){
-		var index = $(this).index();
+	$(".disk").click(function(){
+		var index = $(".disk").index(this);
 		$(".trace").hide().eq(index).fadeIn("fast");
 	});
 	

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -81,7 +81,6 @@
 			
 			.right{
 				float:left;
-				margin-bottom:200px;
 			}
 			.help{
 				width:100%;
