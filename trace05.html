@@ -19,6 +19,12 @@
 				font-family:"MicroSoft YaHei";
 				font-size:16px;
 			}	
+			.fl{
+				float:left;
+			}
+			.fr{
+				float:right;
+			}
 			h1{
 				font-family:"MicroSoft YaHei";
 				color:#f9bc16;
@@ -97,68 +103,64 @@
 				color:#3e3e3e;
 				z-index:11;
 			}
-			.help li{
-				cursor:pointer;
-			}
-			.menu{
-				width:50px;
-				border-right:1px solid #c1c1c1;
-			}
-			.refresh{
-				width:50px;
-				border-left:1px solid #c1c1c1;
-			}
-			.info{
-				width:50px;
-				border-left:1px solid #c1c1c1;
-				border-right:1px solid #c1c1c1;
-			}
-			.fl{
-				float:left;
-			}
-			.fr{
-				float:right;
-			}
-			.goto{
-				width:auto;
-			}
-			li{
-				list-style:none;
-			}
-			.disk{
-				width:130px;
-				display:none;
-				position:fixed;
-				bottom:50px;
-				border-top:1px solid #c1c1c1;
-				border-right:1px solid #c1c1c1;
-				background:#fff;
-				z-index:10;
-			}
-			.disk li{
-				height:50px;
-				line-height:50px;
-				color:#3e3e3e;
-				border-bottom:1px solid #c1c1c1;
-				text-align:center;
-			}
-			.trace{
-				width:220px;
-				display:none;
-				position:fixed;
-				bottom:50px;
-				left:130px;
-				border:1px solid #c1c1c1;
-				border-bottom:none;
-				background:#fff;
-				z-index:10;
-			}
-			.trace li{
-				height:50px;
-				line-height:50px;
-				color:#3e3e3e;
-				border-bottom:1px solid #c1c1c1;
-				text-align:center;
+			@media screen and (max-width:480px){
+				.footer li{
+					cursor:pointer;
+				}
+				.menu{
+					width:50px;
+					border-right:1px solid #c1c1c1;
+				}
+				.refresh{
+					width:50px;
+					border-left:1px solid #c1c1c1;
+				}
+				.info{
+					width:50px;
+					border-left:1px solid #c1c1c1;
+					border-right:1px solid #c1c1c1;
+				}
+				.goto{
+					width:auto;
+				}
+				li{
+					list-style:none;
+				}
+				.disk{
+					width:130px;
+					display:none;
+					position:fixed;
+					bottom:50px;
+					border-top:1px solid #c1c1c1;
+					border-right:1px solid #c1c1c1;
+					background:#fff;
+					z-index:10;
+				}
+				.disk li{
+					height:50px;
+					line-height:50px;
+					color:#3e3e3e;
+					border-bottom:1px solid #c1c1c1;
+					text-align:center;
+				}
+				.trace{
+					width:220px;
+					display:none;
+					position:fixed;
+					bottom:50px;
+					left:130px;
+					border:1px solid #c1c1c1;
+					border-bottom:none;
+					background:#fff;
+					z-index:10;
+				}
+				.trace li{
+					height:50px;
+					line-height:50px;
+					color:#3e3e3e;
+					border-bottom:1px solid #c1c1c1;
+					text-align:center;
+				}
 			}
 		</style>
 	</head>
