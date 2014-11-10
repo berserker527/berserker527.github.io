@@ -4,7 +4,7 @@ var com = {
 	minDistance : 30,
 	isTouchStart : false,
 	isCanTrigger : false,
-	debugMode : true,
+	debugMode : false,
 };
 //起止位置
 var pos = {
