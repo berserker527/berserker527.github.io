@@ -292,16 +292,14 @@ $(function(){        //03eeff浅蓝色
 		}
 	});
 	$(".right").mousewheel(function(event, delta){
-		setTimeout(function(){
-			var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
-			if(x > 5){
-				$(".title-disk").show();
-				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-			}else{
-				$(".title-disk").hide();
-				$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
-			}
-		}, 100);
+		var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
+		if(x > 5){
+			$(".title-disk").show();
+			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+		}else{
+			$(".title-disk").hide();
+			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+		}
 	});
 });
 </script>
