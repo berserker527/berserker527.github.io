@@ -43,7 +43,7 @@ var pos = {
 		}
 	},
 	getDirection : function(){
-		$("body").append("--start time : " + new Date().getTime() + "<br/>");
+//		$("body").append("--start time : " + new Date().getTime() + "<br/>");
 		if(this.getDistance(this) < com.minDistance){
 			return "";
 		}
@@ -53,7 +53,7 @@ var pos = {
 		var _y = pos.end.y - pos.start.y;
 		var dx = Math.abs(_x);
 		var dy = Math.abs(_y);
-		$("body").append("--end time : " + new Date().getTime() + "<br/>");
+//		$("body").append("--end time : " + new Date().getTime() + "<br/>");
 		if(dx > dy){
 			if(_x < 0){
 				return "left";

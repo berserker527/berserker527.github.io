@@ -265,7 +265,7 @@ $(function(){
 	});
 	
 	$(".right").swipe(function(){
-		var x = $(this).offset().top;
+		var x = $(this).offset().top; alert("ok and x = " + x);
 		if(x < 10){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
