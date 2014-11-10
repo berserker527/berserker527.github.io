@@ -279,8 +279,9 @@ $(function(){
 			}
 		}
 	});
-	$(".right").mousewheel(function(event, delta){var x = $(this).scrollTop(); alert("ok and x = " + x);
-		if(delta < 0){
+	$(".right").mousewheel(function(event, delta){
+		var x = $(this).scrollTop(); alert("ok and x = " + x);
+		if(x < 10){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
 		}else{
