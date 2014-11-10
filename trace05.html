@@ -270,7 +270,7 @@ $(function(){
 		tapToClick : true,
 		preventDefault: false,
 		wipeUp : function(){
-			var x = $(document).scrollTop();
+			var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");
 			if(x > 5){
 				$(".title-disk").show();
 				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
@@ -281,7 +281,7 @@ $(function(){
 		}
 	});
 	$(".right").mousewheel(function(event, delta){
-		var x = $(document).scrollTop();
+		var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");
 		if(x > 5){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
