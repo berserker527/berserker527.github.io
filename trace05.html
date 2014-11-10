@@ -271,7 +271,7 @@ $(function(){
 		preventDefault: false,
 		wipeUp : function(){
 			var x = $(document).scrollTop();
-			if(x < 10){
+			if(x > 5){
 				$(".title-disk").show();
 				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
 			}else{
@@ -282,7 +282,7 @@ $(function(){
 	});
 	$(".right").mousewheel(function(event, delta){
 		var x = $(document).scrollTop();
-		if(x < 10){
+		if(x > 5){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
 		}else{
