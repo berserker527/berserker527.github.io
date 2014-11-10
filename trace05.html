@@ -29,6 +29,7 @@
 				color:#464646;
 				position:absolute;
 				top:0px;
+				width:100%;
 				z-index:100;
 			}
 			.title-disk{
@@ -88,17 +89,6 @@
 				line-height:160%;
 				letter-spacing:0.1em;
 			}
-			.top{
-				position:fixed;
-				top:0px;
-				width:100%;
-				height:0%;
-				margin:0 auto;
-				background:#414141;
-				filter:alpha(opacity = 80); 
-				opacity:0.8
-			}
-			
 			.right{
 				float:left;
 				margin-bottom:200px;
@@ -118,6 +108,9 @@
 				z-index:11;
 			}
 			@media screen and (max-width:480px){
+				.pager{
+					display:none;
+				}	
 				.right,.title{
 					background:#ddccaa;
 				}
@@ -187,7 +180,6 @@
 		</style>
 	</head>
 	<body>
-		<div class="top"></div>
 		<div class="right" id="right">
 			<div class="title">
 				<div class="title-disk fr">Disk 1 苏醒的梦</div>
