@@ -279,7 +279,7 @@ $(function(){
 			}
 		}
 	});
-	$(".right").mousewheel(function(event, delta){
+	$(".right").mousewheel(function(event, delta){var x = $(this).offset().top; alert("ok and x = " + x);
 		if(delta < 0){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
