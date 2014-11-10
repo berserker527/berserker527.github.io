@@ -263,7 +263,11 @@ $(function(){
 	});
 	
 	$(".right").swipe(function(){
-		
+		var x = $(this).position().top;
+		if(x < 10){
+			$(".title-disk").show();
+			$(".title-trace").removeClass(".title-trace").addClass(".title-trace-mini");
+		}
 	});
 });
 </script>
