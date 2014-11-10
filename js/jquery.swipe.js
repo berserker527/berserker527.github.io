@@ -158,7 +158,7 @@ var eventManager = function(e){
 			}
 		case "mousemove" :
 			e.stopPropagation();
-	    	e.preventDefault();
+	    	//e.preventDefault();
 			
 			if(!com.isTouchStart){
 				return;
