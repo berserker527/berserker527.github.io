@@ -285,24 +285,23 @@ $(function(){        //03eeff浅蓝色
 		$(".title-disk").show();
 		$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
 	},10).swipeDown(function(){
-		var x;
-		setTimeout(function(){x = $(document).scrollTop();}, 100);
-		x = $(document).scrollTop();
+		var x = $(document).scrollTop();
 		if (x < 5) {
 			$(".title-disk").hide();
 			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
 		}
 	});
 	$(".right").mousewheel(function(event, delta){
-		var x;
-		setTimeout(function(){x = $(document).scrollTop();}, 100);$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
-		if(x > 5){
-			$(".title-disk").show();
-			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-		}else{
-			$(".title-disk").hide();
-			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
-		}
+		setTimeout(function(){
+			var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
+			if(x > 5){
+				$(".title-disk").show();
+				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+			}else{
+				$(".title-disk").hide();
+				$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+			}
+		}, 100);
 	});
 });
 </script>
