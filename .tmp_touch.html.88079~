@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>jQuery.touch</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/jquery.swipe.js"></script>
+		<style type="text/css">
+		.a{
+			width:500px;
+			height:500px;
+			margin:200px auto;
+			border:1px solid #000;
+			background:#ccc;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="a"></div>
+		<div class="a"></div>
+	</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	$(".a").swipe(function(e){
+		$(this).css({background : '#441246'});
+		console.log("------e.direction " + e.data.direction);
+	}, "left").swipeRight(function(e){
+		$(this).css({background : '#dc8712'});
+	}).swipe(function(e){
+		$(this).css({background : '#cdb6aa'});
+	}, "top", 100).swipeDown(function(e){
+		$(this).css({background : '#b98ada'});
+	}, 100)
+
+	$(document)[0].addEventListener("touchmove", function(){
+		$(".a").append(" - ");
+	},false);
+	$(document)[0].addEventListener("mousemove", function(){
+		$(".a").append(" - ");
+	},false);
+});
+</script>

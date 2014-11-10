@@ -10,51 +10,51 @@
 	</div>
 	<div class="disk">
 		<ul>
-			<li>DISK1 苏醒的梦</li>
-			<li>DISK2 流转的风</li>
-			<li>DISK3 消散的虹</li>
+			<li  disk="disk1">DISK1 苏醒的梦</li>
+			<li  disk="disk2">DISK2 流转的风</li>
+			<li  disk="disk3">DISK3 消散的虹</li>
 		</ul>
 	</div>
-	<div class="trace" id="trace1">
-		<ul>
-			<li>TRACE1 弦拨浪起</li>
-			<li>TRACE2 我的前奏弹给你听</li>
-			<li>TRACE3 吟咏</li>
-			<li>TRACE4 破音</li>
-			<li>TRACE5 混乱的狂想曲</li>
-			<li>TRACE6 哀鸿调</li>
-			<li>TRACE7 </li>
-			<li>TRACE8 </li>
-			<li>TRACE9 </li>
-			<li>TRACE10 </li>
+	<div class="trace">
+		<ul disk="disk1">
+			<li trace="trace1">TRACE1 弦拨浪起</li>
+			<li trace="trace2">TRACE2 我的前奏弹给你听</li>
+			<li trace="trace3">TRACE3 吟咏</li>
+			<li trace="trace4">TRACE4 破音</li>
+			<li trace="trace5">TRACE5 混乱的狂想曲</li>
+			<li trace="trace6">TRACE6 哀鸿调</li>
+			<li trace="trace7">TRACE7 </li>
+			<li trace="trace8">TRACE8 </li>
+			<li trace="trace9">TRACE9 </li>
+			<li trace="trace10">TRACE10 </li>
 		</ul>
 	</div>
-	<div class="trace" id="trace2">
-		<ul>
-			<li>TRACE1 </li>
-			<li>TRACE2 </li>
-			<li>TRACE3 </li>
-			<li>TRACE4 </li>
-			<li>TRACE5 </li>
-			<li>TRACE6 </li>
-			<li>TRACE7 </li>
-			<li>TRACE8 </li>
-			<li>TRACE9 </li>
-			<li>TRACE10 </li>
+	<div class="trace">
+		<ul disk="disk2">
+			<li trace="trace1">TRACE1 </li>
+			<li trace="trace2">TRACE2 </li>
+			<li trace="trace3">TRACE3 </li>
+			<li trace="trace4">TRACE4 </li>
+			<li trace="trace5">TRACE5 </li>
+			<li trace="trace6">TRACE6 </li>
+			<li trace="trace7">TRACE7 </li>
+			<li trace="trace8">TRACE8 </li>
+			<li trace="trace9">TRACE9 </li>
+			<li trace="trace10">TRACE10 </li>
 		</ul>
 	</div>
-	<div class="trace" id="trace3">
-		<ul>
-			<li>TRACE1 </li>
-			<li>TRACE2 </li>
-			<li>TRACE3 </li>
-			<li>TRACE4 </li>
-			<li>TRACE5 </li>
-			<li>TRACE6 </li>
-			<li>TRACE7 </li>
-			<li>TRACE8 </li>
-			<li>TRACE9 </li>
-			<li>TRACE10 </li>
+	<div class="trace">
+		<ul disk="disk3">
+			<li trace="trace1">TRACE1 </li>
+			<li trace="trace2">TRACE2 </li>
+			<li trace="trace3">TRACE3 </li>
+			<li trace="trace4">TRACE4 </li>
+			<li trace="trace5">TRACE5 </li>
+			<li trace="trace6">TRACE6 </li>
+			<li trace="trace7">TRACE7 </li>
+			<li trace="trace8">TRACE8 </li>
+			<li trace="trace9">TRACE9 </li>
+			<li trace="trace10">TRACE10 </li>
 		</ul>
 	</div>
 </div>
@@ -88,6 +88,13 @@ $(function(){
 	$(".disk li").click(function(){
 		var index = $(this).index();
 		$(".trace").hide().eq(index).fadeIn("fast");
+	});
+	
+	$(".trace li").click(function(){
+		var disk = $(this).parent().attr("disk");
+		var trace = $(this).attr("trace");
+		var url = "/" + disk + "/" + trace + ".html";
+		window.location = url;
 	});
 	
 })
