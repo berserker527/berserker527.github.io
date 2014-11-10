@@ -266,19 +266,19 @@ $(function(){
       }
 	});
 	
-	$(".right").wipetouch({
-		tapToClick : true,
-		wipeUp : function(){
-			var x = $(this).scrollTop();
-			if(x < 10){
-				$(".title-disk").show();
-				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-			}else{
-				$(".title-disk").hide();
-				$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
-			}
-		}
-	});
+//	$(".right").wipetouch({
+//		tapToClick : true,
+//		wipeUp : function(){
+//			var x = $(this).scrollTop();
+//			if(x < 10){
+//				$(".title-disk").show();
+//				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+//			}else{
+//				$(".title-disk").hide();
+//				$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+//			}
+//		}
+//	});
 	$(".right").mousewheel(function(event, delta){
 		var x = $(this).scrollTop();
 		if(x < 10){
