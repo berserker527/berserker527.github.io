@@ -9,7 +9,7 @@
 		<meta name="format-detection" content="telephone=no"/>
 		<title>歌尾倾泪_第五章</title>
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-		<script type="text/javascript" src="js/jquery.swipe.js"></script>
+		<script type="text/javascript" src="js/jquery.wipetouch.js"></script>
 		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 		<style type="text/css">
 			*{
@@ -266,14 +266,17 @@ $(function(){
       }
 	});
 	
-	$(".right").swipe(function(){
-		var x = $(this).offset().top; alert("ok and x = " + x);
-		if(x < 10){
-			$(".title-disk").show();
-			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-		}else{
-			$(".title-disk").hide();
-			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+	$(".right").wipetouch({
+		tapToclick : true,
+		wipeUp : function(){
+			var x = $(this).offset().top; alert("ok and x = " + x);
+			if(x < 10){
+				$(".title-disk").show();
+				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+			}else{
+				$(".title-disk").hide();
+				$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+			}
 		}
 	});
 	$(".right").mousewheel(function(event, delta){
