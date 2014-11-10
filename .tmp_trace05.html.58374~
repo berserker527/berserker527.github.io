@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -104,14 +104,6 @@
 				z-index:11;
 			}
 			@media screen and (max-width:480px){
-				.right{
-					background:#f4e4a4;
-				}
-				.help{
-					-webkit-box-shadow:-5px 0 10px #0cc;  
-					-moz-box-shadow:-5px 0 10px #0cc;  
-					box-shadow:-5px 0 10px #0cc;
-				}
 				.footer li{
 					cursor:pointer;
 				}
