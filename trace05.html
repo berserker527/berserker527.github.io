@@ -9,9 +9,11 @@
 		<meta name="format-detection" content="telephone=no"/>
 		<title>歌尾倾泪_第五章</title>
 		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<!--
 		<script type="text/javascript" src="js/jquery.wipetouch.js"></script>
 		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 		<script type="text/javascript" src="js/jquery.swipe.js"></script>
+		-->
 		<style type="text/css">
 			*{
 				margin:0;
@@ -281,25 +283,25 @@ $(function(){        //03eeff浅蓝色
 //			}
 //		}
 //	});
-	$(".right").swipeTop(function(){
-		$(".title-disk").show();
-		$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-	},10).swipeDown(function(){
-		var x = $(document).scrollTop();
-		if (x < 5) {
-			$(".title-disk").hide();
-			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
-		}
-	});
-	$(".right").mousewheel(function(event, delta){
-		var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
-		if(x > 5){
-			$(".title-disk").show();
-			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
-		}else{
-			$(".title-disk").hide();
-			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
-		}
-	});
+//	$(".right").swipeTop(function(){
+//		$(".title-disk").show();
+//		$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+//	},10).swipeDown(function(){
+//		var x = $(document).scrollTop();
+//		if (x < 5) {
+//			$(".title-disk").hide();
+//			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+//		}
+//	});
+//	$(".right").mousewheel(function(event, delta){
+//		var x = $(document).scrollTop();$("body").append("scrollTop ： " + x + "<br/>");console.log("scrollTop ： " + x);
+//		if(x > 5){
+//			$(".title-disk").show();
+//			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
+//		}else{
+//			$(".title-disk").hide();
+//			$(".title-trace-mini").removeClass("title-trace-mini").addClass("title-trace");
+//		}
+//	});
 });
 </script>
