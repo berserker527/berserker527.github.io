@@ -270,7 +270,7 @@ $(function(){
 		tapToClick : true,
 		preventDefault: false,
 		wipeUp : function(){
-			var x = $("body").scrollTop();
+			var x = $(document).scrollTop();
 			if(x < 10){
 				$(".title-disk").show();
 				$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
@@ -281,7 +281,7 @@ $(function(){
 		}
 	});
 	$(".right").mousewheel(function(event, delta){
-		var x = $("body").scrollTop();
+		var x = $(document).scrollTop();
 		if(x < 10){
 			$(".title-disk").show();
 			$(".title-trace").removeClass("title-trace").addClass("title-trace-mini");
