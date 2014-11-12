@@ -87,6 +87,9 @@ li{
 	display:block;
 }
 */
+.top .disk-option .disk-li .trace-down li:hover{
+	color:#ffaa00;
+}
 .top .author{
 	float:right;
 	line-height:45px;
