@@ -165,9 +165,9 @@ li{
 	.tools{
 		position:fixed;
 		bottom:0px;
-		-webkit-box-shadow:-5px 0 5px #666;  
-		-moz-box-shadow:-5px 0 5px #666;  
-		box-shadow:-5px 0 5px #666;
+		-webkit-box-shadow:0 0 3px #666;  
+		-moz-box-shadow:0 0 3px #666;  
+		box-shadow:0 0 3px #666;
 		width:100%;
 		height:50px;
 		background:#464646;
