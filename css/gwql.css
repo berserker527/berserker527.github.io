@@ -20,6 +20,9 @@ li{
 	clear:both;
 }
 .top{
+	position:fixed;
+	top:0px;
+	width:100%;
 	height:45px;
 	/*background:url(../img/top_bg.png);*/
 	background:#464646;
@@ -27,40 +30,69 @@ li{
 	-webkit-box-shadow:5px 0 5px #666;  
 	-moz-box-shadow:5px 0 5px #666;  
 	box-shadow:5px 0 5px #666;
+	z-index:100;
+}
+.top .top-contain{
+	width:1024px;
+	margin:0px auto;
 }
 .top .mark{
 	float:left;
 	line-height:45px;
-	margin-left:200px;
+	margin-left:20px;
 	color:#fff;
 	font-size:20px;
 }
-.top ul{
+.top .disk-option{
 	float:left;
 	/*margin:8px auto 8px 50px;*/
 	margin-left:50px;
 	height:45px;
 }
-.top ul li{
+.top .disk-option .disk-li{
 	float:left;
-	width:80px;
+	position:relative;
+	width:100px;
 	height:45px;
 	line-height:45px;
-	padding:0px 10px;
+	margin:0px 10px;
 	/*border-right:1px solid #c1c1c1;*/
 	color:#fff;
 	text-align:center;
 	cursor:pointer;
 }
-.top ul li:hover{
-	background:#ffaa00;
+.top .disk-option .disk-li:hover{
+	background:#e0e0e0;
 	color:#000;
 }
+.top .disk-option .disk-li .trace-down{
+	display:none;
+	width:250px;
+	border-top:1px solid #e0e0e0;
+	border-bottom:5px solid #464646;
+	background:#e0e0e0;
+	
+}
+.top .disk-option .disk-li .trace-down ul{
+	margin:10px auto;
+}
+.top .disk-option .disk-li .trace-down li{
+	height:30px;
+	line-height:30px;
+	margin:auto 20px;
+	text-align:left;
+}
+/*
+.top .disk-option .disk-li:hover .temp{
+	display:block;
+}
+*/
+.top .
 .top .author{
 	float:right;
 	line-height:45px;
-	margin-right:200px;
-	color:#fff;
+	margin-right:20px;
+	color:#ffaa00;
 	font-size:12px;
 }
 .wrap{
@@ -126,6 +158,13 @@ li{
 }
 /*pad端*/
 @media screen and (min-width:481px) and (max-width:1023px){
+	body{
+		background:#f4f4f4;
+	}
+	.wrap{
+		max-width:1024px;
+		margin:45px auto;
+	}
 	.tools{
 		position:fixed;
 		bottom:0px;
@@ -168,12 +207,13 @@ li{
 	}
 	.wrap{
 		width:1024px;
-		margin:20px auto;
+		margin:65px auto;
 	}
 	.main{
 		float:right;
 		width:750px;
 		background:#fff;
+		border-bottom:5px solid #e0e0e0;
 	}
 	.main .tag{
 		position:absolute;
@@ -198,9 +238,11 @@ li{
 	}
 	.tools{
 		float:left;
+		position:fixed;
 		width:210px;
 		padding:20px;
 		background:#fff;
+		border-bottom:5px solid #e0e0e0;
 	}
 	.tools .tools-btn{
 		display:none;
@@ -208,5 +250,11 @@ li{
 	.tools .trace li{
 		height:30px;
 		line-height:30px;
+		cursor:pointer;
+	}
+	.tools .trace li:hover{
+		/*background:#e0e0e0;*/
+		color:#ffaa00;
 	}
 }
+
