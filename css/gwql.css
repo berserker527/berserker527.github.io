@@ -130,14 +130,14 @@ li{
 }
 /*手机端*/
 @media screen and (max-width:480px){
+	body{
+		background:#ddccaa;
+	}
 	.top{
 		display:none;
 	}
 	.wrap{
 		width:100%;
-	}
-	.main{
-		background:#ddccaa;
 	}
 	.main .title{
 		position:fixed;
@@ -155,6 +155,9 @@ li{
 		float:right;
 		font-size:12px;
 		margin:5px 20px 5px auto;
+	}
+	.main .content{
+		margin-top:40px;
 	}
 	.main .content p{
 		margin:5px 20px;
