@@ -139,6 +139,23 @@ li{
 	.main{
 		background:#ddccaa;
 	}
+	.main .title{
+		position:fixed;
+		top:0px;
+		width:100%;
+		background:#ddccaa;
+		z-index:100;
+	}
+	.main .title .title-disk{
+		float:left;
+		font-size:12px;
+		margin:5px auto 5px 20px;
+	}
+	.main .title .title-trace{
+		float:right;
+		font-size:12px;
+		margin:5px 20px 5px auto;
+	}
 	.main .content p{
 		margin:5px 20px;
 	}
