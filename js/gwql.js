@@ -114,12 +114,12 @@ $(function(){
 			showContext(index);
 		});
 		$(".prev").click(function(){
-			showContext(currentPage - 1);
-			console.log("prev currentPage : " + (currentPage - 1))
+			showContext(--currentPage);
+			console.log("prev currentPage : " + (currentPage))
 		});
 		$(".next").click(function(){
-			showContext(currentPage + 1);
-			console.log("prev currentPage : " + (currentPage + 1))
+			showContext(++currentPage);
+			console.log("prev currentPage : " + (currentPage))
 		});
 	}
 	//按页码显示正文
