@@ -81,7 +81,7 @@ $(function(){
 		  	sectionCount = data.split("<br/>").length;
 			console.log(" : sectionCount" + sectionCount);
 			//5个大段落当做1页
-		  	pageCount = (sectionCount - 1) / 5;
+		  	pageCount = Math.floor((sectionCount - 1) / 5);
 			console.log(" : pageCount" + pageCount);
 			
 			initPage();
