@@ -88,7 +88,7 @@ $(function(){
 	}
 	 
 	initTitle();
-	//initPager();
+	initPager();
 	showContext(0);
 
 });
