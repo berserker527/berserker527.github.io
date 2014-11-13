@@ -125,7 +125,6 @@ $(function(){
 	function showContext(index){
 		//防止页码超出范围
 		if(index < 0 || index > pageCount){
-			console.log("out of showContext");
 			return;
 		}
 		currentPage = index;
@@ -136,7 +135,6 @@ $(function(){
 		for (var i = 0; i < 5; i++) {
 			if(5 * currentPage + i < sectionCount){
 				$(".content").append(data[5 * currentPage + i] + "<br/>");
-				//console.log(data[5 * currentPage + i]);
 			}
 			else{
 				break;
@@ -170,18 +168,23 @@ $(function(){
 	
 	$(".disk-li").hover(
 		function(){
-			console.log(_width);
 			if (_width < 1024) {
 				$(this).children(".track-down").show();
 			}
 		},
 		function(){
-			console.log(_width);
 			if (_width < 1024) {
 				$(this).children(".track-down").hide();
 			}
 		}
 	);
+	
+	$(".track li").click(function()){
+		var _disk = $(this).parant().attr("disk");
+		var _track = $(this).attr("track");
+		
+		window.location = "../" + _disk + "/" + _track + ".html";
+	}
 	
 	initTitle();
 	initContent();
