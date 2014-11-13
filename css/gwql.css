@@ -33,7 +33,7 @@ li{
 	z-index:100;
 }
 .top .top-contain{
-	width:1024px;
+	max-width:1024px;
 	margin:0px auto;
 }
 .top .mark{
@@ -92,6 +92,7 @@ li{
 }
 .top .author{
 	float:right;
+	position:relative;
 	line-height:45px;
 	margin-right:20px;
 	color:#ffaa00;
@@ -120,6 +121,12 @@ li{
 	margin:5px 40px;
 	line-height:160%;
 	letter-spacing:0.1em;
+}
+.main .content p .end{
+	margin-left:10px;
+	color:#ffaa00;
+	font-size:12px;
+	font-weight:bold;	
 }
 .main .content .song{
 	font-family:"KaiTi";
@@ -194,8 +201,14 @@ li{
 	.main .content{
 		margin-top:40px;
 	}
+	.main .content .loading:before{
+		content:'……';
+	}
 	.main .content p{
 		margin:5px 20px;
+	}
+	.main .content p .end{
+		color:#464646;
 	}
 	.page{
 		display:none;
@@ -226,6 +239,25 @@ li{
 	}
 	.main{
 		background:#fff;
+	}
+	.main .title{
+		padding:40px 0px 20px 0px;
+	}
+	.main .title .title-disk{
+		display:none;
+	}
+	.main .title .title-trace{
+		text-align:center;
+		font-size:24px;
+		font-weight:bold;
+	}
+	.main .content .loading{
+		display:inline-block;
+		height:24px;
+		width:24px;
+		margin-left:10px;
+		margin-bottom:-4px;
+		background:url(../img/loading.gif);
 	}
 	.page{
 		max-width:1024px;
@@ -288,7 +320,7 @@ li{
 		border-right:30px solid transparent;
 	}
 	.main .title{
-		margin-top:40px;
+		margin:40px 0px 20px 0px;
 	}
 	.main .title .title-disk{
 		display:none;
@@ -297,6 +329,14 @@ li{
 		text-align:center;
 		font-size:24px;
 		font-weight:bold;
+	}
+	.main .content .loading{
+		display:inline-block;
+		height:24px;
+		width:24px;
+		margin-left:10px;
+		margin-bottom:-4px;
+		background:url(../img/loading.gif);
 	}
 	.main .content p{
 		margin:5px 40px;
@@ -321,6 +361,15 @@ li{
 		height:30px;
 		line-height:30px;
 		cursor:pointer;
+	}
+	.tools .trace li span{
+		display:inline-block;
+		width:0px;
+		height:0px;
+		border-right:10px solid #ffaa00;
+		border-top:5px solid transparent;
+		border-bottom:5px solid transparent;
+		margin-left:10px;
 	}
 	.tools .trace li:hover{
 		/*background:#e0e0e0;*/
