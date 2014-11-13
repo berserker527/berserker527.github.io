@@ -110,7 +110,6 @@ $(function(){
 		}
 	);
 	
-	
 	function initPage(){
 		$(".page").append('<div class="prev">&lt;</div>');
 		$(".prev").hide();
@@ -156,7 +155,7 @@ $(function(){
 		if(content == ""){
 			return;
 		}
-	  	console.log("ok");
+	  	console.log("currentPage ： " + currentPage);
 		data = content.split("<br/>");
 		
 		$(".content").html("");
