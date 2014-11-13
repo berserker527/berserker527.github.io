@@ -128,18 +128,6 @@ $(function(){
 			$(this).removeClass("num").addClass("current");
 			
 			var index = $(this).attr("index");
-			if(index = 0){
-				$(".prev").hide();
-			}else{
-				$(".prev").show();
-			}
-			
-			if(index = pageCount - 1){
-				$(".next").show();
-			}else{
-				$(".next").hide();
-			}
-			
 			showContext(index);
 		});
 		$(".prev").click(function(){
@@ -168,6 +156,18 @@ $(function(){
 				break;
 			}
 		};
+		
+		if(currentPage = 0){
+			$(".prev").hide();
+		}else{
+			$(".prev").show();
+		}
+		
+		if(currentPage = pageCount - 1){
+			$(".next").show();
+		}else{
+			$(".next").hide();
+		}
 		window.document.body.scrollTop = 0;
 	}
 	
