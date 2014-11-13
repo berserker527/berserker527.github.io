@@ -197,6 +197,9 @@ li{
 	.main .content p{
 		margin:5px 20px;
 	}
+	.page{
+		display:none;
+	}
 	.tools{
 		position:fixed;
 		bottom:0px;
