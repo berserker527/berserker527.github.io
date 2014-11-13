@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<title>歌尾倾泪</title>
+		<script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+		
+		<!--
+		<script type="text/javascript" src="js/jquery.wipetouch.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.swipe.js"></script>
+		-->
+		<link type="text/css" href="../css/gwql.css" rel="stylesheet">
+		<link href="nuan.ico" type="image/x-icon" rel="Bookmark">
+		<link href="nuan.ico" type="image/x-icon" rel="shortcut icon"> 
+	</head>
+	<body>
+		<div class="top">
+			<div class="top-contain">
+				<div class="mark">歌尾倾泪 ♫</div>
+				<ul class="disk-option">
+					<li class="disk-li">
+						Disk 1 ♪
+						<div class="track-down">
+							<ul>
+								<li track="track1">Track 1 弦拨浪起</li>
+								<li track="track2">Track 2 我的前奏弹给你听</li>
+								<li track="track3">Track 3 吟咏</li>
+								<li track="track4">Track 4 破音</li>
+								<li track="track5">Track 5 混乱的狂想曲</li>
+								<li track="track6">Track 6 哀鸿调</li>
+								<li track="track7">Track 7 </li>
+								<li track="track8">Track 8 </li>
+								<li track="track9">Track 9 </li>
+								<li track="track10">Track 10 </li>
+							</ul>
+						</div>
+					</li>
+					<li class="disk-li">
+						Disk 2 ♪
+						<div class="track-down">
+							<ul disk="disk2" id="disk2">
+								<li track="track1">Track 1 </li>
+								<li track="track2">Track 2 </li>
+								<li track="track3">Track 3 测试题目</li>
+								<li track="track4">Track 4 </li>
+								<li track="track5">Track 5 </li>
+								<li track="track6">Track 6 </li>
+								<li track="track7">Track 7 </li>
+								<li track="track8">Track 8 </li>
+								<li track="track9">Track 9 </li>
+								<li track="track10">Track 10 </li>
+							</ul>
+						</div>
+					</li>
+					<li class="disk-li">
+						Disk 2 ♪
+						<div class="track-down">
+							<ul disk="disk3" id="disk3">
+								<li track="track1">Track 1 测试题目</li>
+								<li track="track2">Track 2 </li>
+								<li track="track3">Track 3 </li>
+								<li track="track4">Track 4 </li>
+								<li track="track5">Track 5 </li>
+								<li track="track6">Track 6 </li>
+								<li track="track7">Track 7 测试题目</li>
+								<li track="track8">Track 8 </li>
+								<li track="track9">Track 9 </li>
+								<li track="track10">Track 10 </li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<div class="author">By Berserker</div>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="tools">
+				<div class="tools-btn">
+					<ul>
+						<li class="menu fl">目录</li>
+						<li class="goto fl">上一页</li>
+						<li class="info fl">说明</li>
+						<li class="goto fl">下一页</li>
+						<li class="refresh fl">刷新</li>
+					</ul>
+				</div>
+				<div class="track">
+					<ul disk="disk1" id="disk1">
+						<li track="track1">Track 1 弦拨浪起</li>
+						<li track="track2">Track 2 我的前奏弹给你听</li>
+						<li track="track3">Track 3 吟咏</li>
+						<li track="track4">Track 4 破音</li>
+						<li track="track5">Track 5 混乱的狂想曲</li>
+						<li track="track6">Track 6 哀鸿调</li>
+						<li track="track7">Track 7 </li>
+						<li track="track8">Track 8 </li>
+						<li track="track9">Track 9 </li>
+						<li track="track10">Track 10 </li>
+					</ul>
+				</div>
+				<div class="track">
+					<ul disk="disk2" id="disk2">
+						<li track="track1">Track 1 </li>
+						<li track="track2">Track 2 </li>
+						<li track="track3">Track 3 测试题目</li>
+						<li track="track4">Track 4 </li>
+						<li track="track5">Track 5 </li>
+						<li track="track6">Track 6 </li>
+						<li track="track7">Track 7 </li>
+						<li track="track8">Track 8 </li>
+						<li track="track9">Track 9 </li>
+						<li track="track10">Track 10 </li>
+					</ul>
+				</div>
+				<div class="track">
+					<ul disk="disk3" id="disk3">
+						<li track="track1">Track 1 测试题目</li>
+						<li track="track2">Track 2 </li>
+						<li track="track3">Track 3 </li>
+						<li track="track4">Track 4 </li>
+						<li track="track5">Track 5 </li>
+						<li track="track6">Track 6 </li>
+						<li track="track7">Track 7 测试题目</li>
+						<li track="track8">Track 8 </li>
+						<li track="track9">Track 9 </li>
+						<li track="track10">Track 10 </li>
+					</ul>
+				</div>
+			</div>
+			<div class="main">
+				<div class="tag"></div>
+				<div class="title">
+					<div class="title-disk fr"></div>
+					<div class="title-track"></div>
+				</div>
+				<div class="content">
+					<p>正在加载，请稍等<span class="loading"></span></p><br/>
+				</div>
+			</div>
+			<div class="page">
+				<!--
+				<div class="prev">&lt;</div>
+				<div class="num">1</div>
+				<div class="current">2</div>
+				<div class="num">3</div>
+				<div class="num">4</div>
+				<div class="num">5</div>
+				<div class="num">6</div>
+				<div class="num">7</div>
+				<div class="num">8</div>
+				<div class="next">&gt;</div>
+				-->
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+</html><script type="text/javascript" src="../js/gwql.js"></script>

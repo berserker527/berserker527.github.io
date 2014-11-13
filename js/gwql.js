@@ -136,14 +136,18 @@ $(function(){
 		});
 		$(".prev").click(function(){
 			showContext(currentPage - 1);
+			console.log("prev currentPage : " + (currentPage - 1))
 		});
 		$(".next").click(function(){
 			showContext(currentPage + 1);
+			console.log("prev currentPage : " + (currentPage + 1))
 		});
 	}
 	
 	function showContext(index){
+		console.log("into showContext");
 		if(index < 0 || index > pageCount - 1){
+			console.log("out of showContext");
 			return;
 		}
 		currentPage = index;
