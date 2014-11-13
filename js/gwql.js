@@ -123,7 +123,7 @@ $(function(){
 		};
 		$(".page").append('<div class="next">&gt;</div>');
 		
-		$(".num").click(function(){
+		$(".num .current").click(function(){
 			$(".current").removeClass("current").addClass("num");
 			$(this).removeClass("num").addClass("current");
 			
