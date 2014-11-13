@@ -139,10 +139,14 @@ $(function(){
 	}
 	
 	function showContext(index){
+		if(index < 0 || index > pageCount - 1){
+			return;
+		}
 		currentPage = index;
 		if(content == ""){
 			return;
 		}
+		
 	  	console.log("currentPage ： " + currentPage);
 		data = content.split("<br/>");
 		
