@@ -96,7 +96,6 @@ $(function(){
 	//初始化页码
 	function initPage(){
 		$(".page").append('<div class="prev">&lt;</div>');
-		$(".prev").hide();
 		for (var i = 0; i < pageCount + 1; i++) {
 			if(i == 0){
 				$(".page").append('<div class="current" index="' + i + '">' + (i + 1) + '</div>');
@@ -153,9 +152,9 @@ $(function(){
 		}
 		
 		if(currentPage == pageCount){
-			$(".next").show();
-		}else{
 			$(".next").hide();
+		}else{
+			$(".next").show();
 		}
 		window.document.body.scrollTop = 0;
 	}
