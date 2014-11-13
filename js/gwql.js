@@ -43,19 +43,19 @@ $(function(){
           success: function(data){
 		  	sectionCount = data.split("<br/>").length;
 			pageCount = (sectionCount - 1) / 5;
-			
+			$(".page").append('<div class="prev">&lt;</div>');
 			for (var i = 0; i < pageCount; i++) {
 				if(i == 0){
-					$(".pager").append('<div class="pageNum current" index="' + i + '">' + (i + 1) + '</div>');
+					$(".page").append('<div class="current" index="' + i + '">' + (i + 1) + '</div>');
 				}
 				else{
-					$(".pager").append('<div class="pageNum" index="' + i + '">' + (i + 1) + '</div>');
+					$(".page").append('<div class="num" index="' + i + '">' + (i + 1) + '</div>');
 				}
 			};
+			$(".page").append('<div class="prev">&gt;</div>');
 			
-			
-			$(".pageNum").click(function(){
-				$(".pageNum").removeClass("current");
+			$(".num").click(function(){
+				$(".num").removeClass("current");
 				$(this).addClass("current");
 				var index = $(this).attr("index");
 				showContext(index);
