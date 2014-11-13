@@ -72,10 +72,10 @@ $(function(){
           success: function(data){
 			data = data.split("<br/>");
 			
-			$(".context").html("");
+			$(".content").html("");
 			for (var i = 0; i < 5; i++) {
 				if(5 * currentPage + i < sectionCount){
-					$(".context").append(data[5 * currentPage + i] + "<br/>")
+					$(".content").append(data[5 * currentPage + i] + "<br/>")
 				}
 				else{
 					break;
