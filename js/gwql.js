@@ -79,8 +79,10 @@ $(function(){
 			}
 		  	//大段落按txt中插入的<br/>计算
 		  	sectionCount = data.split("<br/>").length;
+			console.log(" : sectionCount" + sectionCount);
 			//5个大段落当做1页
 		  	pageCount = (sectionCount - 1) / 5;
+			console.log(" : pageCount" + pageCount);
 			
 			initPage();
 			showContext(0);
@@ -91,29 +93,7 @@ $(function(){
 		  }
         });
 	}
-	
-	$(".disk-option li").click(function(){
-		if (_width >= 1024) {
-			var index = $(this).index();
-			$(".track").hide().eq(index).show();
-		}
-	})
-	
-	$(".disk-li").hover(
-		function(){
-			console.log(_width);
-			if (_width < 1024) {
-				$(this).children(".track-down").show();
-			}
-		},
-		function(){
-			console.log(_width);
-			if (_width < 1024) {
-				$(this).children(".track-down").hide();
-			}
-		}
-	);
-	
+	//初始化页码
 	function initPage(){
 		$(".page").append('<div class="prev">&lt;</div>');
 		$(".prev").hide();
@@ -143,7 +123,7 @@ $(function(){
 			console.log("prev currentPage : " + (currentPage + 1))
 		});
 	}
-	
+	//按页码显示正文
 	function showContext(index){
 		console.log("into showContext");
 		if(index < 0 || index > pageCount - 1){
@@ -179,6 +159,28 @@ $(function(){
 		}
 		window.document.body.scrollTop = 0;
 	}
+	
+	$(".disk-option li").click(function(){
+		if (_width >= 1024) {
+			var index = $(this).index();
+			$(".track").hide().eq(index).show();
+		}
+	})
+	
+	$(".disk-li").hover(
+		function(){
+			console.log(_width);
+			if (_width < 1024) {
+				$(this).children(".track-down").show();
+			}
+		},
+		function(){
+			console.log(_width);
+			if (_width < 1024) {
+				$(this).children(".track-down").hide();
+			}
+		}
+	);
 	
 	initTitle();
 	initContent();
