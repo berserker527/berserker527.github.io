@@ -152,7 +152,7 @@ $(function(){
 			$(".prev").show();
 		}
 		
-		if(currentPage == pageCount - 1){
+		if(currentPage == pageCount){
 			$(".next").show();
 		}else{
 			$(".next").hide();
