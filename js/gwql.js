@@ -95,6 +95,7 @@ $(function(){
 	}
 	//初始化页码
 	function initPage(){
+		//组装页码
 		$(".page").append('<div class="prev">&lt;</div>');
 		for (var i = 0; i < pageCount + 1; i++) {
 			if(i == 0){
@@ -105,7 +106,7 @@ $(function(){
 			}
 		};
 		$(".page").append('<div class="next">&gt;</div>');
-		
+		//为页码按钮绑定点击事件
 		$(".num, .current").click(function(){
 			$(".current").removeClass("current").addClass("num");
 			$(this).removeClass("num").addClass("current");
@@ -115,25 +116,22 @@ $(function(){
 		});
 		$(".prev").click(function(){
 			showContext(--currentPage);
-			console.log("prev currentPage : " + (currentPage))
 		});
 		$(".next").click(function(){
 			showContext(++currentPage);
-			console.log("prev currentPage : " + (currentPage))
 		});
 	}
 	//按页码显示正文
 	function showContext(index){
-		console.log("into showContext");
+		//防止页码超出范围
 		if(index < 0 || index > pageCount){
 			console.log("out of showContext");
 			return;
 		}
 		currentPage = index;
 		
-	  	console.log("currentPage ： " + currentPage);
 		data = content.split("<br/>");
-		
+		//显示正文
 		$(".content").html("");
 		for (var i = 0; i < 5; i++) {
 			if(5 * currentPage + i < sectionCount){
@@ -144,10 +142,10 @@ $(function(){
 				break;
 			}
 		};
-		
+		//当前页的样式
 		$(".current").removeClass("current").addClass("num");
 		$(".num[index=" + currentPage + "]").removeClass("num").addClass("current");
-		
+		//控制上一页和下一页按钮的显示
 		if(currentPage == 0){
 			$(".prev").hide();
 		}else{
@@ -159,6 +157,7 @@ $(function(){
 		}else{
 			$(".next").show();
 		}
+		//翻页后页面滚到开始
 		window.document.body.scrollTop = 0;
 	}
 	
