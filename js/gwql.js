@@ -66,6 +66,7 @@ $(function(){
 	
 	//初始化正文内容
 	function initContent(){
+		console.log("refreshTime : " + refreshTime);
 		$.ajax({
           type: "GET",
           url: "../txt/" + disk + "_" + track + ".txt",
@@ -111,6 +112,9 @@ $(function(){
 	);
 	
 	function initPage(){
+		if(content == ""){
+			return;
+		}
 		$(".page").append('<div class="prev">&lt;</div>');
 		$(".prev").hide();
 		for (var i = 0; i < pageCount; i++) {
