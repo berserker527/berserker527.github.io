@@ -166,13 +166,13 @@ $(function(){
 			}
 		};
 		
-		if(currentPage = 0){
+		if(currentPage == 0){
 			$(".prev").hide();
 		}else{
 			$(".prev").show();
 		}
 		
-		if(currentPage = pageCount - 1){
+		if(currentPage == pageCount - 1){
 			$(".next").show();
 		}else{
 			$(".next").hide();
