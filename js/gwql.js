@@ -180,7 +180,7 @@ $(function(){
 	);
 	
 	$(".track li").click(function(){
-		var _disk = $(this).parant().attr("disk");
+		var _disk = $(this).parent().attr("disk");
 		var _track = $(this).attr("track");
 		
 		window.location = "../" + _disk + "/" + _track + ".html";
