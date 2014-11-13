@@ -126,7 +126,7 @@ $(function(){
 	//按页码显示正文
 	function showContext(index){
 		console.log("into showContext");
-		if(index < 0 || index > pageCount - 1){
+		if(index < 0 || index > pageCount){
 			console.log("out of showContext");
 			return;
 		}
