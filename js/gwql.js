@@ -121,7 +121,7 @@ $(function(){
 				$(".page").append('<div class="num" index="' + i + '">' + (i + 1) + '</div>');
 			}
 		};
-		$(".page").append('<div class="prev">&gt;</div>');
+		$(".page").append('<div class="next">&gt;</div>');
 		
 		$(".num").click(function(){
 			$(".current").removeClass("current").addClass("num");
