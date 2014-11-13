@@ -164,7 +164,7 @@ $(function(){
 			var index = $(this).index();
 			$(".track").hide().eq(index).show();
 		}
-	})
+	});
 	
 	$(".disk-li").hover(
 		function(){
@@ -179,12 +179,12 @@ $(function(){
 		}
 	);
 	
-	$(".track li").click(function()){
+	$(".track li").click(function(){
 		var _disk = $(this).parant().attr("disk");
 		var _track = $(this).attr("track");
 		
 		window.location = "../" + _disk + "/" + _track + ".html";
-	}
+	});
 	
 	initTitle();
 	initContent();
