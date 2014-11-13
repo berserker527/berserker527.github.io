@@ -81,6 +81,9 @@ $(function(){
 		  	sectionCount = data.split("<br/>").length;
 			//5个大段落当做1页
 		  	pageCount = (sectionCount - 1) / 5;
+			
+			initPage();
+			showContext(0);
 		  },
 		  error: function(){ //请求无效则重新请求
 		  	refreshTime--;
@@ -112,9 +115,6 @@ $(function(){
 	);
 	
 	function initPage(){
-		if(content == ""){
-			return;
-		}
 		$(".page").append('<div class="prev">&lt;</div>');
 		$(".prev").hide();
 		for (var i = 0; i < pageCount; i++) {
@@ -147,9 +147,6 @@ $(function(){
 			return;
 		}
 		currentPage = index;
-		if(content == ""){
-			return;
-		}
 		
 	  	console.log("currentPage ： " + currentPage);
 		data = content.split("<br/>");
@@ -181,11 +178,6 @@ $(function(){
 	
 	initTitle();
 	initContent();
-	//延迟
-	setTimeout(function(){
-		initPage();
-		showContext(0);
-	},200)
 	
 
 });
