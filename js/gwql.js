@@ -70,12 +70,14 @@ $(function(){
           type: "GET",
           url: "../txt/" + disk + "_" + trace + ".txt",
           success: function(data){
+		  	console.log(data);
 			data = data.split("<br/>");
 			
 			$(".content").html("");
 			for (var i = 0; i < 5; i++) {
 				if(5 * currentPage + i < sectionCount){
-					$(".content").append(data[5 * currentPage + i] + "<br/>")
+					$(".content").append(data[5 * currentPage + i] + "<br/>");
+					console.log(data[5 * currentPage + i]);
 				}
 				else{
 					break;
