@@ -145,6 +145,9 @@ $(function(){
 			}
 		};
 		
+		$(".current").removeClass("current").addClass("num");
+		$(".num[index=" + currentPage + "]").removeClass("num").addClass("current");
+		
 		if(currentPage == 0){
 			$(".prev").hide();
 		}else{
