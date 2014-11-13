@@ -97,7 +97,7 @@ $(function(){
 	function initPage(){
 		$(".page").append('<div class="prev">&lt;</div>');
 		$(".prev").hide();
-		for (var i = 0; i < pageCount; i++) {
+		for (var i = 0; i < pageCount + 1; i++) {
 			if(i == 0){
 				$(".page").append('<div class="current" index="' + i + '">' + (i + 1) + '</div>');
 			}
