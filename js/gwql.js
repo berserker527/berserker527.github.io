@@ -151,7 +151,8 @@ $(function(){
 		});
 	}
 	
-	function showContext(currentPage){
+	function showContext(index){
+		currentPage = index;
 		if(content == ""){
 			return;
 		}
