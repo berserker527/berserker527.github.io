@@ -141,7 +141,6 @@ $(function(){
 			}
 			
 			showContext(index);
-			window.document.body.scrollTop = 0;
 		});
 		$(".prev").click(function(){
 			showContext(currentPage - 1);
@@ -169,6 +168,7 @@ $(function(){
 				break;
 			}
 		};
+		window.document.body.scrollTop = 0;
 	}
 	
 	initTitle();
