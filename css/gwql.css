@@ -65,7 +65,7 @@ li{
 	background:#e0e0e0;
 	color:#000;
 }
-.top .disk-option .disk-li .trace-down{
+.top .disk-option .disk-li .track-down{
 	display:none;
 	width:250px;
 	border-top:1px solid #e0e0e0;
@@ -73,10 +73,10 @@ li{
 	background:#e0e0e0;
 	
 }
-.top .disk-option .disk-li .trace-down ul{
+.top .disk-option .disk-li .track-down ul{
 	margin:10px auto;
 }
-.top .disk-option .disk-li .trace-down li{
+.top .disk-option .disk-li .track-down li{
 	height:30px;
 	line-height:30px;
 	margin:auto 20px;
@@ -87,7 +87,7 @@ li{
 	display:block;
 }
 */
-.top .disk-option .disk-li .trace-down li:hover{
+.top .disk-option .disk-li .track-down li:hover{
 	color:#ffaa00;
 }
 .top .author{
@@ -110,7 +110,7 @@ li{
 .main .title .title-disk{
 	
 }
-.main .title .title-trace{
+.main .title .title-track{
 	
 }
 .main .content{
@@ -164,7 +164,7 @@ li{
 .tools{
 	
 }
-.tools .trace{
+.tools .track{
 	display:none;
 }
 .tools li{
@@ -193,7 +193,7 @@ li{
 		font-size:12px;
 		margin:5px auto 5px 20px;
 	}
-	.main .title .title-trace{
+	.main .title .title-track{
 		float:right;
 		font-size:12px;
 		margin:5px 20px 5px auto;
@@ -224,7 +224,7 @@ li{
 		line-height:50px;
 		background:#464646;
 	}
-	.tools .trace{
+	.tools .track{
 		display:none;
 	}
 }
@@ -246,7 +246,7 @@ li{
 	.main .title .title-disk{
 		display:none;
 	}
-	.main .title .title-trace{
+	.main .title .title-track{
 		text-align:center;
 		font-size:24px;
 		font-weight:bold;
@@ -292,7 +292,7 @@ li{
 		border-left:1px solid #c1c1c1;
 		border-right:1px solid #c1c1c1;
 	}
-	.tools .trace{
+	.tools .track{
 		display:none;
 	}
 }
@@ -325,7 +325,7 @@ li{
 	.main .title .title-disk{
 		display:none;
 	}
-	.main .title .title-trace{
+	.main .title .title-track{
 		text-align:center;
 		font-size:24px;
 		font-weight:bold;
@@ -357,12 +357,12 @@ li{
 	.tools .tools-btn{
 		display:none;
 	}
-	.tools .trace li{
+	.tools .track li{
 		height:30px;
 		line-height:30px;
 		cursor:pointer;
 	}
-	.tools .trace li span{
+	.tools .track li span{
 		display:inline-block;
 		width:0px;
 		height:0px;
@@ -371,7 +371,7 @@ li{
 		border-bottom:5px solid transparent;
 		margin-left:10px;
 	}
-	.tools .trace li:hover{
+	.tools .track li:hover{
 		/*background:#e0e0e0;*/
 		color:#ffaa00;
 	}
