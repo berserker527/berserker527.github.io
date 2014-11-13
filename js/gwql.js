@@ -55,8 +55,8 @@ $(function(){
 			$(".page").append('<div class="prev">&gt;</div>');
 			
 			$(".num").click(function(){
-				$(".num").removeClass("current");
-				$(this).addClass("current");
+				$(".current").removeClass("current").addClass("num");
+				$(this).removeClass("num").addClass("current");
 				var index = $(this).attr("index");
 				showContext(index);
 				window.document.body.scrollTop = 0;
