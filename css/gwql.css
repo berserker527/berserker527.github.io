@@ -242,8 +242,13 @@ li{
 	.tools .tools-btn .info{
 		border-left:1px solid #666;
 	}
-	.tools .tools-btn .pagenum, .tools .tools-btn .pagenum span{
+	.tools .tools-btn .pagenum{
+		position:absolute;
+		width:100%;
 		text-align:center;
+		color:#fff;
+	}
+	.tools .tools-btn .pagenum span{
 		color:#fff;
 	}
 	.qrcode{
