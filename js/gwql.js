@@ -52,7 +52,7 @@ $(function(){
 			$("#" + disk).parent().show();
 			$("ul[disk=" + disk + "]").children("li[track=" + track + "]").append("<span></span>");
 			//二维码
-			$(".qrcode img").attr({src : "../img/" + disk + "_" + track + ".png", alt : document.title});
+			$(".qrcode img").attr({src : "../img/qrcode/" + disk + "_" + track + ".png", alt : document.title});
 		}
 	}
 	//正文内容
