@@ -231,12 +231,10 @@ li{
 		width:50px;
 		height:50px;
 	}
-	.tools .tools-btn .menu div{
-		width:34px;
-		height:35px;
-		margin:8px 0px 0px 8px;
-		background:url(../img/menu.png) no-repeat;
-		
+	.tools .tools-btn .menu img{
+		width:30px;
+		height:30px;
+		margin:10px;
 	}
 	.qrcode{
 		display:none;
