@@ -1,6 +1,6 @@
 $(function(){
 	//disk标题
-	var disks = {"disk1":"Disk 1 苏醒的梦", "disk2":"Disk 2 流转的风", "disk1":"Disk 3 消散的虹"}
+	var disks = {"disk1":"Disk 1 苏醒的梦", "disk2":"Disk 2 流转的风", "disk3":"Disk 3 消散的虹"}
 	//track标题
 	var tracks = {"disk1":{
 		"track1":"Track 1 弦拨浪起",
