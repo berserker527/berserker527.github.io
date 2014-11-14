@@ -235,7 +235,7 @@ li{
 	}
 	.wrap{
 		max-width:1024px;
-		margin:45px auto;
+		margin-top:45px;
 	}
 	.main{
 		background:#fff;
