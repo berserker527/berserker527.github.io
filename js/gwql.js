@@ -130,7 +130,7 @@ $(function(){
 		currentPage = index;
 		
 		$(".pagenum .currentpage").text(currentPage + 1);
-		$(".pagenum .pageCount").text(pageCount + 1);
+		$(".pagenum .pagecount").text(pageCount + 1);
 		
 		data = content.split("<br/>");
 		//显示正文
