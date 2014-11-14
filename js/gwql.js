@@ -51,6 +51,8 @@ $(function(){
 		if(_width >= 1024){
 			$("#" + disk).parent().show();
 			$("ul[disk=" + disk + "]").children("li[track=" + track + "]").append("<span></span>");
+			//二维码
+			$(".qrcode img").attr({src : "../img/" + disk + "_" + track + ".png", alt : document.title});
 		}
 	}
 	//正文内容
@@ -87,7 +89,7 @@ $(function(){
 		  error: function(){ 
 		  	//refreshTime--;
 			//initContent();
-			$(".content").append("<p>敬请期待！</p>");
+			$(".content").html("").append("<p>敬请期待！</p>");
 		  }
         });
 	}
