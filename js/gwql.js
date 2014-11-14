@@ -190,8 +190,23 @@ $(function(){
 		window.location = "../" + _disk + "/" + _track + ".html";
 	});
 	
-	initTitle();
-	initContent();
+	$(".tools .menu").click(function(){
+		$(".tools .disk").toggle();
+	});
+	
+	$(".tools .disk li").click(function(){
+		$(".tools .disk").removeClass("checked");
+		var index = $(this).addClass("checked").index();
+		disk = $(this).attr("disk");
+		$(".tools .trace").eq(index).show();
+	});
+	
+	$(".tools .track li").click(function(){
+		track = $(this).attr("track");
+	});
+	
+//	initTitle();
+//	initContent();
 	
 
 });

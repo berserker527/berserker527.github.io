@@ -9,6 +9,7 @@
 }	
 li{
 	list-style:none;
+	cursor:pointer;
 }
 .fl{
 	float:left;
@@ -59,7 +60,6 @@ li{
 	/*border-right:1px solid #c1c1c1;*/
 	color:#fff;
 	text-align:center;
-	cursor:pointer;
 }
 .top .disk-option .disk-li:hover{
 	background:#e0e0e0;
@@ -164,7 +164,7 @@ li{
 .tools{
 	
 }
-.tools .track{
+.tools .disk, .tools .track{
 	display:none;
 }
 .tools li{
@@ -224,8 +224,22 @@ li{
 		line-height:50px;
 		background:#464646;
 	}
+	.tools .disk{
+		position:fixed;
+		bottom:50px;
+		
+	}
+	.tools .disk li{
+		width:140px;
+		height:40px;
+		line-height:40px;
+		padding-left:20px;
+		background:#464646;
+		color:#fff;
+		border-bottom:1px solid #666;
+	}
 	.tools .track{
-		display:none;
+		
 	}
 	.tools .tools-btn ul{
 		position:absolute;
@@ -254,6 +268,10 @@ li{
 	}
 	.tools .tools-btn .pagenum span{
 		color:#fff;
+	}
+	.checked{
+		background:#fff;
+		color:#464646;
 	}
 	.qrcode{
 		display:none;
@@ -363,7 +381,6 @@ li{
 	.tools .track li{
 		height:30px;
 		line-height:30px;
-		cursor:pointer;
 	}
 	.tools .track li span{
 		display:inline-block;
