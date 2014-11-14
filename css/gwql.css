@@ -228,7 +228,8 @@ li{
 		display:none;
 	}
 	.tools .tools-btn ul{
-		z-index:100;
+		position:absolute;
+		width:100%;
 	}
 	.tools .tools-btn li{
 		width:50px;
@@ -250,7 +251,6 @@ li{
 		width:100%;
 		text-align:center;
 		color:#fff;
-		z-index:10;
 	}
 	.tools .tools-btn .pagenum span{
 		color:#fff;

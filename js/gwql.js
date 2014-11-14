@@ -114,7 +114,7 @@ $(function(){
 			var index = $(this).attr("index");
 			showContext(index);
 		});
-		$(".prev").click(function(){alert(1);
+		$(".prev").click(function(){
 			showContext(--currentPage);
 		});
 		$(".next").click(function(){
