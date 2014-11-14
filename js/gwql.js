@@ -116,7 +116,6 @@ $(function(){
 		});
 		$(".prev").click(function(){
 			showContext(--currentPage);
-			alert("1");
 		});
 		$(".next").click(function(){
 			showContext(++currentPage);
@@ -129,6 +128,9 @@ $(function(){
 			return;
 		}
 		currentPage = index;
+		
+		$(".pagenum .currentpage").text(currentPage);
+		$(".pagenum .pageCount").text(pageCount);
 		
 		data = content.split("<br/>");
 		//显示正文

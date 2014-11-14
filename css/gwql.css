@@ -242,6 +242,10 @@ li{
 	.tools .tools-btn .info{
 		border-left:1px solid #666;
 	}
+	.tools .tools-btn .paganum, .tools .tools-btn .paganum span{
+		text-align:center;
+		color:#fff;
+	}
 	.qrcode{
 		display:none;
 	}
