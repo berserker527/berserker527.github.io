@@ -236,6 +236,12 @@ li{
 		height:30px;
 		margin:10px;
 	}
+	.tools .tools-btn .menu{
+		border-right:1px solid #666;
+	}
+	.tools .tools-btn .info{
+		border-left:1px solid #666;
+	}
 	.qrcode{
 		display:none;
 	}
