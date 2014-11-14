@@ -66,7 +66,6 @@ $(function(){
 	
 	//初始化正文内容
 	function initContent(){
-		console.log("refreshTime : " + refreshTime);
 		$.ajax({
           type: "GET",
           url: "../txt/" + disk + "_" + track + ".txt",
@@ -79,17 +78,16 @@ $(function(){
 			}
 		  	//大段落按txt中插入的<br/>计算
 		  	sectionCount = data.split("<br/>").length;
-			console.log(" : sectionCount" + sectionCount);
 			//5个大段落当做1页
 		  	pageCount = Math.floor((sectionCount - 1) / 5);
-			console.log(" : pageCount" + pageCount);
 			
 			initPage();
 			showContext(0);
 		  },
-		  error: function(){ //请求无效则重新请求
-		  	refreshTime--;
-			initContent();
+		  error: function(){ 
+		  	//refreshTime--;
+			//initContent();
+			$(".content").append("<p>敬请期待！</p>");
 		  }
         });
 	}
