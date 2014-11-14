@@ -227,11 +227,11 @@ li{
 	.tools .track{
 		display:none;
 	}
-	.tools .tools-btn .menu{
+	.tools .tools-btn li{
 		width:50px;
 		height:50px;
 	}
-	.tools .tools-btn .menu img{
+	.tools .tools-btn img{
 		width:30px;
 		height:30px;
 		margin:10px;
