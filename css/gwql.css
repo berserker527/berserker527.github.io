@@ -227,6 +227,9 @@ li{
 	.tools .track{
 		display:none;
 	}
+	.qrcode{
+		display:none;
+	}
 }
 /*pad端*/
 @media screen and (min-width:481px) and (max-width:1023px){
@@ -265,26 +268,15 @@ li{
 	.tools{
 		display:none;
 	}
+	.qrcode{
+		display:none;
+	}
 }
 /*pc端*/
 @media screen and (min-width:1024px){
 	body{
 		background:#f4f4f4;
 		min-width:1024px;
-	}
-	.qrcode{
-		float:left;
-		position:fixed;
-		top:435px;
-		width:250px;
-		height:250px;
-		background:#fff;
-		border-bottom:5px solid #e0e0e0;
-	}
-	.qrcode img{
-		width:200px;
-		height:200px;
-		margin:25px;
 	}
 	.wrap{
 		width:1024px;
@@ -357,6 +349,20 @@ li{
 	.tools .track li:hover{
 		/*background:#e0e0e0;*/
 		color:#ffaa00;
+	}
+	.qrcode{
+		float:left;
+		position:fixed;
+		top:435px;
+		width:250px;
+		height:250px;
+		background:#fff;
+		border-bottom:5px solid #e0e0e0;
+	}
+	.qrcode img{
+		width:200px;
+		height:200px;
+		margin:25px;
 	}
 }
 
