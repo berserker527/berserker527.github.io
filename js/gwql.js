@@ -116,6 +116,7 @@ $(function(){
 		});
 		$(".prev").click(function(){
 			showContext(--currentPage);
+			alert("1");
 		});
 		$(".next").click(function(){
 			showContext(++currentPage);
