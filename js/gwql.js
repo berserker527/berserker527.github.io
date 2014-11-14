@@ -179,7 +179,7 @@ $(function(){
 		}
 	);
 	
-	$(".track li").click(function(){
+	$("ul[disk]").click(function(){
 		var _disk = $(this).parent().attr("disk");
 		var _track = $(this).attr("track");
 		
