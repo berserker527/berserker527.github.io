@@ -205,8 +205,8 @@ $(function(){
 		track = $(this).attr("track");
 	});
 	
-//	initTitle();
-//	initContent();
+	initTitle();
+	initContent();
 	
 
 });
