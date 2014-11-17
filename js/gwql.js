@@ -99,7 +99,7 @@ $(function(){
 		$(".page").append('<div class="prev">&lt;</div>');
 		for (var i = 0; i < pageCount + 1; i++) {
 			if(i == 0){
-				$(".page").append('<div class="current" index="' + i + '">' + (i + 1) + '</div>');
+				$(".page").append('<div class="num current" index="' + i + '">' + (i + 1) + '</div>');
 			}
 			else{
 				$(".page").append('<div class="num" index="' + i + '">' + (i + 1) + '</div>');
@@ -107,7 +107,7 @@ $(function(){
 		};
 		$(".page").append('<div class="next">&gt;</div>');
 		//为页码按钮绑定点击事件
-		$(".num:not(.current)").click(function(){
+		$(".num").click(function(){
 			$(".current").removeClass("current").addClass("num");
 			$(this).removeClass("num").addClass("current");
 			
