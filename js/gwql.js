@@ -107,7 +107,7 @@ $(function(){
 		};
 		$(".page").append('<div class="next">&gt;</div>');
 		//为页码按钮绑定点击事件
-		$(".num, .current").click(function(){
+		$(".num:not(.current)").click(function(){
 			$(".current").removeClass("current").addClass("num");
 			$(this).removeClass("num").addClass("current");
 			
