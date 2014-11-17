@@ -8,7 +8,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 		<meta name="format-detection" content="telephone=no"/>
 		<title>歌尾倾泪</title>
-		<script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 		
 		<!--
 		<script type="text/javascript" src="js/jquery.wipetouch.js"></script>
@@ -82,12 +82,21 @@
 		<div class="wrap">
 			<div class="tools">
 				<div class="tools-btn">
+					<div class="pagenum">
+						<span class="currentpage">0</span>&nbsp;/&nbsp;<span class="pagecount">0</span>
+					</div>
 					<ul>
-						<li class="menu fl">目录</li>
-						<li class="goto fl">上一页</li>
-						<li class="info fl">说明</li>
-						<li class="goto fl">下一页</li>
-						<li class="refresh fl">刷新</li>
+						<li class="menu fl"><img src="../img/menu.png"/></li>
+						<li class="prev fl"><img src="../img/prev.png"/></li>
+						<li class="info fr"><img src="../img/info.png"/></li>
+						<li class="next fr"><img src="../img/next.png"/></li>
+					</ul>
+				</div>
+				<div class="disk">
+					<ul>
+						<li disk="disk1">DISK1 苏醒的梦</li>
+						<li disk="disk2">DISK2 流转的风</li>
+						<li disk="disk3">DISK3 消散的虹</li>
 					</ul>
 				</div>
 				<div class="track">
