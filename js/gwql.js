@@ -191,6 +191,7 @@ $(function(){
 	
 	$(".tools .menu").click(function(){
 		$(".tools .track").hide();
+		$(".tools .disk li").removeClass("checked");
 		$(".tools .disk").toggle();
 	});
 	
