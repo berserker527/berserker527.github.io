@@ -213,6 +213,12 @@ $(function(){
 		$(".tools .disk").hide();
 		$(".tools .track").hide();
 	});
+	
+	$(".qrcode").click(function(){
+		$(this).toggleClass("qrcode_mark");
+		$(".qrcode img").toggleClass("img_mark");
+	});
+	
 	initTitle();
 	initContent();
 	
