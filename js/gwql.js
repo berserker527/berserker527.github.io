@@ -191,14 +191,15 @@ $(function(){
 	});
 	
 	$(".tools .menu").click(function(){
+		$(".tools .track").hide();
 		$(".tools .disk").toggle();
 	});
 	
 	$(".tools .disk li").click(function(){
-		$(".tools .disk").removeClass("checked");
+		$(".tools .disk li").removeClass("checked");
 		var index = $(this).addClass("checked").index();
 		disk = $(this).attr("disk");
-		$(".tools .trace").eq(index).show();
+		$(".tools .track").hide().eq(index).show();
 	});
 	
 	$(".tools .track li").click(function(){

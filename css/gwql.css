@@ -237,7 +237,20 @@ li{
 		text-align:center;
 	}
 	.tools .track{
-		
+		position:fixed;
+		bottom:50px;
+		left:150px;
+		border:1px solid #666;
+		border-bottom:none;
+	}
+	.tools .track li{
+		width:250px;
+		height:40px;
+		line-height:40px;
+		background:#464646;
+		color:#fff;
+		border-bottom:1px solid #666;
+		/*text-align:center;*/
 	}
 	.tools .tools-btn ul{
 		position:absolute;
