@@ -207,6 +207,9 @@ $(function(){
 	});
 	
 	$(".main").click(function(){
+		if(_width > 480){
+			return;
+		}
 		$(".tools .disk").hide();
 		$(".tools .track").hide();
 	});
