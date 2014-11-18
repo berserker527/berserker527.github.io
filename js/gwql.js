@@ -206,6 +206,10 @@ $(function(){
 		track = $(this).attr("track");
 	});
 	
+	$(".main").click(function(){
+		$(".tools .disk").hide();
+		$(".tools .track").hide();
+	});
 	initTitle();
 	initContent();
 	
