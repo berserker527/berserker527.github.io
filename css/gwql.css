@@ -420,6 +420,7 @@ li{
 		width:200px;
 		height:200px;
 		margin:25px;
+		cursor:pointer;
 	}
 	.qrcode_mark{
 		position:fixed;
