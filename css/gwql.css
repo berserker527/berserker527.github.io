@@ -228,7 +228,7 @@ li{
 		border-right:1px solid #666;
 	}
 	.tools .disk li{
-		width:150px;
+		width:140px;
 		height:40px;
 		line-height:40px;
 		background:#464646;
@@ -239,14 +239,15 @@ li{
 	.tools .track{
 		position:fixed;
 		bottom:50px;
-		left:150px;
+		left:140px;
 		border:1px solid #666;
 		border-bottom:none;
 	}
 	.tools .track li{
-		width:250px;
+		width:200px;
 		height:40px;
 		line-height:40px;
+		padding-left:10px;
 		background:#464646;
 		color:#fff;
 		border-bottom:1px solid #666;
