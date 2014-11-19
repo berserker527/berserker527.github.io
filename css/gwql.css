@@ -98,23 +98,8 @@ li{
 	color:#ffaa00;
 	font-size:12px;
 }
-.wrap{
-	
-}
 .main{
 	padding-bottom:50px;
-}
-.main .title{
-	
-}
-.main .title .title-disk{
-	
-}
-.main .title .title-track{
-	
-}
-.main .content{
-	
 }
 .main .content p{
 	text-indent:2em;
@@ -160,9 +145,6 @@ li{
 	background:#ffaa00;
 	color:#fff !important;
 	cursor:default;
-}
-.tools{
-	
 }
 .tools .disk, .tools .track{
 	display:none;
