@@ -278,6 +278,7 @@ li{
 		top:0px;
 		left:0px;
 		display:block;
+		z-index:101;
 	}
 	.cover img{
 		
