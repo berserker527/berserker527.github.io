@@ -37,7 +37,7 @@ $(function(){
 		"track10":""
 	}};
 	//根据url判断具体是哪一章
-	var url = window.location.href;
+	var url = window.location.host;
 	var temp = url.split("/");
 	var disk = temp[temp.length - 2];
 	var track = temp[temp.length - 1].replace(".html","");
