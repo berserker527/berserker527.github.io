@@ -56,12 +56,13 @@ $(function(){
 			$(".qrcode img").attr({src : "../img/qrcode/" + disk + "_" + track + ".png", alt : document.title});
 		}
 	}
+	//是否展示封面
 	var coverCanShow = (window.location.search) ? false : true;
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
 			$(".cover img").css({height : _height + "px"});
-		}else{
+		}else{ //如果不是手机端，直接移除，防止遮挡其余的元素
 			$(".cover").remove();
 		}
 	}
@@ -92,7 +93,7 @@ $(function(){
 		  	sectionCount = data.split("<br/>").length;
 			//5个大段落当做1页
 		  	pageCount = Math.floor((sectionCount - 1) / 5);
-			
+			//成功获取txt后，初始化页码和第一页
 			initPage();
 			showContext(0);
 		  },
@@ -124,9 +125,11 @@ $(function(){
 			var index = $(this).attr("index");
 			showContext(index);
 		});
+		//上一页
 		$(".prev").click(function(){
 			showContext(--currentPage);
 		});
+		//下一页
 		$(".next").click(function(){
 			showContext(++currentPage);
 		});
@@ -171,14 +174,14 @@ $(function(){
 		//翻页后页面滚到开始
 		window.document.body.scrollTop = 0;
 	}
-	
+	//pc端左侧目录
 	$(".disk-option li").click(function(){
 		if (_width >= 1024) {
 			var index = $(this).index();
 			$(".track").hide().eq(index).show();
 		}
 	});
-	
+	//pad端顶部目录
 	$(".disk-li").hover(
 		function(){
 			if (_width < 1024) {
@@ -191,31 +194,31 @@ $(function(){
 			}
 		}
 	);
-	
+	//跳转章节
 	$("ul[disk] li").click(function(){
 		var _disk = $(this).parent().attr("disk");
 		var _track = $(this).attr("track");
 		
-		window.location = "../" + _disk + "/" + _track + ".html";
+		window.location = "../" + _disk + "/" + _track + ".html?read=notfirst";
 	});
-	
+	//menu按钮
 	$(".tools .menu").click(function(){
 		$(".tools .track").hide();
 		$(".tools .disk li").removeClass("checked");
 		$(".tools .disk").toggle();
 	});
-	
+	//选择disk
 	$(".tools .disk li").click(function(){
 		$(".tools .disk li").removeClass("checked");
 		var index = $(this).addClass("checked").index();
 		disk = $(this).attr("disk");
 		$(".tools .track").hide().eq(index).show();
 	});
-	
+	//选择track
 	$(".tools .track li").click(function(){
 		track = $(this).attr("track");
 	});
-	
+	//手机端点击正文，目录隐藏
 	$(".main").click(function(){
 		if(_width > 480){
 			return;
@@ -223,23 +226,22 @@ $(function(){
 		$(".tools .disk").hide();
 		$(".tools .track").hide();
 	});
-	
+	//pc端二维码居中显示
 	$(".qrcode").click(function(){
 		$(this).toggleClass("qrcode_mark");
 		$(".qrcode img").toggleClass("img_mark");
 	});
-	
+	//封面点击后消失
 	$(".cover").click(function(){
 		$(this).animate({
 			left : "-300px",
 			opacity : 0
 		},1000,function(){
-			$(this).remove();
+			$(this).remove(); //不移除的话，tools按钮会被挡住而失效
 		});
 	});
 	
 	initCover();
-	
 	initTitle();
 	initContent();
 	
