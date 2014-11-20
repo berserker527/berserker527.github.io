@@ -43,6 +43,7 @@ $(function(){
 	var track = temp[temp.length - 1].replace(/.html[\s\S]*/,"");
 	//浏览器宽度，用于判定是什么设备
 	var _width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	var _height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 	//初始化文档标题，正文显示的标题，左侧对应disk的track
 	function initTitle(){
 		document.title = "歌尾倾泪_" + tracks[disk][track];
@@ -59,7 +60,7 @@ $(function(){
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
-			
+			$(".cover img").css({height : _height});
 		}
 	}
 	//正文内容
