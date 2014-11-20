@@ -37,10 +37,10 @@ $(function(){
 		"track10":""
 	}};
 	//根据url判断具体是哪一章
-	var url = window.location.host;
+	var url = window.location.href;
 	var temp = url.split("/");
 	var disk = temp[temp.length - 2];
-	var track = temp[temp.length - 1].replace(".html","");
+	var track = temp[temp.length - 1].replace(/.html[\s\S]+/,"");
 	//浏览器宽度，用于判定是什么设备
 	var _width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	//初始化文档标题，正文显示的标题，左侧对应disk的track
