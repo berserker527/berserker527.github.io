@@ -60,7 +60,8 @@ $(function(){
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
-			$(".cover img").css({height : _height});
+			alert(_height);
+			$(".cover img").css({height : _height + "px"});
 		}
 	}
 	//正文内容
