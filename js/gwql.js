@@ -56,7 +56,7 @@ $(function(){
 			$(".qrcode img").attr({src : "../img/qrcode/" + disk + "_" + track + ".png", alt : document.title});
 		}
 	}
-	var coverCanShow = (window.location.search) ? false : true;
+	var coverCanShow = (window.location.search) ? false : true;alert(coverCanShow);
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
@@ -227,6 +227,8 @@ $(function(){
 		$(this).toggleClass("qrcode_mark");
 		$(".qrcode img").toggleClass("img_mark");
 	});
+	
+	initCover();
 	
 	initTitle();
 	initContent();
