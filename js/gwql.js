@@ -56,12 +56,13 @@ $(function(){
 			$(".qrcode img").attr({src : "../img/qrcode/" + disk + "_" + track + ".png", alt : document.title});
 		}
 	}
-	var coverCanShow = (window.location.search) ? false : true;alert(coverCanShow);
+	var coverCanShow = (window.location.search) ? false : true;
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
-			alert(_height);
 			$(".cover img").css({height : _height + "px"});
+		}else{
+			$(".cover").remove();
 		}
 	}
 	//正文内容
@@ -226,6 +227,15 @@ $(function(){
 	$(".qrcode").click(function(){
 		$(this).toggleClass("qrcode_mark");
 		$(".qrcode img").toggleClass("img_mark");
+	});
+	
+	$(".cover").click(function(){
+		$(this).animate({
+			left : "-300px",
+			opacity : 0
+		},1000,function(){
+			$(this).remove();
+		});
 	});
 	
 	initCover();
