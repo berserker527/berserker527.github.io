@@ -149,6 +149,9 @@ li{
 .tools .disk, .tools .track{
 	display:none;
 }
+.cover{
+	display:none;
+}
 /*手机端*/
 @media screen and (max-width:480px){
 	body{
@@ -271,12 +274,13 @@ li{
 		display:none;
 	}
 	.cover{
-		position:absolute;
+		position:fixed;
 		top:0px;
 		left:0px;
-		width:1000px;
-		height:1000px;
-		background:url(../img/cover.jpg);
+		display:block;
+	}
+	.cover img{
+		
 	}
 }
 /*pad端*/
