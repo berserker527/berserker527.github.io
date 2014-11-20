@@ -270,6 +270,13 @@ li{
 	.qrcode{
 		display:none;
 	}
+	.cover{
+		position:absolute;
+		top:0px;
+		left:0px;
+		height:1000px;
+		background:url(../img/cover.jpg);
+	}
 }
 /*pad端*/
 @media screen and (min-width:481px) and (max-width:1023px){
