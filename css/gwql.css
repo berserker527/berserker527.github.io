@@ -281,7 +281,8 @@ li{
 		z-index:101;
 	}
 	.cover img{
-		
+		height:100%;
+		width:100%;
 	}
 }
 /*pad端*/

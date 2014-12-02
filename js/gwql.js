@@ -61,7 +61,7 @@ $(function(){
 	//初始化封面
 	function initCover(){
 		if(_width <= 480 && coverCanShow){
-			$(".cover img").css({height : _height + "px"});
+			//$(".cover img").css({height : _height + "px"});
 		}else{ //如果不是手机端，直接移除，防止遮挡其余的元素
 			$(".cover").remove();
 		}
@@ -234,7 +234,10 @@ $(function(){
 	//封面点击后消失
 	$(".cover").click(function(){
 		$(this).animate({
-			left : "-300px",
+			top : "-10%",
+			left : "-10%",
+			width : "+=20%",
+			height : "+=20%",
 			opacity : 0
 		},1000,function(){
 			$(this).remove(); //不移除的话，tools按钮会被挡住而失效
