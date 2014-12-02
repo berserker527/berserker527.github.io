@@ -106,8 +106,8 @@ li{
 .main .content p{
 	text-indent:2em;
 	margin:5px 40px;
-	line-height:160%;
-	letter-spacing:0.1em;
+	line-height:30px;
+	/*letter-spacing:0.1em;*/
 }
 .main .content p .end{
 	margin-left:10px;
