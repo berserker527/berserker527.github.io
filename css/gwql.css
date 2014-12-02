@@ -214,8 +214,8 @@ li{
 		border-right:1px solid #666;
 	}
 	.tools .disk li{
-		height:40px;
-		line-height:40px;
+		height:45px;
+		line-height:45px;
 		background:#464646;
 		color:#fff;
 		border-bottom:1px solid #666;
@@ -230,8 +230,8 @@ li{
 		border-bottom:none;
 	}
 	.tools .track li{
-		height:40px;
-		line-height:40px;
+		height:45px;
+		line-height:45px;
 		padding-left:10px;
 		background:#464646;
 		color:#fff;
