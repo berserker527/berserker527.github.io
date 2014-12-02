@@ -191,6 +191,7 @@ li{
 	.main .content p{
 		margin:5px 20px;
 		line-height:160%;
+		letter-spacing:0.01em;
 	}
 	.main .content p .end{
 		color:#464646;
