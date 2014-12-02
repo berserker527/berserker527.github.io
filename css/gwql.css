@@ -284,6 +284,14 @@ li{
 		height:100%;
 		width:100%;
 	}
+	.cover .cover-title{
+		position:absolute;
+		top:100px;
+		width:100%;
+		text-align:center;
+		font-size:40px;
+		color:#464646;
+	}
 }
 /*pad端*/
 @media screen and (min-width:481px) and (max-width:1023px){
