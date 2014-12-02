@@ -216,7 +216,7 @@ li{
 	.tools .disk li{
 		height:45px;
 		line-height:45px;
-		background:#464646;
+		background:url(../img/li_bg.png);
 		color:#fff;
 		border-bottom:1px solid #666;
 		text-align:center;
@@ -233,7 +233,7 @@ li{
 		height:45px;
 		line-height:45px;
 		padding-left:10px;
-		background:#464646;
+		background:url(../img/li_bg.png);
 		color:#fff;
 		border-bottom:1px solid #666;
 		/*text-align:center;*/
