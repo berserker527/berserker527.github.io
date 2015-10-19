@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html ng-app="leemo">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>柠檬音乐播放器</title>
+		<style type="text/css">
+			/* 通用 */
+			html{ height: 100%; }
+			body{ min-height: 100%; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size:12px; }
+			body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, iframe, pre, code, fieldset, legend, form, input, select, textarea, button, p, blockquote, th, td, figure { margin: 0px; padding: 0px; }
+			li{ list-style-type: none; }
+			a{ color: #363636; text-decoration: none; }
+			a{ blr: expression(this.onFocus=this.blur()) }
+			a:hover{ color: #0c8f44; }
+			:focus{ outline: none; }
+			body ::selection{ color:#fff; background-color:#99cc33; text-shadow:none; }
+			
+			div{ /*border: 1px solid #ccc;*/ }
+			.body{ position: absolute; top: 15px; left: 15px; right: 15px; bottom :15px; overflow: hidden; box-shadow:0 1px 5px #ccc; background:#eee; }
+			/* 头部 */
+			.header{ height: 50px; line-height: 50px; background: #f4f4f4; }
+			.header .header-contain{ height:100%; max-width: 1096px; margin: 0px auto; background: #99cc33; }
+			.header .logo{ float: left; height: 100%; }
+			.header .logo a{ display: block; height: 100%; width: 100px; background:#99cc33; }
+			.header .memo{ float: left; height: 100%; margin-left: 20px; }
+			.header .memo a{ color:#363636; }
+			.header .search{ position:relative; float: right; margin:5px 20px 0 0; }
+			.header .search .search-box{ height: 40px; border-radius: 5px; -webkit-border-radius: 5px; overflow:hidden; background: #fff;}
+			.header .search .search-box .search-text{ float: left; height: 40px; width: 400px; padding-left: 10px; border: none; font-size: 14px; }
+			.header .search .search-box .search-text::-webkit-input-placeholder{ color: #99cc33; }
+			.header .search .search-box .search-btn{ float: left; height: 40px; line-height:40px; width: 50px; border: none; border-left: 1px solid #99cc33; background: #fff; color: #000; }
+			.header .search .search-list{ position:absolute; float: left; width: 100%; height:500px; border :1px solid #99cc33; margin-top: 2px; background: #fff; display:none; }
+			/* 主体 */
+			.main{ width:100%; height:100%; z-index:-1; background:rgba(255,255,255,0.2)}
+			.main .left-contain{ float: left; width: 20%; height:100%; box-shadow:0px 0 0px #ccc;}
+			.main .left-contain .group{ margin: 10px; background: #fff; color:#363636; box-shadow:0px 0px 2px #ccc; }
+			.main .left-contain .group .group-name{ height: 26px; line-height: 26px; padding-left: 10px; }
+			.main .left-contain .group ul{ margin-left: 40px; }
+			.main .left-contain .group ul li{ height: 26px; line-height: 26px; }
+			.main .right-contain{ float:left; width: 80%; height:100%; }
+			.main .right-contain .player-contain{ width:100%; height: 50px; }
+			
+			.main .right-contain .item{ float: left; width: 200px; height: 280px; margin:10px; border:5px solid #fff; background:#fff; box-shadow:0 1px 3px #b2b2b2; }
+			.main .right-contain .item:hover{ border:5px solid #99cc33; }
+			.main .right-contain .item .title{ height:40px; line-height:40px; background:#99cc33; color:#363636; text-align:center; font-size:14px; }
+			.main .right-contain .item ul{ width:100%; height:240px; overflow-y:scroll; }
+			.main .right-contain .item .dark{ background:#eee; }
+			
+			.main .right-contain .song li{ width:100%; height:30px; line-height:30px; }
+			.main .right-contain .song li:hover{ background:#ffcc00; color:#fff; }
+			.main .right-contain .song li span{ margin-left:20px; }
+			
+			.main .right-contain .album li{ width:100%; height:60px; }
+			.main .right-contain .album li:hover{ background:#99cc33; color:#fff; }
+			.main .right-contain .album li img{ float:left; width:40px; height:40px; border-left:5px solid #363636; border:none; margin:10px; }
+			.main .right-contain .album li .info{ float:left; width:129px;}
+			.main .right-contain .album li .info span{ width:117px; height:30px; line-height:30px; display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+			
+			.bg{ position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; opacity:0.6; }
+			.bg img{ position:absolute; width:100%; height:100%; top:0; left:0; }
+			
+			::-webkit-scrollbar { width: 6px; height: 14px; }
+			::-webkit-scrollbar-button { display: none; }
+			::-webkit-scrollbar-thumb{ width:4px; background:#ffee99; height:14px; border-radius:4px; }
+			::-webkit-scrollbar-track{ /*width:5px; background:#99cc33; height:13px; border-radius:4px;*/ }
+		</style>
+	</head>
+	<body>
+		<div class="bg">
+			<!--
+			<img src="img/bg.png">
+			<img src="img/opbg.png">
+			-->
+		</div>
+		<div class="body">
+			<div class="header">
+				<div class="header-contain">
+					<div class="logo">
+						<a href="/"></a>
+					</div>
+					<div class="memo">
+						<a href="Javascript:void(0)">今天给你推荐的歌曲</a>
+					</div>
+					<div class="search">
+						<div class="search-box">
+							<input type="text"  class="search-text" placeholder="你要搜索点什么"/>
+							<button class="search-btn">搜索</button>
+						</div>
+						<div class="search-list">
+							<ul>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="main">
+				<div class="bg">
+				</div>
+				<div class="left-contain">
+					<div class="group" ng-controller="songsCtrl">
+						<div class="group-name" >周杰伦</div>
+						<ul>
+							<li ng-repeat="song in songs"><a href="Javascript:void(0)">{{song.title}} {{song.type}}</a></li>
+							<li><a href="/a">a</a></li>
+							<li><a href="/b">b</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="right-contain">
+					<div class="item">
+						<div class="title">歌曲</div>
+						<ul class="song">
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+						</ul>
+					</div>
+					
+					<div class="item">
+						<div class="title">专辑</div>
+						<ul class="album">
+							<li>
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li class="dark">
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li>
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li class="dark">
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li>
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li class="dark">
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+							<li>
+								<img src="img/cover1.jpg"/>
+								<div class="info">
+									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="item">
+						<div class="title">歌曲</div>
+						<ul class="song">
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+						</ul>
+					</div>
+					
+					<div class="item">
+						<div class="title">歌曲</div>
+						<ul class="song">
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+						</ul>
+					</div>
+					
+					<div class="item">
+						<div class="title">歌曲</div>
+						<ul class="song">
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+							<li><span>锄禾日当午</span></li>
+							<li class="dark"><span>锄禾日当午</span></li>
+						</ul>
+					</div>
+					
+					<div class="sub-contain">
+						<div class="player"></div>
+						<div class="song-contain"></div>
+					</div>
+					<div class="lyric-contain">
+					</div>
+					<div ng-view></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
