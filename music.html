@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="leemo">
+<html>
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -20,7 +20,7 @@
 			.body{ position: absolute; top: 15px; left: 15px; right: 15px; bottom :15px; overflow: hidden; box-shadow:0 1px 5px #ccc; background:#eee; }
 			/* 头部 */
 			.header{ height: 50px; line-height: 50px; background: #f4f4f4; }
-			.header .header-contain{ height:100%; max-width: 1096px; margin: 0px auto; background: #99cc33; }
+			.header .header-contain{ height:100%; /*max-width: 1096px;*/ margin: 0px auto; background: #99cc33; }
 			.header .logo{ float: left; height: 100%; }
 			.header .logo a{ display: block; height: 100%; width: 100px; background:#99cc33; }
 			.header .memo{ float: left; height: 100%; margin-left: 20px; }
@@ -64,6 +64,11 @@
 			::-webkit-scrollbar-button { display: none; }
 			::-webkit-scrollbar-thumb{ width:4px; background:#ffee99; height:14px; border-radius:4px; }
 			::-webkit-scrollbar-track{ /*width:5px; background:#99cc33; height:13px; border-radius:4px;*/ }
+			
+			@media screen and (max-width:960px){
+				html{ height: auto; }
+				.body{ position: relative; top: 15px; left: 15px; margin-right: 15px; margin-bottom :15px; overflow: hidden; box-shadow:0 1px 5px #ccc; background:#eee; }
+			}
 		</style>
 	</head>
 	<body>
@@ -99,6 +104,7 @@
 			<div class="main">
 				<div class="bg">
 				</div>
+				<!--
 				<div class="left-contain">
 					<div class="group" ng-controller="songsCtrl">
 						<div class="group-name" >周杰伦</div>
@@ -109,6 +115,7 @@
 						</ul>
 					</div>
 				</div>
+				-->
 				<div class="right-contain">
 					<div class="item">
 						<div class="title">歌曲</div>
@@ -138,43 +145,43 @@
 						<div class="title">专辑</div>
 						<ul class="album">
 							<li>
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li class="dark">
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li>
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li class="dark">
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li>
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li class="dark">
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
 							</li>
 							<li>
-								<img src="img/cover1.jpg"/>
+								<img src="img/redlight.jpg"/>
 								<div class="info">
 									<span>七里香七里香七里香七里香七里香</span><span>周杰伦</span>
 								</div>
