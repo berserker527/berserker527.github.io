@@ -1,0 +1,63 @@
+/*主体通用样式*/
+html{ height: 100%; }
+body{ min-height: 100%; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 12px; }
+body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, iframe, pre, code, fieldset, legend, form, input, select, textarea, button, p, blockquote, th, td, figure { margin: 0px; padding: 0px; }
+li{ list-style-type: none; }
+a{ color: #363636; text-decoration: none; }
+a{ blr: expression(this.onFocus=this.blur()) }
+a:hover{ color: #99cc33; }
+:focus{ outline: none; }
+body ::selection{ color:#fff; background-color:#99cc33; text-shadow: none; }
+input, label{ vetical-align: middle; }
+
+/*字体图标*/
+@font-face { font-family: "octicons"; src: url(../font/octicons.woff); }
+
+/*边距样式*/
+.m-5{ margin: 5px; }
+.m-10{ margin: 10px; }
+.m-20{ margin: 20px; }
+.ml-5{ margin-left: 5px; }
+.ml-10{ margin-left: 10px; }
+.ml-20{ margin-left: 20px; }
+.mr-5{ margin-right: 5px; }
+.mr-10{ margin-right: 10px; }
+.mr-20{ margin-right: 20px; }
+.mt-5{ margin-top: 5px; }
+.mt-10{ margin-top: 10px; }
+.mt-20{ margin-top: 20px; }
+.mb-5{ margin-bottom: 5px; }
+.mb-10{ margin-bottom: 10px; }
+.mb-20{ margin-bottom: 20px; }
+.p-5{ padding: 5px; }
+.p-10{ padding: 10px; }
+.p-20{ padding: 20px; }
+
+/*浮动样式*/
+.fl{ float: left; }
+.fr{ float: right; }
+
+/*阴影样式*/
+.sd-1{ box-shadow: 0 1px 5px #ccc; -moz-box-shadow: 0 1px 5px #ccc; -webkit-box-shadow: 0 1px 5px #ccc; }
+.sd-2{ box-shadow: 0 1px 3px #b2b2b2; -moz-box-shadow: 0 1px 3px #b2b2b2; -webkit-box-shadow: 0 1px 3px #b2b2b2; }
+
+/*定位样式*/
+.ps-ab{ position: absolute; }
+.ps-re{ position: relative; }
+
+/*激活样式*/
+.active-orange{ border:1px solid #ffcc00 !important; } 
+.active-green{ border:1px solid #99cc33 !important; } 
+
+/*表单样式*/
+.ipt{ border: 1px solid #ccc; text-indent:10px; }
+.ipt:hover{ border: 1px solid #99cc33; }
+.ipt:focus{ border: 1px solid #ffcc00; }
+.ipt-30-200{ width: 200px; height: 30px; line-height: 30px; font-size: 12px; }
+.ipt-42{ height: 42px; line-height: 42px; font-size: 14px; }
+.ipt-42-140{ width: 140px; height: 42px; line-height: 42px; font-size: 14px; }
+.ipt-42-300{ width: 300px; height: 42px; line-height: 42px; font-size: 14px; }
+
+.rdo-42{ height: 42px; line-height: 42px; font-size: 14px; }
+
+
