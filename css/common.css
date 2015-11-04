@@ -8,6 +8,7 @@ a{ blr: expression(this.onFocus=this.blur()) }
 a:hover{ color: #99cc33; }
 :focus{ outline: none; }
 body ::selection{ color:#fff; background-color:#99cc33; text-shadow: none; }
+input{ -webkit-appearance: none; }
 input, label{ vetical-align: middle; }
 
 /*字体图标*/
