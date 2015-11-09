@@ -3,15 +3,15 @@
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-		<title>song_edit</title>
+		<title>album_edit</title>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<style type="text/css">
 			body{ background:#f5f5f5; }
 			.s{ font-size:14px; margin:20px; padding:20px; background:#fff; }
 			.s li{ /*height:74px; line-height:42px;position:relative;*/ background:#fff; z-index:9; }
-			.s .edit{  display:block; width:302px; height:44px; }
-			.s .form-item{ float:left; position: relative; }
+			.s .edit{ display:block; width:302px; height:44px; }
+			.s .form-item{ float:left; }
 			.s li:after{ display:block; content:""; clear:both; }
 			.s p{ width:300px; height:30px; line-height:30px; font-size:12px; color:#363636; }
 			.s p a{ color:#99cc33; }
@@ -45,56 +45,42 @@
 		</style>
 	</head>
 	<body>
-		<ul class="s sd-1">
+		<ul class="s sd-1 fl">
 			<li>
-				<div class="form-item mr-20 success">
-					<input class="ipt ipt-42-300" type="text" placeholder="歌曲名称"/>
+				<div class="form-item mr-20">
+					<input class="ipt ipt-42-300" type="text" placeholder="专辑名称"/>
 					<ul class="select">
-						<li class="option"><img src="img/redlight.jpg"/><span>周杰伦</span></li>
-						<li class="option"><img src="img/redlight.jpg"/><span>小公举</span></li>
-						<li class="option"><img src="img/redlight.jpg"/><span>Jay Chou</span></li>
+						<li class="option"><img src="img/redlight.jpg"/><span>范特西</span></li>
+						<li class="option"><img src="img/redlight.jpg"/><span>叶惠美</span></li>
+						<li class="option"><img src="img/redlight.jpg"/><span>魔杰座</span></li>
 					</ul>
-					<p id="a">歌曲的原始名称 <a href="#">说明</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span class="e">歌曲名称不能为空</span></p>
-				</div>
-				<div class="form-item">
-					<div>
-						<div class="switch">
-							<span class="switch-btn"></span>
-						</div>
-						<span class="memo">是否是翻唱</span>
-					</div>
-					<input class="ipt ipt-42-300 ghost" type="text" placeholder="原唱歌曲"/>
-					<p></p>
+					<p id="a">歌曲的原始名称 <a href="#">说明</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span class="e">专辑名称不能为空</span></p>
 				</div>
 			</li>
 			<li>
-				<div class="form-item mr-20 success">
-					<input class="ipt ipt-42-270 pr-30" type="text" placeholder="别名"/>
-					<p>歌曲的其他名称或者中文翻译 ，可添加两个</p>
-				</div>
 				<div class="form-item">
-					<input class="ipt ipt-42-300 ghost" id="alias" type="text" placeholder="别名"/>
+					<input class="ipt ipt-42-300" type="text" placeholder="唱片公司"/>
+					<p>唱片公司</p>
 				</div>
 			</li>
-			<li><input class="ipt ipt-42-300" type="text" placeholder="歌手"/><p>一些其他的内容 <a href="#">查看</a></p></li>
+			<li>
+				<div class="form-item">
+					<input class="ipt ipt-30-80 mr-5" type="text"/>年
+					<input class="ipt ipt-30-80 mr-5" type="text"/>月
+					<input class="ipt ipt-30-80 mr-5" type="text"/>日
+					<p>专辑的发行日期</p>
+				</div>
+			</li>
 			<li>
 				<div class="form-item mr-20">
 					<input class="ipt ipt-42-300" type="text" placeholder="专辑名称"/>
 					<p>一些其他的内容 <a href="#">查看</a></p>
 				</div>
-				<div class="form-item">
-					<input class="ipt ipt-42-300" type="text" placeholder="出版时间"/>
-					<p>默认为专辑的出版时间</p>
-				</div>
 			</li>
 			<li>
 				<div class="form-item mr-20">
-					<input class="ipt ipt-42-300" type="text" placeholder="风格"/>
-					<p>请选择歌曲风格</p>
-				</div>
-				<div class="form-item mr-20">
-					<input class="ipt ipt-42-300" type="text" placeholder="类型"/>
-					<p>请选择歌曲类型</p>
+					<input class="ipt ipt-42-300" type="text" placeholder="专辑封面"/>
+					<div class="process"></div>
 				</div>
 			</li>
 			<li>
@@ -102,20 +88,36 @@
 					<span class="language mr-10">华语</span><span class="language mr-10 selected">英语</span><span class="language mr-10">日语</span><span class="language mr-10">韩语</span><span class="language mr-10">法语</span>
 					<span class="language mr-10">西班牙语</span>
 				</div>
-				<p>请选择歌曲语种</p>
+				<p>请选择语种</p>
 			</li>
 			<li>
-				<div class="form-item mr-20 success">
-					<input class="ipt ipt-42-300" type="text" placeholder="文件路径"/>
-					<div class="process"></div>
+				<div class="ipt-42 lbox">
+					<span class="language mr-10">正规专辑</span><span class="language mr-10 selected">演唱会合集</span><span class="language mr-10">原声带</span><span class="language mr-10">精选集</span>
 				</div>
-				<div class="form-item success">
-					<input class="ipt ipt-42-300" type="text" placeholder="歌词路径"/>
-					<p>一些其他的内容 <a href="#">查看</a></p>
+				<p>请选择专辑类型</p>
+			</li>
+			<li><div class="ipt textedit-302" contenteditable></div><p>一些其他的内容 <a href="#">查看</a></p></li>
+		</ul>
+		<ul class="s sd-1 fl">
+			<li>
+				<div class="form-item">
+					<input class="ipt ipt-42-300" type="text" placeholder="专辑名称"/>
+					<ul class="select">
+						<li class="option"><img src="img/redlight.jpg"/><span>范特西</span></li>
+						<li class="option"><img src="img/redlight.jpg"/><span>叶惠美</span></li>
+						<li class="option"><img src="img/redlight.jpg"/><span>魔杰座</span></li>
+					</ul>
+					<p id="a">歌曲的原始名称 <a href="#">说明</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span class="e">专辑名称不能为空</span></p>
 				</div>
 			</li>
-			<li><div class="ipt textedit-622" contenteditable></div><p>一些其他的内容 <a href="#">查看</a></p></li>
+			<li>
+				<div class="form-item">
+					<input class="ipt ipt-42-300" type="text" placeholder="唱片公司"/>
+					<p>唱片公司</p>
+				</div>
+			</li>
 		</ul>
+		
 	</body>
 	<script type="text/javascript">
 	$(function(){
