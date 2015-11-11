@@ -9,6 +9,12 @@
 		<style type="text/css">
 			body{ background:#f5f5f5; }
 			.s{ font-size:14px; margin:20px; padding:20px; background:#fff; }
+			@media only screen 
+			and (min-device-width : 768px) 
+			and (max-device-width : 1024px)
+			and (-webkit-min-device-pixel-ratio: 2) {
+				.s{ font-size:14px; margin:0; padding:20px; background:#fff; }
+			}
 			.s li{ /*height:74px; line-height:42px;position:relative;*/ background:#fff; z-index:9; }
 			.s .edit{  display:block; width:302px; height:44px; }
 			.s .form-item{ float:left; position: relative; }
