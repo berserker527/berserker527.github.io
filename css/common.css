@@ -64,7 +64,10 @@ input, label{  vertical-align: middle; }
 .ipt-42-140{ width: 130px; height: 42px; line-height: 42px; font-size: 14px; }
 .ipt-42-270{ width: 260px; height: 42px; line-height: 42px; font-size: 14px; }
 .ipt-42-300{ width: 290px; height: 42px; line-height: 42px; font-size: 14px; }
-@media screen and (max-width:960px) {
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 2) {
 	.ipt{ height: 38px; line-height: 38px; }
 }
 
