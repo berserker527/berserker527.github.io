@@ -28,7 +28,7 @@
 			.switch-btn:active{ float:right; background:#e0e0e0; }
 			.close{ float:right; background:#e0e0e0; }
 			
-			.success:after{ position:absolute; top:15px; right:10px; content:"\f058"; color:#99cc33; font: normal normal 16px/1 "octicons"; cursor:pointer; }
+			.success:after{ position:absolute; top:50%; right:10px; margin-top: -23px; content:"\f058"; color:#99cc33; font: normal normal 16px/1 "octicons"; cursor:pointer; }
 			.e{ color:#99cc33; }
 			
 			.select{ width:300px; border:1px solid #ccc; z-index:10; position:absolute;  display:none; }
@@ -38,8 +38,9 @@
 			.option span{ float:left; display:block; height:42px; line-height:42px; text-indent:10px; }
 			
 			.lbox span:hover{ border:1px solid #99cc33; background:#fff; color:#99cc33; }
-			/*.language{ display:inline-block; height:30px; line-height:30px; margin-top:6px; border:1px solid #99cc33; border-radius:3px; background:#ddff99; color:#339933; min-width:50px; padding:0 5px; text-align:center; cursor:pointer; }
-			*/.language{ display:inline-block; height:30px; line-height:30px; margin-top:6px; border:1px solid #ccc; background:#fff; border-radius:3px; color:#363636; min-width:50px; padding:0 5px; text-align:center; cursor:pointer; }
+			.lbox:after{ display:block; content:""; clear:both; } 
+			/*.tag{ display:inline-block; height:30px; line-height:30px; margin-top:6px; border:1px solid #99cc33; border-radius:3px; background:#ddff99; color:#339933; min-width:50px; padding:0 5px; text-align:center; cursor:pointer; }
+			*/.tag{ float:left; height:30px; line-height:30px; margin-top:6px; border:1px solid #ccc; background:#fff; border-radius:3px; color:#363636; min-width:50px; padding:0 5px; text-align:center; cursor:pointer; }
 			.selected{ border:1px solid #99cc33 !important; background:#99cc33 !important; color:#fff !important; }
 			.process{ height:8px; width:300px; background:-webkit-linear-gradient(left, #ffcc00, #99cc33); margin:11px 0; animation: my 5s;}
 			
@@ -104,11 +105,13 @@
 				</div>
 			</li>
 			<li>
-				<div class="ipt-42 lbox">
-					<span class="language mr-10">华语</span><span class="language mr-10 selected">英语</span><span class="language mr-10">日语</span><span class="language mr-10">韩语</span><span class="language mr-10">法语</span>
-					<span class="language mr-10">西班牙语</span>
+				<div class="form-item">
+					<div class="lbox">
+						<span class="tag mr-10">华语</span><span class="tag mr-10 selected">英语</span><span class="tag mr-10">日语</span><span class="tag mr-10">韩语</span><span class="tag mr-10">法语</span>
+						<span class="tag mr-10">西班牙语</span>
+					</div>
+					<p>请选择歌曲语种</p>
 				</div>
-				<p>请选择歌曲语种</p>
 			</li>
 			<li>
 				<div class="form-item mr-20 success">
