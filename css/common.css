@@ -64,6 +64,9 @@ input, label{  vertical-align: middle; }
 .ipt-42-140{ width: 130px; height: 42px; line-height: 42px; font-size: 14px; }
 .ipt-42-270{ width: 260px; height: 42px; line-height: 42px; font-size: 14px; }
 .ipt-42-300{ width: 290px; height: 42px; line-height: 42px; font-size: 14px; }
+@media screen and (max-width:960px) {
+	.ipt{ height: 38px; line-height: 38px; }
+}
 
 .textedit-302{ width: 282px; height:80px; padding:10px; overflow:hidden; text-indent:0; line-height:21px; }
 .textedit-622{ width: 602px; height:80px; padding:10px; overflow:hidden; text-indent:0; line-height:21px; }
