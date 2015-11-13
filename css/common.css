@@ -71,7 +71,7 @@ input, label{  vertical-align: middle; }
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)
 and (-webkit-min-device-pixel-ratio: 2) {
-	.ipt{ height: 36px; line-height: 36px; }
+	.ipt{ height: 38px; line-height: 38px; }
 }
 
 .textedit-302{ max-width: 282px; height:80px; padding:10px; overflow:hidden; text-indent:0; line-height:21px; }
