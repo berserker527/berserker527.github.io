@@ -7,45 +7,72 @@
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/wotamele.css"/>
 		<style type="text/css">
+		.process{ height:8px; width:100%; background:-webkit-linear-gradient(left, #ffcc00, #99cc33); margin:11px 0; animation: my 5s;}
+		@keyframes my{
+			from{ width:2px; }
+		}
 		</style>
 	</head>
 	<body>
 		<div class="body">
 			<ul class="form-list">
 				<li>
-					<div class="form-wrap">
+					<div class="form-wrap form-wrap-2">
 						<div class="form-item icon-edit">
-							<input type="text" class="ipt ipt-has-icon ipt-h-42"/>
+							<input type="text" class="ipt ipt-has-icon ipt-h-42" placeholder="歌曲名称"/>
 						</div>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+						<p id="a" class="info">歌曲的原始名称<a href="#">说明</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span class="error">歌曲名称不能为空</span></p>
 					</div>
 				</li>
 				<li>
 					<div class="form-wrap form-wrap-2">
-						<input type="text" class="ipt ipt-h-42"/>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-h-42" placeholder="歌手"/>
+						</div>
+						<p class="info">一些其他的内容<a href="#">查看</a></p>
 					</div>
 				</li>
 				<li>
-					<div class="form-wrap form-wrap-2  mr-4cent">
-						<input type="text" class="ipt ipt-h-42"/>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+					<div class="form-wrap form-wrap-2 mr-4cent">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-h-42" placeholder="专辑名称"/>
+						</div>
+						<p class="info">一些其他的内容<a href="#">查看</a></p>
 					</div>
 					<div class="form-wrap form-wrap-2">
-						<input type="text" class="ipt ipt-h-42"/>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+						<div class="form-item">
+							<input type="text" class="ipt ipt-h-42 ipt-w-33 remove-border-right" placeholder="年"/>
+							<input type="text" class="ipt ipt-h-42 ipt-w-33 remove-border-right" placeholder="月"/>
+							<input type="text" class="ipt ipt-h-42 ipt-w-33" placeholder="日"/>
+						</div>
+						<p class="info">默认为专辑的发行时间</p>
+					</div>
+				</li>
+				<li>
+					<div class="form-wrap form-wrap-2">
+						<div class="form-item">
+							<input type="text" class="ipt ipt-h-42" placeholder="风格"/>
+						</div>
+						<p class="info">选择歌曲风格<a href="#">查看</a></p>
 					</div>
 				</li>
 				<li>
 					<div class="form-wrap">
-						<span class="rdo mr-10">测试</span><span class="rdo rdo-selected mr-10">测试</span><span class="rdo mr-10">测试测试测试</span>
-						<span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span>
-						<span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span>
-						<span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span><span class="rdo mr-10">测试</span>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+						<div class="form-item">
+							<span class="rdo mr-10">录影棚</span><span class="rdo rdo-selected mr-10">演唱会</span><span class="rdo mr-10">混音</span>
+						</div>
+						<p class="info">选择歌曲类型</p>
 					</div>
 				</li>
 				<li>
+					<div class="form-wrap">
+						<span class="rdo mr-10">华语</span><span class="rdo mr-10">英语</span><span class="rdo mr-10">日语</span>
+						<span class="rdo rdo-selected mr-10">粤语</span><span class="rdo mr-10">韩语</span>
+						<span class="rdo mr-10">法语</span><span class="rdo mr-10">西班牙语</span><span class="rdo mr-10">其他</span>
+						<p class="info">选择歌曲语种</p>
+					</div>
+				</li>
+				<li style="display:none;">
 					<div class="form-wrap form-wrap-2">
 						<div class="form-item">
 							<input type="checkbox" class="chb chb-h-42" id="chb1" checked/>
@@ -59,21 +86,96 @@
 					</div>
 				</li>
 				<li>
-					<div class="form-wrap">
-						<div class="textedit ipt-has-icon" contenteditable></div>
-						<p class="info">测试测试测试<span class="error">测试测试</span></p>
+					<div class="form-wrap form-wrap-2 mr-4cent">
+						<div class="form-item icon-edit">
+							<input class="ipt ipt-h-42" type="text" placeholder="文件路径"/>
+						</div>
+						<div class="process"></div>
+					</div>
+					<div class="form-wrap  form-wrap-2">
+						<div class="form-item icon-edit">
+							<input class="ipt ipt-h-42" type="text" placeholder="歌词路径"/>
+						</div>
+						<div class="process"></div>
 					</div>
 				</li>
 				<li>
-					<span class="btn btn-ok fl mr-20">保&nbsp;存</span>
-					<span class="btn btn-cancel fl mr-20">取&nbsp;消</span>
-					<span class="btn btn-more fl mr-20">更&nbsp;多</span>
+					<div class="btn-panel">
+						<span class="btn btn-ok fl mr-20">保&nbsp;存</span>
+						<span class="btn btn-more fl">更&nbsp;多</span>
+					</div>
 				</li>
 			</ul>
 		</div>
-		<div class="mark"></div>
-		<div class="mark-page"></div>
+		<div class="mask"></div>
+		<div class="mask-page">
+			<ul class="form-list">
+				<li>
+					<div class="form-wrap form-wrap-2 mr-4cent">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-has-icon ipt-h-42" placeholder="别名"/>
+						</div>
+						<p class="info">歌曲的其他名称或者中文翻译 ，可添加两个</p>
+					</div>
+					<div class="form-wrap form-wrap-2">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-has-icon ipt-h-42" placeholder="别名"/>
+						</div>
+						<p class="info"></p>
+					</div>
+				</li>
+				<li>
+					<div class="form-wrap form-wrap-2 mr-4cent">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-has-icon ipt-h-42" placeholder="词作者"/>
+						</div>
+						<p class="info">填写词作者</p>
+					</div>
+					<div class="form-wrap form-wrap-2">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-has-icon ipt-h-42" placeholder="曲作者"/>
+						</div>
+						<p class="info">填写曲作者</p>
+					</div>
+				</li>
+				<li>
+					<div class="form-wrap form-wrap-2">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-h-42" placeholder="原唱歌曲"/>
+						</div>
+						<p class="info">选择原唱歌曲</p>
+					</div>
+				</li>
+				<li>
+					<div class="form-wrap form-wrap-2">
+						<div class="form-item icon-edit">
+							<input type="text" class="ipt ipt-h-42" placeholder="相关歌曲"/>
+						</div>
+						<p class="info">选择相关歌曲</p>
+					</div>
+				</li>
+				<li>
+					<div class="form-wrap">
+						<div class="textedit ipt-has-icon" contenteditable></div>
+						<p class="info">填写歌曲简介<a href="#">说明</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="btn-panel">
+						<span class="btn btn-ok fl mr-20">保&nbsp;存</span>
+						<span class="btn btn-cancel fl">取&nbsp;消</span>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</body>
 	<script type="text/javascript">
+	$(".btn-more").click(function(){
+		$(".mask, .mask-page").show();
+	});
+	$(".btn-cancel").click(function(){
+		$(".mask, .mask-page").hide();
+	});
+	
 	</script>
 </html>
