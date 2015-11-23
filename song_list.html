@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>柠檬音乐播放器</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<style type="text/css">
+			/* 通用 */
+			html{ height: 100%; }
+			body{ min-height: 100%; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size:12px; }
+			body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, iframe, pre, code, fieldset, legend, form, input, select, textarea, button, p, blockquote, th, td, figure { margin: 0px; padding: 0px; }
+			li{ list-style-type: none; }
+			a{ color: #363636; text-decoration: none; }
+			a{ blr: expression(this.onFocus=this.blur()) }
+			a:hover{ color: #0c8f44; }
+			:focus{ outline: none; }
+			body ::selection{ color:#fff; background-color:#99cc33; text-shadow:none; }
+			
+			div{ /*border: 1px solid #ccc;*/ }
+			.body{ position: absolute; top: 15px; left: 15px; right: 15px; bottom :15px; overflow: hidden; box-shadow:0 1px 5px #ccc; }
+			/* 头部 */
+			.header{ height: 50px; line-height: 50px; /*background: #99cc33;*/background:-webkit-linear-gradient(top, #99cc33, #88bb22); }
+			.header .logo{ float: left; height: 100%; display:block;}
+			.header .logo a{ display: inline-block; height: 34px; margin: 8px;}
+			.header .logo img{ float:left; height:100%; margin-right:10px; } 
+			.header .logo span{ float:left; height:34px; line-height:34px; display:block; margin-left:10px; font-size:16px; color:#fff; } 
+			.header .navi{ float: left; height: 100%; margin-left: 8%; }
+			.header .navi ul{ height:100%; color:#fff; font-size:16px; }
+			.header .navi ul li{ float:left; display:block; width:80px; height:100%; line-height:50px; text-align:center; text-shadow: 0 1px 1px rgba(0,0,0,0.5); font-family:"MicroSoft YaHei"; cursor:pointer; }
+			.header .navi ul li:hover{ /*background:-webkit-linear-gradient(top, #33aa11, #88bb22); background:rgba(255,255,255,0.25);*/ color:#ffee99; }
+			.header .navi ul .selected{ background:rgba(255,255,255,0.25) }
+			.header .search{ position:relative; float: right; margin:5px 20px 0 0; }
+			.header .search .search-box{ height: 40px; border-radius: 5px; -webkit-border-radius: 5px; overflow:hidden; background: #fff;}
+			.header .search .search-box .search-text{ float: left; height: 40px; width: 400px; padding-left: 10px; border: none; font-size: 14px; }
+			.header .search .search-box .search-text::-webkit-input-placeholder{ color: #99cc33; }
+			.header .search .search-box .search-btn{ float: left; height: 40px; line-height:40px; width: 50px; border: none; border-left: 1px solid #99cc33; background: #fff; color: #000; }
+			.header .search .search-list{ position:absolute; float: left; width: 100%; height:500px; border :1px solid #99cc33; margin-top: 2px; background: #fff; display:none; }
+			/* 主体 */
+			.main{ position:absolute; top:50px; bottom:0; width:100%; /*background:rgba(255,255,255,0.2)*/ background:#f5f5f5; }
+			.main .menu-col{ float: left; position:relative; width: 15%; height:100%; box-shadow:0px 0 0px #ccc; }
+			.main .menu-col .group{ margin: 10px; background: #fff; color:#363636; box-shadow:0px 0px 2px #ccc; }
+			.main .menu-col .group .group-name{ height: 26px; line-height: 26px; padding-left: 10px; }
+			.main .menu-col .group ul{ margin-left: 40px; }
+			.main .menu-col .group ul li{ height: 26px; line-height: 26px; }
+			.main .menu-col .handle{ position:absolute; top:0; right:-10px; height:100%; width:10px; background:#fff; z-index:10; }
+			.close{ animation: a 0.5s 1 linear; animation-fill-mode: forwards; }
+			@keyframes a{
+				to{ margin-left:-20%; }
+			}
+			.open{ animation: b 0.5s 1 linear;  }
+			@keyframes b{
+				to{ margin-left:0; }
+			}
+			
+			
+			.main .view-col{ float: left; position:relative; width: 65%; height:100%;}
+			.main .view-col .player{ width:100%; height: 50px; margin:10px 0; background:#fff; box-shadow: 0px 0px 2px #ccc; }
+			.main .view-col .view{ position:absolute; width:100%; top:70px; bottom:10px;  background:#fff; box-shadow: 0px 0px 2px #ccc; }
+			
+			.main .lyric-col{ float:left; position:relative; width: 20%; height:100%; }
+			.main .lyric-col .lyric-box{ position:absolute; left:0; top:0; right:0; bottom:0; margin:10px; background:#fff; box-shadow: 0px 0px 2px #ccc; }
+			.main .lyric-col .lyric-box .cover{ width:100%; height:220px; text-align:center; }
+			.main .lyric-col .lyric-box .cover img{ height:150px; margin:20px 0; border-radius:5px; }
+			.main .lyric-col .lyric-box .cover .songtitle{ text-align:center; }
+			
+			.main .lyric-col .lyric-box .icons{ height:30px;width:100%; background: #f5f5f5; }
+			.main .lyric-col .lyric-box .lyrics{ position:absolute; top:250px; bottom:0; width:100%; margin:20px 0 20px 0; box-sizing:border-box; overflow-y:scroll; }
+			.main .lyric-col .lyric-box .lyrics ul{ width:80%; margin:0 10%; }
+			.main .lyric-col .lyric-box .lyrics ul li{ min-height: 25px; line-height: 25px; text-align:center; }
+			.main .lyric-col .lyric-box .current{ color:#99cc33; }
+			
+			.bg{ position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; opacity:0.6; }
+			.bg img{ position:absolute; width:100%; height:100%; top:0; left:0; }
+			
+			::-webkit-scrollbar { width: 6px; height: 6px; }
+			::-webkit-scrollbar-button { display: none; }
+			::-webkit-scrollbar-thumb{ width:4px; background:#ffee99; height:14px; border-radius:4px; }
+			::-webkit-scrollbar-track{ /*width:5px; background:#99cc33; height:13px; border-radius:4px;*/ }
+			
+			@media screen and (max-width:960px){
+				html{ height: auto; }
+				.body{ position: relative; top: 0; left: 0; right: 0; bottom :0; overflow: hidden; box-shadow:0 1px 5px #ccc; background:#eee; }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="body">
+			<div class="header">
+				<div class="logo">
+					<a href="/"><img src="img/logo.png"/><img src="img/leemo.png"/></a>
+				</div>
+				<div class="navi">
+					<ul>
+						<li>歌曲</li>
+						<li class="selected">专辑</li>
+						<li>歌手</li>
+						<li>其他</li>
+					</ul>
+				</div>
+				<div class="search">
+					<div class="search-box">
+						<input type="text"  class="search-text" placeholder="你要搜索点什么"/>
+						<button class="search-btn">搜索</button>
+					</div>
+					<div class="search-list">
+						<ul>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="main">
+				<div class="menu-col open">
+					<div class="group" ng-controller="songsCtrl">
+						<div class="group-name" >周杰伦</div>
+						<ul>
+							<li><a href="/a">a</a></li>
+							<li><a href="/b">b</a></li>
+						</ul>
+					</div>
+					<!-- <div class="handle"></div> -->
+				</div>
+				<div class="view-col">
+					<div class="player"></div>
+					<div class="view"></div>
+				</div>
+				<div class="lyric-col">
+					<div class="lyric-box">
+						<div class="cover">
+							<img src="img/redlight.jpg"/>
+							<p class="songtitle">《七里香》</p>
+						</div>
+						<div class="icons"></div>
+						<div class="lyrics">
+							<ul>
+								<li time="480">七里香</li>
+								<li time="1990">作词：方文山 作曲：周杰伦</li>
+								<li time="3240">演唱：周杰伦</li>
+								<li time="5540"></li>
+								<li time="28120">窗外的麻雀 在电线杆上多嘴</li>
+								<li time="34930" class="current">你说这一句 很有夏天的感觉</li>
+								<li time="41620">手中的铅笔 在纸上来来回回</li>
+								<li time="48110">我用几行字形容你是我的谁</li>
+								<li time="53570"></li>
+								<li time="54190">秋刀鱼的滋味 猫跟你都想了解</li>
+								<li time="62090">初恋的香味就这样被我们寻回</li>
+								<li time="68200">那温暖的阳光 像刚摘的鲜艳草莓</li>
+								<li time="74800">你说你舍不得吃掉这一种感觉</li>
+								<li time="80910"></li>
+								<li time="81130">雨下整夜 我的爱溢出就像雨水</li>
+								<li time="88080">院子落叶 跟我的思念厚厚一叠</li>
+								<li time="94820">几句是非 也无法将我的热情冷却</li>
+								<li time="102070">你出现在我诗的每一页</li>
+								<li time="107530"></li>
+								<li time="108540">雨下整夜 我的爱溢出就像雨水</li>
+								<li time="114980">窗台蝴蝶 像诗里纷飞的美丽章节</li>
+								<li time="121870">我接着写 把永远爱你写进诗的结尾</li>
+								<li time="129480">你是我唯一想要的了解</li>
+								<li time="134570"></li>
+								<li time="162560">雨下整夜 我的爱溢出就像雨水</li>
+								<li time="169110">窗台蝴蝶 像诗里纷飞的美丽章节</li>
+								<li time="175810">几句是非 也无法将我的热情冷却</li>
+								<li time="183020">你出现在我诗的每一页</li>
+								<li time="188810"></li>
+								<li time="189720">那饱满的稻穗 幸福了这个季节</li>
+								<li time="197050">而你的脸颊像田里熟透的蕃茄</li>
+								<li time="203200">你突然对我说 七里香的名字很美</li>
+								<li time="210040">我此刻却只想亲吻你倔强的嘴</li>
+								<li time="215910"></li>
+								<li time="216200">雨下整夜 我的爱溢出就像雨水</li>
+								<li time="223180">院子落叶 跟我的思念厚厚一叠</li>
+								<li time="229790">几句是非 也无法将我的热情冷却</li>
+								<li time="237300">你出现在我诗的每一页</li>
+								<li time="241850"></li>
+								<li time="243330">雨下整夜 我的爱溢出就像雨水</li>
+								<li time="250050">窗台蝴蝶 像诗里纷飞的美丽章节</li>
+								<li time="256860">我接着写 把永远爱你写进诗的结尾</li>
+								<li time="264640">你是我唯一想要的了解</li>
+								<li time="269710"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	$(function(){
+		$(".item ul").mouseover(function () {
+			$(this).css("overflow-y","auto");
+		});
+		$(".item ul").mouseleave(function () {
+			$(this).css("overflow-y","hidden");
+		});
+		$(".handle").click(function(){
+			$(".menu").toggleClass("close").toggleClass("open");
+		});
+	});	
+	app.factory("song", function($resource){
+		return $resource("/api/song/:id", {}, {
+			get : { method: "GET", params: {songid:"@id"}, isArray:false },
+			remove : { method: "DELETE", params: {id:"@id"}, isArray:false },
+			update : { method: "PUT", params: {id:"@id"}, isArray:false },
+			save : { method: "POST", params: {song : song}, isArray:false }
+		});
+	})
+	</script>
+</html>

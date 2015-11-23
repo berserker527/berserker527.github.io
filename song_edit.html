@@ -7,23 +7,24 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<style type="text/css">
-			body{ background:#f5f5f5; }
-			.s{ font-size:14px; margin:20px; padding:20px; background:#fff; max-width:700px;}
+			html, body{ height:100%; }
+			body{ background:#f5f5f5; box-sizing:border-box; padding:20px; }
+			.s{ font-size:14px; padding:20px; background:#fff; max-width:700px; height:100%; box-sizing:border-box; }
 			@media only screen 
-			and (min-device-width : 768px) 
-			and (max-device-width : 1024px)
+			and (min-device-width: 768px) 
+			and (max-device-width: 1024px)
 			and (-webkit-min-device-pixel-ratio: 2) {
 				.s{ font-size:14px; margin:0; padding:20px; background:#fff; }
 			}
 			.s li{ /*height:74px; line-height:42px;position:relative;*/ background:#fff; z-index:9; }
 			.s .edit{  display:block; width:302px; height:44px; }
-			.s .form-item{ float:left; position: relative; width:48%; }
+			.form-item{ float:left; position: relative; width:48%; }
 			@media screen and (max-width:768px) {
-				.s .form-item{ width:100%; }
+				.form-item{ width:100%; }
 			}
-			.s li:after{ display:block; content:""; clear:both; }
-			.s p{ width:100%; height:30px; line-height:30px; font-size:12px; color:#363636; }
-			.s p a{ color:#99cc33; }
+			ul li:after{ display:block; content:""; clear:both; }
+			.form-item p{ width:100%; height:30px; line-height:30px; font-size:12px; color:#363636; overflow:hidden; }
+			.form-item p a{ color:#99cc33; }
 			
 			.switch{ float:left; display:block; width:36px; height:22px; border:1px solid #e0e0e0; border-radius:13px; margin:7px 0; padding:2px; }
 			.memo{ float:left; display:block; height:42px; line-height:42px; margin-left:10px;}
@@ -34,7 +35,7 @@
 			.success:after{ position:absolute; top:50%; right:10px; margin-top: -23px; content:"\f058"; color:#99cc33; font: normal normal 16px/1 "octicons"; cursor:pointer; }
 			.e{ color:#99cc33; }
 			
-			.select{ width:300px; border:1px solid #ccc; z-index:10; position:absolute;  display:none; }
+			.select{ width:100%; border:1px solid #ccc; z-index:10; box-sizing:border-box; -moz-box-sizing:border-box; position:absolute; display:none; }
 			.option{ height:42px; line-height:42px; /*text-indent:10px;*/ }
 			.option:hover{ background:#ffffcf; }
 			.option img{ float:left; height: 32px; margin:5px; }
@@ -47,10 +48,30 @@
 			.selected{ border:1px solid #99cc33 !important; background:#99cc33 !important; color:#fff !important; }
 			.process{ height:8px; width:100%; background:-webkit-linear-gradient(left, #ffcc00, #99cc33); margin:11px 0; animation: my 5s;}
 			
+			.btn-box{ width:40%; height:30px; margin:10px 30%; }
+			.btn-box .btn{ float:left; display:block; width:40%; height:30px; line-height:30px; margin:0 5%; border-radius:5px; background:#99cc33; color:#fff; text-align:center; }
+			.btn-box .more{ background:#ffcc00; }
+			.btn-box .btn:hover{ box-shadow:2px 2px 2px #eee; cursor:pointer; line-height:32px; text-indent:1px; /*animation: b 0.2s;*/ }
+			@keyframes b{
+				90%{ box-shadow:0 0 5px #99cc33; }
+				100%{ box-shadow:none; }
+			}
+			
+			.mask{ position:absolute; top:0; left:0; width:100%; height:100%; background:#fff; opacity:0.8; display:none; }
+			.pages{ position:absolute; top:0; left:0; width:100%; height:100%; display:none; }
+			.pages .page{ position:relative; top:10%; left:20%; width:60%; height:80%; background:#fff; border:1px solid rgba(153,204,51,1) ; box-shadow:0 0 10px #99cc33; box-sizing:border-box; }
+			.pages .page ul{ width:90%; height:90%; margin:5%; }
+							
 			@keyframes my{
 				from{ width:2px; }
 			}
 			.add{ display:inline-block; height:30px; line-height:30px; border-radius:5px; background:#99cc33; color:#fff; padding:0 10px; cursor:pointer; }
+			
+			@font-face { font-family: "fontawesom"; src: url(font/fontawesom.woff); }
+			.chb{ width: 14px; height: 14px; color:#363636; }
+			.chb:after{ content:"\f094"; font: normal normal 14px "fontawesom";}
+ 			.chb:hover:after{ color:#ffcc00; }
+			.chb:checked:after{ color:#99cc33; }
 		</style>
 	</head>
 	<body>
@@ -66,7 +87,7 @@
 					<p id="a">歌曲的原始名称 <a href="#">说明</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span class="e">歌曲名称不能为空</span></p>
 				</div>
 				<div class="form-item">
-					<div style="display:none; ">
+					<div style="display:non; ">
 						<div class="switch">
 							<span class="switch-btn"></span>
 						</div>
@@ -97,8 +118,8 @@
 					<p>一些其他的内容 <a href="#">查看</a></p>
 				</div>
 				<div class="form-item">
-					<input class="ipt ipt-42-300" type="text" placeholder="出版时间"/>
-					<p>默认为专辑的出版时间</p>
+					<input class="ipt ipt-42-300" type="text" placeholder="发行时间"/>
+					<p>默认为专辑的发行时间</p>
 				</div>
 			</li>
 			<li>
@@ -114,7 +135,11 @@
 			<li>
 				<div class="form-item" style="width:100%;">
 					<div class="lbox">
-						<span class="tag mr-10">华语</span><span class="tag mr-10 selected">英语</span><span class="tag mr-10">日语</span><span class="tag mr-10">韩语</span><span class="tag mr-10">法语</span>
+						<span class="tag mr-10">华语</span>
+						<span class="tag mr-10 selected">英语</span>
+						<span class="tag mr-10">日语</span>
+						<span class="tag mr-10">韩语</span>
+						<span class="tag mr-10">法语</span>
 						<span class="tag mr-10">西班牙语</span>
 					</div>
 					<p>请选择歌曲语种</p>
@@ -130,8 +155,67 @@
 					<p>一些其他的内容 <a href="#">查看</a></p>
 				</div>
 			</li>
-			<li><div class="ipt textedit-622" contenteditable></div><p>一些其他的内容 <a href="#">查看</a></p></li>
+			<li style="display:none;"><div class="ipt textedit-622" contenteditable></div><p>一些其他的内容 <a href="#">查看</a></p></li>
+			<li>
+				<div class="btn-box">
+					<span class="btn">保存</span>
+					<span class="btn more">更多信息</span>
+				</div>
+			</li>
+			
 		</ul>
+		<div class="mask"></div>
+		<div class="pages">
+			<div class="page">
+				<ul>
+					<li>
+						<div class="form-item mr-4cent success">
+							<input class="ipt ipt-42-300 pr-30" type="text" placeholder="别名"/>
+							<p>歌曲的其他名称或者中文翻译 ，可添加两个</p>
+						</div>
+						<div class="form-item">
+							<input class="ipt ipt-42-300 ghost" id="alias" type="text" placeholder="别名"/>
+						</div>
+					</li>
+					<li>
+						<div class="form-item mr-4cent success">
+							<input class="ipt ipt-42-300 pr-30" type="text" placeholder="曲作者"/>
+							<p>曲作者</p>
+						</div>
+						<div class="form-item">
+							<input class="ipt ipt-42-300" id="alias" type="text" placeholder="词作者"/>
+							<p>词作者</p>
+						</div>
+					</li>
+					<li>
+						<div class="form-item">
+							<input class="ipt ipt-42-300" type="text" placeholder="原唱歌曲"/>
+							<p>原唱歌曲</p>
+						</div>
+					</li>
+					<li>
+						<div class="form-item success">
+							<input class="ipt ipt-42-300" type="text" placeholder="相关歌曲"/>
+							<p>相关歌曲</p>
+						</div>
+					</li>
+					<li>
+						<div class="form-item" style="width:100%;">
+							<div class="ipt textedit-622" contenteditable></div>
+							<p>一些其他的内容 <a href="#">查看</a></p>
+						</div>
+					</li>
+					<li>
+						<div class="btn-box">
+							<span class="btn">保存</span>
+							<span class="btn more">更多信息</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<input type="checkbox" class="chb"/>
+		<input type="checkbox" class="chb"/>
 	</body>
 	<script type="text/javascript">
 	$(function(){
@@ -146,6 +230,12 @@
 			$(this).parent().hide();
 			$(this).parent().next().show();
 		});
+		$(".more").click(function(){
+			$(".mask, .pages").show();
+		});
+//		$(".pages").click(function(){
+//			$(".mask, .pages").hide();
+//		});
 	});
 	
 	</script>
