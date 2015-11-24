@@ -28,8 +28,8 @@ $(function(){
 
 document.addEventListener("touchstart", function(e){
 	var touches = e.touches;
-	for(var obj in e){
-		$("body").append('<p>' + obj + ' : ' + e[obj] + '</p>');
+	for(var obj in touches){
+		$("body").append('<p>' + obj + ' : ' + touches[obj] + '</p>');
 	}
 //	$("body").append('<p>start</p>');
 //	for(var touch in touches){
