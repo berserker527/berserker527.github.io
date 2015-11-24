@@ -28,13 +28,11 @@ $(function(){
 
 document.addEventListener("touchstart", function(e){
 	var touches = e.touches;
-	for(var obj in touches){
-		$("body").append('<p>' + obj + ' : ' + touches[obj] + '</p>');
+	$("body").append('<p>start</p>');
+	for(var index in touches){
+		var touch = touches[index];
+		$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
 	}
-//	$("body").append('<p>start</p>');
-//	for(var touch in touches){
-//		$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
-//	}
-//	$("body").append('<p>end</p>');
+	$("body").append('<p>end</p>');
 }, false)
 </script>
