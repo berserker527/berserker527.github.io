@@ -13,11 +13,13 @@
 </html>
 <script type="text/javascript">
 $(function(){
-	$("body").on("touchstart", function(e){
+	$(document).on("touchstart mousedown", function(e){
 		var touches = e.touches;
+		$("body").append('<p>start</p>');
 		for(var touch in touches){
 			$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
 		}
+		$("body").append('<p>end</p>');
 	});
 });
 </script>
