@@ -15,6 +15,10 @@
 $(function(){
 //	$(document).on("touchstart mousedown", function(e){
 //		var touches = e.touches;
+//		for(var obj in e){
+//			$("body").append('<p>' + obj + ' : ' + e[obj] + '</p>');
+//		}
+//		$("body").append('<p>start</p>');
 //		for(var touch in touches){
 //			$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
 //		}
@@ -24,9 +28,13 @@ $(function(){
 
 document.addEventListener("touchstart", function(e){
 	var touches = e.touches;
-	for(var touch in touches){
-		$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
+	for(var obj in e){
+		$("body").append('<p>' + obj + ' : ' + e[obj] + '</p>');
 	}
-	$("body").append('<p>end</p>');
+//	$("body").append('<p>start</p>');
+//	for(var touch in touches){
+//		$("body").append('<p>x = ' + touch.pageX + ' y = ' + touch.pageY + '</p>');
+//	}
+//	$("body").append('<p>end</p>');
 }, false)
 </script>
