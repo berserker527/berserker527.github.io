@@ -74,20 +74,27 @@
 					if(code == "D"){
 						alert("香婆婆好棒呀~那就都给你吧！");
 						isDone = true;
+						getAllGifts()
+					}else{
+						$(this).find(".content").html(data[code]);
 					}
-					$(this).find(".content").html(data[code]);
+					
 				}
 			}
 			if(clickCount >= 7){
 				alert("既然婆婆这么执着，那就把所有选项给婆婆看看吧！");
 				isDone = true;
-				$(".option").removeClass("choose");
-				$(".option").each(function(){
-					var code = $(this).find(".code").html();
-					$(this).find(".content").html(data[code]);
-				})
+				getAllGifts();
 			}
 		});
+		//
+		function getAllGifts(){
+			$(".option").removeClass("choose");
+			$(".option").each(function(){
+				var code = $(this).find(".code").html();
+				$(this).find(".content").html(data[code]);
+			});
+		}
 	});
 	</script>
 </html>
