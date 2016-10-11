@@ -42,6 +42,7 @@
 				"D": "以上全部的全部"
 		}
 		var isDone = false;
+		var clickCount = 0;
 		//关闭封面
 		$("#cover").click(function(){
 			$(this).animate({ opacity: 0 },
@@ -53,19 +54,32 @@
 		});
 		//选择选项
 		$(".option").click(function(){
+			//记录点击次数
+			clickCount = clickCount + 1;
+			//选过的选项不再重复显示内容
 			if($(this).hasClass("choose")){
 				return false;
 			}
-			if(isDone){
-				alert("好可惜，只有一次机会哟~");
+			if(isDone && clickCount < 7){
+				alert("好可惜，婆婆只有一次机会哟~");
 				return false;
 			}
-			$(this).addClass("choose").siblings().removeClass("choose");
-			var code = $(this).find(".code").html();
-			//确认选项
-			if(confirm("are you sure?")){
-				isDone = true;
-				$(this).find(".content").html(data[code]);
+			if(!isDone){
+				$(this).addClass("choose").siblings().removeClass("choose");
+				var code = $(this).find(".code").html();
+				//确认选项
+				if(confirm("are you sure?")){
+					isDone = true;
+					$(this).find(".content").html(data[code]);
+				}
+			}
+			if(clickCount >= 7){
+				alert("既然婆婆这么执着，那就把所有选项给婆婆看看吧！");
+				$(".option").removeClass("choose");
+				$(".option").each(function(){
+					var code = $(this).find(".code").html();
+					$(this).find(".content").html(data[code]);
+				})
 			}
 		});
 	});
