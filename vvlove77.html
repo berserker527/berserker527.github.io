@@ -41,8 +41,9 @@
 				"C": "糖果实验室的糖",
 				"D": "以上全部的全部"
 		}
-		var isDone = false;
-		var clickCount = 0;
+		var isChosen = false; //是否选择了选项
+		var isDone = false; //是否结束
+		var clickCount = 0; //点击选项次数
 		//关闭封面
 		$("#cover").click(function(){
 			$(this).animate({ opacity: 0 },
@@ -57,24 +58,29 @@
 			//记录点击次数
 			clickCount = clickCount + 1;
 			//选过的选项不再重复显示内容
-			if($(this).hasClass("choose")){
+			if(isDone || $(this).hasClass("choose")){
 				return false;
 			}
-			if(isDone && clickCount < 7){
+			if(isChosen && clickCount < 7){
 				alert("好可惜，婆婆只有一次机会哟~");
 				return false;
 			}
-			if(!isDone){
+			if(!isChosen){
 				$(this).addClass("choose").siblings().removeClass("choose");
 				var code = $(this).find(".code").html();
 				//确认选项
 				if(confirm("确定了可就不能反悔了哦?")){
-					isDone = true;
+					isChosen = true;
+					if(code == "D"){
+						alert("香婆婆好棒呀~那就都给你吧！");
+						isDone = true;
+					}
 					$(this).find(".content").html(data[code]);
 				}
 			}
 			if(clickCount >= 7){
 				alert("既然婆婆这么执着，那就把所有选项给婆婆看看吧！");
+				isDone = true;
 				$(".option").removeClass("choose");
 				$(".option").each(function(){
 					var code = $(this).find(".code").html();
