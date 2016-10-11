@@ -37,10 +37,11 @@
 	$(function(){
 		var data = {
 				"A": "蔡健雅的老专辑",
-				"B": "Pandora的戒指",
+				"B": "Pandora 的戒指",
 				"C": "糖果实验室的糖",
 				"D": "以上全部的全部"
 		}
+		var isDone = false;
 		//关闭封面
 		$("#cover").click(function(){
 			$(this).animate({ opacity: 0 },
@@ -52,10 +53,18 @@
 		});
 		//选择选项
 		$(".option").click(function(){
+			if($(this).hasClass("choose")){
+				return false;
+			}
+			if(isDone){
+				alert("好可惜，只有一次机会哟~");
+				return false;
+			}
 			$(this).addClass("choose").siblings().removeClass("choose");
 			var code = $(this).find(".code").html();
 			//确认选项
 			if(confirm("are you sure?")){
+				isDone = true;
 				$(this).find(".content").html(data[code]);
 			}
 		});
