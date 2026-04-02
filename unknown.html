@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《野草》章节阅读器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .sidebar h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .chapter-list {
+            list-style: none;
+        }
+        
+        .chapter-item {
+            margin-bottom: 10px;
+        }
+        
+        .chapter-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            text-align: left;
+            color: #495057;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chapter-btn:hover {
+            background-color: #e9ecef;
+            border-color: #ced4da;
+        }
+        
+        .chapter-btn.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        .reader {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+        
+        .reader-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .reader-header h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .reader-header .chapter-info {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+        
+        .content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .content h1, .content h2, .content h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+        
+        .content h1 { font-size: 1.8rem; }
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.4rem; }
+        
+        .content p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+        
+        .content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .content em {
+            font-style: italic;
+        }
+        
+        .content hr {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 2em 0;
+        }
+        
+        .content blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                flex: 0 0 auto;
+                max-height: 300px;
+            }
+            
+            .reader {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>《野草》章节阅读器</h1>
+        <div class="subtitle">时间循环中的野草与星辰</div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <h2>章节列表</h2>
+            <ul class="chapter-list" id="chapterList">
+                <!-- 章节列表将通过JavaScript动态生成 -->
+                <li class="chapter-item">
+                    <button class="chapter-btn active" data-chapter="第一章 读书声和爆炸声.md">第一章 读书声和爆炸声</button>
+                </li>
+                <li class="chapter-item">
+                    <button class="chapter-btn" data-chapter="第二章 苏醒.md">第二章 苏醒</button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="reader">
+            <div class="reader-header">
+                <h2 id="chapterTitle">第一章 读书声和爆炸声</h2>
+                <div class="chapter-info" id="chapterInfo">加载中...</div>
+            </div>
+            
+            <div class="content" id="content">
+                <div class="loading">正在加载章节内容...</div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" disabled>上一章</button>
+                <button class="nav-btn" id="nextBtn">下一章</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2026 《野草》静态阅读器 | 基于Markdown文件动态渲染</p>
+        <p>注意：请在HTTP服务器环境下运行此页面以正确加载章节文件</p>
+    </div>
+
+    <script>
+        // 章节配置
+        const chapters = [
+            { id: 0, file: '楔子.md', title: '楔子' },
+            { id: 1, file: '第一章 离离原上草.md', title: '第一章 离离原上草' },
+            { id: 2, file: '第二章 苏醒.md', title: '第二章 苏醒' },
+            { id: 3, file: '第三章 知识接口与智者议会.md', title: '第三章 知识接口与智者议会' },
+            { id: 4, file: '第四章 第一个盟友.md', title: '第四章 第一个盟友' },
+            { id: 5, file: '第五章 李维博士的苏醒.md', title: '第五章 李维博士的苏醒' },
+            { id: 6, file: '第六章 艾瑟斯：冰原上的古老智慧.md', title: '第六章 艾瑟斯：冰原上的古老智慧' },
+            { id: 7, file: '第七章 钢铁森林之国：秩序投降派的困境.md', title: '第七章 钢铁森林之国：秩序投降派的困境' },
+            { id: 8, file: '第八章 海洋之国：渐进演化派的困境.md', title: '第八章 海洋之国：渐进演化派的困境' },
+            { id: 9, file: '第九章 荒芜之国：神秘孤立派的困境.md', title: '第九章 荒芜之国：神秘孤立派的困境' },
+            { id: 10, file: '第十章 七国会议与最终提案.md', title: '第十章 七国会议与最终提案' },
+            { id: 11, file: '第十一章 重返旧土.md', title: '第十一章 重返旧土' },
+            { id: 12, file: '第十二章 对峙.md', title: '第十二章 对峙' },
+            { id: 13, file: '第十三章 抉择时刻.md', title: '第十三章 抉择时刻' },
+            { id: 14, file: '第十四章 时间循环.md', title: '第十四章 时间循环' },
+            { id: 15, file: '第十五章 尾声.md', title: '第十五章 尾声' }
+        ];
+        
+        // 当前章节索引
+        let currentChapterIndex = 0;
+        
+        // DOM元素
+        const chapterTitle = document.getElementById('chapterTitle');
+        const chapterInfo = document.getElementById('chapterInfo');
+        const content = document.getElementById('content');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const chapterList = document.getElementById('chapterList');
+        
+        // 简单的Markdown解析函数
+        function parseMarkdown(text) {
+            if (!text) return '';
+            
+            // 分割成行
+            let lines = text.split('\n');
+            let html = '';
+            let inParagraph = false;
+            let inBlockquote = false;
+            
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+                
+                // 处理标题
+                if (line.startsWith('# ')) {
+                    if (inParagraph) {
+                        html += '</p>';
+                        inParagraph = false;
+                    }
+                    html += `<h1>${line.substring(2)}</h1>`;
+                    continue;
+                } else if (line.startsWith('## ')) {
+                    if (inParagraph) {
+                        html += '</p>';
+                        inParagraph = false;
+                    }
+                    html += `<h2>${line.substring(3)}</h2>`;
+                    continue;
+                } else if (line.startsWith('### ')) {
+                    if (inParagraph) {
+                        html += '</p>';
+                        inParagraph = false;
+                    }
+                    html += `<h3>${line.substring(4)}</h3>`;
+                    continue;
+                }
+                
+                // 处理水平线
+                if (line.trim() === '***' || line.trim() === '---' || line.trim() === '___') {
+                    if (inParagraph) {
+                        html += '</p>';
+                        inParagraph = false;
+                    }
+                    html += '<hr>';
+                    continue;
+                }
+                
+                // 处理块引用
+                if (line.trim().startsWith('> ')) {
+                    if (!inBlockquote) {
+                        html += '<blockquote>';
+                        inBlockquote = true;
+                    }
+                    html += line.trim().substring(2) + '<br>';
+                    continue;
+                } else if (inBlockquote && line.trim() === '') {
+                    html += '</blockquote>';
+                    inBlockquote = false;
+                    continue;
+                } else if (inBlockquote) {
+                    html += line + '<br>';
+                    continue;
+                }
+                
+                // 处理空行（段落分隔）
+                if (line.trim() === '') {
+                    if (inParagraph) {
+                        html += '</p>';
+                        inParagraph = false;
+                    }
+                    continue;
+                }
+                
+                // 处理文本行
+                if (!inParagraph) {
+                    html += '<p>';
+                    inParagraph = true;
+                } else {
+                    html += '<br>';
+                }
+                
+                // 处理内联格式：粗体、斜体
+                let processedLine = line;
+                
+                // 粗体：**text** 或 __text__
+                processedLine = processedLine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                processedLine = processedLine.replace(/__(.*?)__/g, '<strong>$1</strong>');
+                
+                // 斜体：*text* 或 _text_
+                processedLine = processedLine.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                processedLine = processedLine.replace(/_(.*?)_/g, '<em>$1</em>');
+                
+                html += processedLine;
+            }
+            
+            // 关闭最后一个段落
+            if (inParagraph) {
+                html += '</p>';
+            }
+            
+            // 关闭块引用
+            if (inBlockquote) {
+                html += '</blockquote>';
+            }
+            
+            return html;
+        }
+        
+        // 加载章节内容
+        async function loadChapter(chapterIndex) {
+            if (chapterIndex < 0 || chapterIndex >= chapters.length) {
+                return;
+            }
+            
+            const chapter = chapters[chapterIndex];
+            
+            // 更新UI状态
+            content.innerHTML = '<div class="loading">正在加载章节内容...</div>';
+            chapterTitle.textContent = chapter.title;
+            chapterInfo.textContent = `第${chapter.id}章`;
+            
+            // 更新章节按钮状态
+            document.querySelectorAll('.chapter-btn').forEach((btn, index) => {
+                if (index === chapterIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // 更新导航按钮状态
+            prevBtn.disabled = chapterIndex === 0;
+            nextBtn.disabled = chapterIndex === chapters.length - 1;
+            
+            try {
+                // 构建文件路径
+                const filePath = `章节/${chapter.file}`;
+                
+                // 使用fetch加载Markdown文件
+                const response = await fetch(filePath);
+                
+                if (!response.ok) {
+                    throw new Error(`无法加载文件: ${response.status} ${response.statusText}`);
+                }
+                
+                const markdownText = await response.text();
+                
+                // 解析Markdown并显示
+                const htmlContent = parseMarkdown(markdownText);
+                content.innerHTML = htmlContent;
+                
+                // 更新章节信息
+                const wordCount = markdownText.replace(/\s+/g, '').length;
+                chapterInfo.textContent = `第${chapter.id}章 | ${wordCount}字`;
+                
+            } catch (error) {
+                console.error('加载章节时出错:', error);
+                content.innerHTML = `
+                    <div class="error">
+                        <h3>加载章节失败</h3>
+                        <p>${error.message}</p>
+                        <p>请确保：</p>
+                        <ol>
+                            <li>章节文件位于"章节/"目录下</li>
+                            <li>在HTTP服务器环境中运行此页面（如使用python -m http.server）</li>
+                        </ol>
+                        <p>错误详情：${error.toString()}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // 初始化章节列表
+        function initChapterList() {
+            chapterList.innerHTML = '';
+            
+            chapters.forEach((chapter, index) => {
+                const li = document.createElement('li');
+                li.className = 'chapter-item';
+                
+                const button = document.createElement('button');
+                button.className = `chapter-btn ${index === currentChapterIndex ? 'active' : ''}`;
+                button.textContent = chapter.title;
+                button.dataset.chapter = chapter.file;
+                
+                button.addEventListener('click', () => {
+                    currentChapterIndex = index;
+                    loadChapter(currentChapterIndex);
+                });
+                
+                li.appendChild(button);
+                chapterList.appendChild(li);
+            });
+        }
+        
+        // 事件监听
+        prevBtn.addEventListener('click', () => {
+            if (currentChapterIndex > 0) {
+                currentChapterIndex--;
+                loadChapter(currentChapterIndex);
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentChapterIndex < chapters.length - 1) {
+                currentChapterIndex++;
+                loadChapter(currentChapterIndex);
+            }
+        });
+        
+        // 键盘导航
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                // 上一章
+                if (currentChapterIndex > 0) {
+                    currentChapterIndex--;
+                    loadChapter(currentChapterIndex);
+                }
+            } else if (event.key === 'ArrowRight') {
+                // 下一章
+                if (currentChapterIndex < chapters.length - 1) {
+                    currentChapterIndex++;
+                    loadChapter(currentChapterIndex);
+                }
+            }
+        });
+        
+        // 初始化
+        function init() {
+            initChapterList();
+            loadChapter(currentChapterIndex);
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
