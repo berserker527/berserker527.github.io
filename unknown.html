@@ -243,18 +243,12 @@
             <h2>章节列表</h2>
             <ul class="chapter-list" id="chapterList">
                 <!-- 章节列表将通过JavaScript动态生成 -->
-                <li class="chapter-item">
-                    <button class="chapter-btn active" data-chapter="第一章 读书声和爆炸声.md">第一章 读书声和爆炸声</button>
-                </li>
-                <li class="chapter-item">
-                    <button class="chapter-btn" data-chapter="第二章 苏醒.md">第二章 苏醒</button>
-                </li>
             </ul>
         </div>
         
         <div class="reader">
             <div class="reader-header">
-                <h2 id="chapterTitle">第一章 读书声和爆炸声</h2>
+                <h2 id="chapterTitle">第一章 离离原上草</h2>
                 <div class="chapter-info" id="chapterInfo">加载中...</div>
             </div>
             
@@ -281,22 +275,11 @@
             { id: 1, file: '第一章 离离原上草.md', title: '第一章 离离原上草' },
             { id: 2, file: '第二章 苏醒.md', title: '第二章 苏醒' },
             { id: 3, file: '第三章 知识接口与智者议会.md', title: '第三章 知识接口与智者议会' },
-            { id: 4, file: '第四章 第一个盟友.md', title: '第四章 第一个盟友' },
-            { id: 5, file: '第五章 李维博士的苏醒.md', title: '第五章 李维博士的苏醒' },
-            { id: 6, file: '第六章 艾瑟斯：冰原上的古老智慧.md', title: '第六章 艾瑟斯：冰原上的古老智慧' },
-            { id: 7, file: '第七章 钢铁森林之国：秩序投降派的困境.md', title: '第七章 钢铁森林之国：秩序投降派的困境' },
-            { id: 8, file: '第八章 海洋之国：渐进演化派的困境.md', title: '第八章 海洋之国：渐进演化派的困境' },
-            { id: 9, file: '第九章 荒芜之国：神秘孤立派的困境.md', title: '第九章 荒芜之国：神秘孤立派的困境' },
-            { id: 10, file: '第十章 七国会议与最终提案.md', title: '第十章 七国会议与最终提案' },
-            { id: 11, file: '第十一章 重返旧土.md', title: '第十一章 重返旧土' },
-            { id: 12, file: '第十二章 对峙.md', title: '第十二章 对峙' },
-            { id: 13, file: '第十三章 抉择时刻.md', title: '第十三章 抉择时刻' },
-            { id: 14, file: '第十四章 时间循环.md', title: '第十四章 时间循环' },
-            { id: 15, file: '第十五章 尾声.md', title: '第十五章 尾声' }
+            { id: 4, file: '第四章 第一个盟友.md', title: '第四章 第一个盟友' }
         ];
         
         // 当前章节索引
-        let currentChapterIndex = 0;
+        let currentChapterIndex = 1;
         
         // DOM元素
         const chapterTitle = document.getElementById('chapterTitle');
@@ -425,7 +408,7 @@
             // 更新UI状态
             content.innerHTML = '<div class="loading">正在加载章节内容...</div>';
             chapterTitle.textContent = chapter.title;
-            chapterInfo.textContent = `第${chapter.id}章`;
+            chapterInfo.textContent = chapter.id === 0 ? '楔子' : `第${chapter.id}章`;
             
             // 更新章节按钮状态
             document.querySelectorAll('.chapter-btn').forEach((btn, index) => {
@@ -459,7 +442,7 @@
                 
                 // 更新章节信息
                 const wordCount = markdownText.replace(/\s+/g, '').length;
-                chapterInfo.textContent = `第${chapter.id}章 | ${wordCount}字`;
+                chapterInfo.textContent = chapter.id === 0 ? `楔子 | ${wordCount}字` : `第${chapter.id}章 | ${wordCount}字`;
                 
             } catch (error) {
                 console.error('加载章节时出错:', error);
